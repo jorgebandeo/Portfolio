@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Bandeo - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #800020;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffcccb;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-me {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-me h2 {
+            font-size: 2em;
+            color: #ffcccb;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            color: #ffcccb;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #800020;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jorge Bandeo</h1>
+        <p>Computer Engineering Portfolio</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="about-me">
+            <h2>About Me</h2>
+            <p>I am a dedicated Computer Engineering student with a passion for technology, specializing in both software and hardware integration. This portfolio is a showcase of the projects I've developed throughout my academic and professional journey.</p>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project Title 1</h3>
+                <p>Description of the project and its significance in the field of Computer Engineering.</p>
+            </div>
+            <div class="project">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project Title 2</h3>
+                <p>Description of the project and its significance in the field of Computer Engineering.</p>
+            </div>
+            <div class="project">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project Title 3</h3>
+                <p>Description of the project and its significance in the field of Computer Engineering.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jorge Bandeo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('nav a');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
