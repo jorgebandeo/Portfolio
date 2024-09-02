@@ -1,0 +1,237 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+header {
+    background-color: #800020;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffcccb;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects, .experience, .contact {
+    margin-bottom: 40px;
+}
+
+.projects h2, .experience h2, .contact h2 {
+    text-align: center;
+    color: #ffcccb;
+}
+
+.project {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.project h3 {
+    color: #ffcccb;
+    margin-top: 15px;
+}
+
+.experience-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.experience-block.odd {
+    background-color: rgba(128, 0, 32, 0.2); /* Fundo vermelho apagado para blocos ímpares */
+}
+
+.experience-block.even {
+    background-color: transparent; /* Fundo transparente para blocos pares */
+}
+
+.experience-img {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.experience-text {
+    flex: 1;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.contact-list {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Centraliza os itens da lista */
+    max-width: auto;
+    margin: 20px auto;
+}
+
+.contact-list li {
+    margin: 15px 0;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo do flexbox */
+}
+
+.contact-list i {
+    margin-right: 10px;
+    color: #ffcccb;
+}
+
+.contact-list a {
+    color: #ffcccb;
+    text-decoration: none;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+.contact input, .contact textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: #800020;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #ffcccb;
+    color: #800020;
+}
+
+footer {
+    background-color: #800020;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.about-me {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-me h2 {
+    font-size: 2em;
+    color: #ffcccb;
+}
+
+.profile-photo {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Estilos Responsivos para Telas Pequenas */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .contact-list li {
+        font-size: 1em; /* Reduz o tamanho da fonte em telas pequenas */
+        flex-direction: column; /* Empilha o ícone e o texto verticalmente */
+        align-items: center; /* Centraliza os itens */
+        margin-bottom: 40px;
+    }
+
+    .contact-list i {
+        margin-bottom: 5px; /* Adiciona espaço entre o ícone e o texto */
+        
+    }
+
+    .container {
+        padding: 10px; /* Reduz o espaçamento geral */
+    }
+
+    .contact h2 {
+        font-size: 1.5em; /* Reduz o tamanho do título */
+    }
+    .contact {
+        margin-bottom: 70px; /* Adiciona espaço entre o ícone e o texto */
+    }
+    
+
+    /* Alterações na Seção de Experiência para Telas Pequenas */
+    .experience-block {
+        flex-direction:column; /* Empilha a imagem acima do texto */
+        text-align: center; /* Centraliza o texto */
+    }
+    
+    .experience-img {
+        margin: 0 0 10px 0; /* Remove margens laterais e adiciona margem inferior */
+        width: 100%; /* Imagem ocupa 100% da largura para se ajustar ao dispositivo */
+        max-width: 300px; /* Define um tamanho máximo para a imagem em telas menores */
+    }
+
+    .experience-text {
+        margin-top: 10px; /* Adiciona espaço acima do texto */
+    }
+}
