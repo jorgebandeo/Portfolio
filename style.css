@@ -6,8 +6,45 @@ body {
     color: #ffffff;
 }
 
+header, footer {
+    position: relative;
+    overflow: hidden;
+}
+
 header {
     background-color: #800020;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+footer {
+    background-color: #800020;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+header h1, footer p {
+    position: relative;
+    z-index: 1; /* Garante que o texto esteja acima do canvas */
+}
+
+#rainCanvasHeader, #rainCanvasFooter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* O canvas ficará abaixo do texto */
+    pointer-events: none; /* Permite interação com o texto */
+}
+
+header {
+    background-color: #70001c;
     padding: 20px;
     text-align: center;
     color: #ffffff;
@@ -72,27 +109,42 @@ nav a:hover {
 .experience-block {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
+
 }
 
-.experience-block.odd {
+.div_experience-block.odd {
     background-color: rgba(128, 0, 32, 0.2); /* Fundo vermelho apagado para blocos ímpares */
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 .experience-block.even {
     background-color: transparent; /* Fundo transparente para blocos pares */
+
 }
+.div_even{
+    margin-bottom: 20px;
+    padding: 20px;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
 
 .experience-img {
-    width: 200px;
+    width: 250px;
     height: auto;
     margin-right: 20px;
+    border-top-left-radius: 20px; /* Arredonda a borda superior direita */
+    border-bottom-right-radius: 20px; /* Arredonda a borda inferior esquerda */
 }
 
+
 .experience-text {
+    margin-right: 50px;
     flex: 1;
+    align-items: center;
 }
 
 .contact {
@@ -191,6 +243,10 @@ footer p {
 
 /* Estilos Responsivos para Telas Pequenas */
 @media (max-width: 600px) {
+    .about-me{
+        margin-bottom: 70px;
+    }
+
     header h1 {
         font-size: 1.8em;
     }
@@ -233,5 +289,7 @@ footer p {
 
     .experience-text {
         margin-top: 10px; /* Adiciona espaço acima do texto */
+        margin-right: 0px;
+        order: 2;
     }
 }
