@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Bandeo - Portfólio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Link para Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <!-- Canvas para o efeito de gotas de chuva -->
+        <!-- Canvas para o efeito de números caindo -->
         <canvas id="rainCanvasHeader"></canvas>
         <h1>Jorge Bandeo</h1>
         <p>Engenheiro da Computação em Formação</p>
@@ -23,16 +25,55 @@
 
     <div class="container">
         <section id="about" class="about-me">
-            <h2>Sobre Mim</h2>
-            <img src="sua_foto.jpg" alt="Foto de Jorge Bandeo" class="profile-photo">
-            <p>Olá, sou Jorge Bandeo, um estudante de Engenharia da Computação apaixonado por tecnologia. Meu foco é em integração de software e hardware, buscando sempre soluções inovadoras e eficientes. Tenho experiência em projetos que envolvem desde a criação de sistemas embarcados até o desenvolvimento de aplicações web.</p>
-            <p>Ao longo da minha jornada acadêmica, participei de diversos projetos e iniciativas, buscando sempre aprimorar minhas habilidades técnicas e teóricas. Sou dedicado, curioso e sempre em busca de novos desafios.</p>
-            <p>Tenho também um bom conhecimento em inteligência artificial, especialmente direcionada à visão computacional, aplicando técnicas avançadas para resolver problemas complexos e melhorar processos automatizados.</p>
+            <div class="div_experience-block odd" >
+                <h2>Sobre Mim</h2>
+                <img src="image/foto rosto.jpeg" alt="Foto de Jorge Bandeo" class="profile-photo">
+                <p>Olá, sou Jorge Bandeo, um estudante de Engenharia da Computação apaixonado por tecnologia. Meu foco é em integração de software e hardware, buscando sempre soluções inovadoras e eficientes. Tenho experiência em projetos que envolvem desde a criação de sistemas embarcados até o desenvolvimento de aplicações web.</p>
+                <p>Ao longo da minha jornada acadêmica, participei de diversos projetos e iniciativas, buscando sempre aprimorar minhas habilidades técnicas e teóricas. Sou dedicado, curioso e sempre em busca de novos desafios.</p>
+                <p>Tenho também um bom conhecimento em inteligência artificial, especialmente direcionada à visão computacional, aplicando técnicas avançadas para resolver problemas complexos e melhorar processos automatizados.</p>
+            </div>
+            <h3>🗣️ Habilidades Linguísticas</h3>
+            <ul class="centered-list" style="margin-bottom: 50px;">
+                <li><i class="fas fa-globe"></i> Fluente em Espanhol e Português</li>
+                <li><i class="fas fa-book"></i> Inglês: leitura intermediária, escrita intermediária e fala limitada</li>
+            </ul>
+
+            <div class="div_experience-block odd">
+                <h3>🛠️ Linguagens de Programação</h3>
+                <p>
+                    <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C">
+                    <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
+                    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                    <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java">
+                    <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sql&logoColor=white" alt="SQL">
+                    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+                    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
+                    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+                    <img src="https://img.shields.io/badge/Assembly-525252?style=for-the-badge&logo=assembly&logoColor=white" alt="Assembly">
+                </p>
+
+                <h3>🛠️ Ferramentas de IA</h3>
+                <p style="margin-bottom: 50px;">
+                    <img src="https://img.shields.io/badge/YOLOv8-00599C?style=for-the-badge&logo=yolo&logoColor=white" alt="YOLOv8">
+                    <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
+                    <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+                    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+                    <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras">
+                    <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+                </p>
+            </div>
+            <h3>🔧 Familiaridade com Sistemas Embarcados</h3>
+            <ul class="centered-list">
+                <li><i class="fas fa-microchip"></i> ESP32</li>
+                <li><i class="fas fa-microchip"></i> PIC30</li>
+                <li><i class="fab fa-raspberry-pi"></i> Raspberry Pi</li>
+                <li><i class="fas fa-microchip"></i> Arduino</li>
+            </ul>
         </section>
     </div>
 
     <footer>
-        <!-- Canvas para o efeito de gotas de chuva -->
+        <!-- Canvas para o efeito de números caindo -->
         <canvas id="rainCanvasFooter"></canvas>
         <p>&copy; 2024 Jorge Bandeo. Todos os direitos reservados.</p>
     </footer>
