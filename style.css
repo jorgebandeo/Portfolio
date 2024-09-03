@@ -4,6 +4,9 @@ body {
     padding: 0;
     background-color: #1c1c1c;
     color: #ffffff;
+
+    font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+
 }
 
 header, footer {
@@ -249,6 +252,7 @@ footer p {
     padding: 0; /* Remove o preenchimento padrão da lista */
     margin: 0; /* Remove a margem padrão da lista */
 }
+
 
 .centered-list li {
     margin: 10px 0; /* Espaçamento entre os itens da lista */
