@@ -247,12 +247,17 @@ footer p {
     align-items: center; /* Centraliza os itens horizontalmente */
     list-style: none; /* Remove os marcadores padrão da lista */
     padding: 0; /* Remove o preenchimento padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
 }
 
 .centered-list li {
     margin: 10px 0; /* Espaçamento entre os itens da lista */
     font-size: 1.1em; /* Ajuste de tamanho da fonte */
     text-align: center; /* Centraliza o texto de cada item */
+}
+
+div[style*="align-items: center;"] {
+    width: 100%; /* Garante que o div se estenda pela largura total */
 }
 
 
