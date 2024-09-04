@@ -68,3 +68,36 @@ document.addEventListener('DOMContentLoaded', function() {
     createRainEffect('rainCanvasHeader');
     createRainEffect('rainCanvasFooter');
 });
+
+
+// ---------------------- projetos -------------------------------
+// Função para alternar o estado dos botões de filtro
+function toggleFilter(button) {
+    button.classList.toggle('active'); // Alterna a classe 'active' para indicar estado ativo/inativo
+    applyFilters();
+  }
+  
+  // Função para aplicar os filtros com base nos botões ativos
+  function applyFilters() {
+    const activeFilters = Array.from(document.querySelectorAll('.filter-button.active')).map(button => button.getAttribute('data-category'));
+    const projects = document.querySelectorAll('.project');
+  
+    if (activeFilters.length === 0) {
+      // Se nenhum filtro estiver ativo, mostra todos os projetos
+      projects.forEach(project => project.style.display = 'block');
+    } else {
+      projects.forEach(project => {
+        const projectCategories = project.classList;
+        const showProject = activeFilters.some(filter => projectCategories.contains(filter));
+        
+        // Exibe ou oculta projetos com base nos filtros ativos
+        project.style.display = showProject ? 'block' : 'none';
+      });
+    }
+  }
+  
+  // Exibe todos os projetos ao carregar a página
+  document.addEventListener('DOMContentLoaded', () => {
+    applyFilters(); // Aplica os filtros ao carregar a página
+  });
+  

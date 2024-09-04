@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge Bandeo - Projetos</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
+
 <body>
     <header>
         <!-- Canvas para o efeito de gotas de chuva -->
@@ -14,6 +17,7 @@
         <p>Engenheiro da Computação em Formação</p>
     </header>
 
+
     <!-- Barra de Navegação -->
     <nav>
         <a href="index.html">Sobre Mim</a>
@@ -21,23 +25,55 @@
         <a href="contato.html">Contato</a>
     </nav>
 
+
+
     <div class="container">
         <section id="projects" class="projects">
             <h2>Projetos</h2>
-            <div class="project">
-                <img src="project1.jpg" alt="Projeto 1">
-                <h3>Detecção de Queda Baseada Em Visão Computacional</h3>
-                <p>Projeto de iniciação científica concluído em 2023, obtendo premiação.</p>
+            
+            <div class="filtos">
+                <button class="filter-button" data-category="web" onclick="toggleFilter(this)">
+                    <img src="/image/designer-de-web.png" alt="" style="width: auto; height: 50%; margin-bottom: 5px;">
+        
+                    Web
+                </button>
+                <button class="filter-button" data-category="software" onclick="toggleFilter(this)">
+                    <img src="/image/sofware.png" alt="" style="width: auto; height: 50%; margin-bottom: 5px;">
+                    Software
+                </button>
+                <button class="filter-button" data-category="hardware" onclick="toggleFilter(this)">
+                    <img src="/image/lasca.png" alt="" style="width: auto; height: 50%; margin-bottom: 5px;">
+                    Hardware
+                </button>
             </div>
-            <div class="project">
-                <img src="project1.jpg" alt="Projeto 1">
-                <h3>Detecção de Queda Baseada Em Visão Computacional</h3>
-                <p>Projeto de iniciação científica concluído em 2023, obtendo premiação.</p>
+
+            <div id="projects" class="project-grid">
+                <div class="project web">
+                    <img src="imagens/projeto-web1.jpg" alt="Projeto Web 1">
+                    <h3>Projeto Web 1</h3>
+                    <p>Data: 01/01/2024</p>
+                </div>
+                <div class="project software">
+                    <img src="imagens/projeto-software1.jpg" alt="Projeto Software 1">
+                    <h3>Projeto Software 1</h3>
+                    <p>Data: 15/02/2024</p>
+                </div>
+                <div class="project hardware">
+                    <img src="imagens/projeto-hardware1.jpg" alt="Projeto Hardware 1">
+                    <h3>Projeto Hardware 1</h3>
+                    <p>Data: 10/03/2024</p>
+                </div>
+                <div class="project web">
+                    <img src="imagens/projeto-web2.jpg" alt="Projeto Web 2">
+                    <h3>Projeto Web 2</h3>
+                    <p>Data: 20/04/2024</p>
+                </div>
+                <!-- Adicione mais projetos conforme necessário -->
             </div>
         </section>
-        
+
     </div>
-    
+
 
     <footer>
         <!-- Canvas para o efeito de gotas de chuva -->
@@ -47,4 +83,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
