@@ -9,6 +9,15 @@ body {
 
 }
 
+a.custom-link {
+    color: #c78696; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado padrão */
+  }
+a.custom-link:hover {
+    color: #f84242; /* Cor ao passar o mouse */
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
 header, footer {
     position: relative;
     overflow: hidden;
