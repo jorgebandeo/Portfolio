@@ -375,7 +375,7 @@ div[style*="align-items: center;"] {
 
 
 /* Estilos Responsivos para Telas Pequenas */
-@media (max-width: 600px) {
+@media (max-width:800px) {
     .about-me {
         margin-bottom: 70px;
     }
