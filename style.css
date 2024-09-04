@@ -375,7 +375,7 @@ div[style*="align-items: center;"] {
 
 
 /* Estilos Responsivos para Telas Pequenas */
-@media (max-width:800px) {
+@media (max-width:600px) {
     .about-me {
         margin-bottom: 70px;
     }
@@ -440,7 +440,8 @@ div[style*="align-items: center;"] {
         order: 2;
     }
     .project{
-        width: 35%;
+        background-color: #c71515;
+        width: 30%;
         height: auto;
     }
 }
