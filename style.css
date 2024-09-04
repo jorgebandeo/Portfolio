@@ -5,7 +5,6 @@ body {
     background-color: #1c1c1c;
     color: #ffffff;
 
-    font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
 
 }
 
@@ -126,7 +125,7 @@ footer {
     background-color: #800020;
     color: #ffffff;
     text-align: center;
-        
+    margin-bottom: 0;
     position: relative;
     bottom: 0;
     width: 100%;

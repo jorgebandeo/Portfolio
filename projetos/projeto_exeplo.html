@@ -14,8 +14,12 @@
             font-family: 'Roboto', sans-serif;
             background-color: #1c1c1c;
             color: #333;
-            margin: 0;
-            padding: 0;
+
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 100%;
+            
+
         }
 
         header {
@@ -23,8 +27,9 @@
             color: white;
             padding: 10px 20px;
             text-align: center;
-            position: sticky;
+
             top: 0;
+            width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -41,14 +46,18 @@
             opacity: 0.8;
         }
 
-        main {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+        .contai_description {
+            margin-top: 50px;
+            align-content: center;
+            margin-left: 5% ;
+            margin-right: 5%;
+            width: 99%;
+            
         }
 
         article {
             background-color: white;
+            
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -98,15 +107,7 @@
             margin: 0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -116,7 +117,7 @@
         <p>Data de criação: 01/01/2024</p>
     </header>
 
-    <main>
+    <div class="contai_description">
         <article>
             <h2>Introdução</h2>
             <p>Bem-vindo ao blog do Projeto Web 1! Este projeto é um exemplo de como podemos criar um site moderno e responsivo, utilizando as melhores práticas de design e desenvolvimento web. Acompanhe nosso progresso e aprenda com nossa experiência.</p>
@@ -135,7 +136,7 @@
             <h2>Conclusão</h2>
             <p>O Projeto Web 1 demonstra como é possível combinar estética, funcionalidade e tecnologia para criar uma experiência web única. Estamos empolgados com o que o futuro reserva para este projeto e esperamos que você esteja também!</p>
         </article>
-    </main>
+    </div>
 
     
     <footer>
