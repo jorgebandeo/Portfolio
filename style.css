@@ -68,7 +68,14 @@ body {
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block; /* Mostra todos os projetos por padrão */
+    display: block; /* Mantém o elemento de link como bloco */
+    text-decoration: none; /* Remove a sublinha do link */
+    color: inherit; /* Mantém a cor do texto */
+    transition: transform 0.2s; /* Animação de clique */
+  }
+  
+  .project:hover {
+    transform: scale(1.05); /* Aumenta o tamanho ligeiramente ao passar o mouse */
   }
   
   .project img {
@@ -76,7 +83,6 @@ body {
     height: auto;
     border-radius: 8px;
   }
-  
 
 .filter-button:hover {
     background-color: #A05252;
