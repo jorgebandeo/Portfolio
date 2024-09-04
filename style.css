@@ -15,53 +15,60 @@ body {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-    position: sticky; /* Torna a div de filtros "grudenta" */
-    top: 0; /* Fica fixo no topo da página */
-    background-color:#1c1c1c ;
+    position: sticky;
+    /* Torna a div de filtros "grudenta" */
+    top: 0;
+    /* Fica fixo no topo da página */
+    background-color: #1c1c1c;
     padding: 10px;
-    z-index: 1000; /* Garante que os filtros fiquem acima do conteúdo */
-  }
-  
-  .filter-button {
+    z-index: 1000;
+    /* Garante que os filtros fiquem acima do conteúdo */
+}
+
+.filter-button {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 120px;
     height: 120px;
-    border:  2px solid #800020;
+    border: 2px solid #800020;
     background-color: #1c1c1c;
-    
+
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .filter-button.active {
-    background-color: #800020; /* Cor diferente para botões ativos */
-  }
-  
-  .filter-button:hover {
-    background-color: #c71515;
-    /* Cor ao passar o mouse */
 }
-  
-  .filter-button i {
+
+.filter-button.active {
+    background-color: #800020;
+    /* Cor diferente para botões ativos */
+}
+
+/* Aplica o efeito de hover para telas grandes */
+@media (hover: hover) and (pointer: fine) {
+    .filter-button:hover {
+        background-color: #A05252;
+        /* Cor ao passar o mouse */
+    }
+}
+
+.filter-button i {
     font-size: 24px;
     margin-bottom: 5px;
-  }
-  
-  .project-grid {
+}
+
+.project-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     margin-top: 30px;
     margin-bottom: 100px;
-  }
-  
-  .project {
+}
+
+.project {
     width: 200px;
     height: 300px;
     border: 1px solid #ddd;
@@ -69,21 +76,26 @@ body {
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block; /* Mantém o elemento de link como bloco */
-    text-decoration: none; /* Remove a sublinha do link */
-    color: inherit; /* Mantém a cor do texto */
-    transition: transform 0.2s; /* Animação de clique */
-  }
-  
-  .project:hover {
-    transform: scale(1.05); /* Aumenta o tamanho ligeiramente ao passar o mouse */
-  }
-  
-  .project img {
+    display: block;
+    /* Mantém o elemento de link como bloco */
+    text-decoration: none;
+    /* Remove a sublinha do link */
+    color: inherit;
+    /* Mantém a cor do texto */
+    transition: transform 0.2s;
+    /* Animação de clique */
+}
+
+.project:hover {
+    transform: scale(1.05);
+    /* Aumenta o tamanho ligeiramente ao passar o mouse */
+}
+
+.project img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-  }
+}
 
 
 
@@ -439,9 +451,11 @@ div[style*="align-items: center;"] {
         margin-right: 0px;
         order: 2;
     }
-    .project{
-        
+
+    .project {
+
         width: 30%;
         height: auto;
     }
+
 }
