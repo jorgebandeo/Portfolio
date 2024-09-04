@@ -63,6 +63,7 @@ body {
   
   .project {
     width: 200px;
+    height: 300px;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
