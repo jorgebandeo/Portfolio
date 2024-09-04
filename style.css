@@ -30,9 +30,9 @@ body {
     justify-content: center;
     width: 120px;
     height: 120px;
-    background-color: #800020;
-    color: white;
-    border: none;
+    border:  2px solid #800020;
+    background-color: #1c1c1c;
+    
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
@@ -40,12 +40,13 @@ body {
   }
   
   .filter-button.active {
-    background-color: #A05252; /* Cor diferente para botões ativos */
+    background-color: #800020; /* Cor diferente para botões ativos */
   }
   
   .filter-button:hover {
-    background-color: #A05252;
-  }
+    background-color: #c71515;
+    /* Cor ao passar o mouse */
+}
   
   .filter-button i {
     font-size: 24px;
@@ -85,10 +86,7 @@ body {
     border-radius: 8px;
   }
 
-.filter-button:hover {
-    background-color: #A05252;
-    /* Cor ao passar o mouse */
-}
+
 
 .filter-button i {
     font-size: 24px;
