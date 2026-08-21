@@ -1,88 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Bandeo - Experiência</title>
+    <meta name="description" content="Experiência acadêmica, pesquisa e atuação de Jorge Bandeo.">
+    <title>Jorge Bandeo — Experiência</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <!-- Canvas para o efeito de gotas de chuva -->
-        <canvas id="rainCanvasHeader"></canvas>
-        <h1>Jorge Bandeo</h1>
-        <p>Engenheiro da Computação em Formação</p>
+        <canvas id="rainCanvasHeader" aria-hidden="true"></canvas>
+        <div class="header-content">
+            <p class="eyebrow">LCARS // Mission Archive</p>
+            <h1>Experiência</h1>
+            <p>Pesquisa, engenharia, desenvolvimento e participação acadêmica.</p>
+        </div>
     </header>
 
-    <!-- Barra de Navegação -->
-    <nav>
-        <a href="index.html">Sobre Mim</a>
+    <nav aria-label="Navegação principal">
+        <a href="index.html">Sobre</a>
         <a href="projetos.html">Projetos</a>
+        <a href="experiencia.html">Experiência</a>
         <a href="contato.html">Contato</a>
     </nav>
 
-    <div class="container">
+    <main class="container">
         <section id="experience" class="experience">
             <h2>Experiência</h2>
-            <!-- Bloco 1: Imagem à esquerda, texto à direita -->
-            <div class="div_experience-block odd">
-                <h1 style="font-size:1.4em">Detecção de Queda Baseada Em Visão Computacional</h1>
+
+            <article class="div_experience-block odd">
+                <p class="experience-kicker">Research // Computer Vision // 2023</p>
+                <h3>Detecção de Queda Baseada em Visão Computacional</h3>
                 <div class="experience-block odd">
-                    <img src="image/premiação iniciação cinetifica.png" alt="Experiência 1" class="experience-img">
+                    <img src="image/premiação iniciação cinetifica.png" alt="Premiação de Iniciação Científica" class="experience-img">
                     <div class="experience-text">
-                        <p>
-                            Desenvolvido como parte de um programa de pesquisa do Uniedu e do PIBIC/CNPq, realizado por mim e pelo meu colega Sérgio Venturi Pereira, sob a orientação do Prof. Wemerson Delcio Parreira. Este projeto, focado em inteligência artificial aplicada à visão computacional, foi direcionado para a plataforma Raspberry Pi 3, buscando soluções inovadoras para detecção de quedas em tempo real.
-                        </p>
-                        <p>
-                            A pesquisa rendeu frutos significativos, culminando na conquista do prêmio de Destaque em Iniciação Científica na área de Exatas, na modalidade Oral, durante a edição de 2023. O projeto explorou técnicas avançadas de aprendizado de máquina e visão computacional para criar um sistema eficiente de monitoramento, demonstrando grande potencial para aplicação em ambientes de cuidado com idosos, hospitais e outras instalações onde a segurança e o monitoramento são essenciais.
-                        </p>
+                        <p>Desenvolvido como parte de um programa de pesquisa do Uniedu e do PIBIC/CNPq, realizado por mim e pelo meu colega Sérgio Venturi Pereira, sob orientação do Prof. Wemerson Delcio Parreira. O projeto aplicou inteligência artificial e visão computacional em uma solução direcionada à plataforma Raspberry Pi 3, com foco em detecção de quedas em tempo real.</p>
+                        <p>A pesquisa conquistou o prêmio de <strong>Destaque em Iniciação Científica na área de Exatas, modalidade Oral, em 2023</strong>. O trabalho explorou aprendizado de máquina e visão computacional para criar um sistema de monitoramento com potencial de aplicação em ambientes de cuidado com idosos, hospitais e outros contextos que demandam segurança e acompanhamento.</p>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Bloco 2: Texto à esquerda, imagem à direita -->
-            <div class="div_even">
-                <h2 style="text-align: center; font-size:1.4em; ">Diretor finaciero do CAEC da univalide de itajai</h2>
+            <article class="div_even">
+                <p class="experience-kicker">Academic Leadership // UNIVALI</p>
+                <h3>Diretor Financeiro do CAEC — UNIVALI Itajaí</h3>
                 <div class="experience-block even">
-                    <div class="experience-text" >
-                        <p style="text-align: center;">
-                            Como membro do 
-                            <a href="https://www.instagram.com/caec_univali/?__d=11" target="_blank" class="custom-link">Centro Acadêmico de Engenharia de Computação</a> 
-                            da <a href="https://www.univali.br/" target="_blank" class="custom-link">Universidade do Vale do Itajaí (UNIVALI)</a>, desenvolvi habilidades de comunicação em grupo para a administração e gestão do Centro Acadêmico (CA). 
-                            Junto aos demais membros, buscamos integrar os alunos do curso e apoiar a coordenação na organização de eventos, como o 
-                            <a href="https://www.univali.br/opa" target="_blank" class="custom-link">OPA da UNIVALI</a> 
-                            e o <a href="https://computeronthebeach.com.br/" target="_blank" class="custom-link">Computer on the Beach</a>.
-                        </p>
-                    </div>
-                    <img src="image/premiação iniciação cinetifica.png" alt="Experiência 2" class="experience-img">
-                </div>
-            </div>  
-
-
-            <!-- Bloco 1: Imagem à esquerda, texto à direita 
-            <div class="div_experience-block odd">
-                <h1 style="font-size:1.4em">Detecção de Queda Baseada Em Visão Computacional</h1>
-                <div class="experience-block odd">
-                    <img src="image/premiação iniciação cinetifica.png" alt="Experiência 1" class="experience-img">
                     <div class="experience-text">
-                        <p>
-                            Desenvolvido como parte de um programa de pesquisa do Uniedu e do PIBIC/CNPq, realizado por mim e pelo meu colega Sérgio Venturi Pereira, sob a orientação do Prof. Wemerson Delcio Parreira. Este projeto, focado em inteligência artificial aplicada à visão computacional, foi direcionado para a plataforma Raspberry Pi 3, buscando soluções inovadoras para detecção de quedas em tempo real.
-                        </p>
-                        <p>
-                            A pesquisa rendeu frutos significativos, culminando na conquista do prêmio de Destaque em Iniciação Científica na área de Exatas, na modalidade Oral, durante a edição de 2023. O projeto explorou técnicas avançadas de aprendizado de máquina e visão computacional para criar um sistema eficiente de monitoramento, demonstrando grande potencial para aplicação em ambientes de cuidado com idosos, hospitais e outras instalações onde a segurança e o monitoramento são essenciais.
-                        </p>
+                        <p>Como membro do <a href="https://www.instagram.com/caec_univali/?__d=11" target="_blank" rel="noopener noreferrer" class="custom-link">Centro Acadêmico de Engenharia de Computação</a> da <a href="https://www.univali.br/" target="_blank" rel="noopener noreferrer" class="custom-link">Universidade do Vale do Itajaí (UNIVALI)</a>, desenvolvi habilidades de comunicação, administração e gestão em grupo.</p>
+                        <p>Junto aos demais membros, buscamos integrar os alunos do curso e apoiar a coordenação na organização de eventos, incluindo o <a href="https://www.univali.br/opa" target="_blank" rel="noopener noreferrer" class="custom-link">OPA da UNIVALI</a> e o <a href="https://computeronthebeach.com.br/" target="_blank" rel="noopener noreferrer" class="custom-link">Computer on the Beach</a>.</p>
                     </div>
+                    <img src="image/premiação iniciação cinetifica original.jpg" alt="Registro da trajetória acadêmica" class="experience-img">
                 </div>
-            </div>
-            -->
+            </article>
 
+            <article class="div_experience-block odd">
+                <p class="experience-kicker">Professional // Systems Development</p>
+                <h3>Desenvolvimento de Sistemas & Otimização Industrial</h3>
+                <div class="experience-text">
+                    <p>Atuação profissional no desenvolvimento, manutenção e evolução de sistemas voltados para administração, gestão empresarial e otimização de processos industriais, trabalhando com regras de negócio, integrações, APIs, SQL Server e modernização de aplicações.</p>
+                    <p>A experiência inclui análise de sistemas existentes, fluxos Maker / Softwell, procedures, automação de processos, integração entre serviços e evolução de soluções para arquiteturas modernas com C# / .NET.</p>
+                </div>
+            </article>
         </section>
-    </div>
+    </main>
 
     <footer>
-        <!-- Canvas para o efeito de gotas de chuva -->
-        <canvas id="rainCanvasFooter"></canvas>
-        <p>&copy; 2024 Jorge Bandeo. Todos os direitos reservados.</p>
+        <canvas id="rainCanvasFooter" aria-hidden="true"></canvas>
+        <p>&copy; 2026 Jorge Bandeo · Mission archive // LCARS interface</p>
     </footer>
 
     <script src="script.js"></script>
