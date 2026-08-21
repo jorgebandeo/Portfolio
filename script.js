@@ -1,103 +1,136 @@
 function toggleNavOverlay() {
-    var nav = document.getElementById("navMenu");
-    if (nav.style.display === "block") {
-        nav.style.display = "none";
-    } else {
-        nav.style.display = "block";
-    }
+    const nav = document.getElementById("navMenu");
+    if (!nav) return;
+    nav.hidden = !nav.hidden;
 }
+
 function createRainEffect(canvasId) {
     const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
+    const particles = [];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const drops = [];
-
-    // Ajusta o tamanho do canvas para se adaptar ao elemento pai
     function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.max(1, rect.width * ratio);
+        canvas.height = Math.max(1, rect.height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
 
-    // Função para criar gotas
-    function createDrops() {
-        for (let i = 0; i < 100; i++) {
-            drops.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                speed: Math.random() * 3 + 1,
-                radius: Math.random() * 1 + 0.5
+    function createParticles() {
+        particles.length = 0;
+        const count = Math.min(90, Math.max(36, Math.floor(canvas.clientWidth / 14)));
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.clientWidth,
+                y: Math.random() * canvas.clientHeight,
+                speed: Math.random() * 0.7 + 0.25,
+                size: Math.random() * 1.6 + 0.4,
+                alpha: Math.random() * 0.45 + 0.12,
+                drift: Math.random() * 0.18 - 0.09
             });
         }
     }
-    createDrops();
 
-    // Função para desenhar gotas
-    function drawRain() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.beginPath();
-        for (const drop of drops) {
-            ctx.moveTo(drop.x, drop.y);
-            ctx.arc(drop.x, drop.y, drop.radius, 0, Math.PI * 2);
-        }
-        ctx.fill();
-        updateRain();
-        requestAnimationFrame(drawRain);
-    }
+    function drawFrame() {
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-    // Atualiza a posição das gotas
-    function updateRain() {
-        for (const drop of drops) {
-            drop.y += drop.speed;
-            if (drop.y > canvas.height) {
-                drop.y = 0;
-                drop.x = Math.random() * canvas.width;
-                drop.speed = Math.random() * 3 + 1;
-                drop.radius = Math.random() * 1 + 0.5;
+        for (const particle of particles) {
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 231, 201, ${particle.alpha})`;
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            particle.y += particle.speed;
+            particle.x += particle.drift;
+
+            if (particle.y > canvas.clientHeight + 5) {
+                particle.y = -5;
+                particle.x = Math.random() * canvas.clientWidth;
             }
+            if (particle.x > canvas.clientWidth + 5) particle.x = -5;
+            if (particle.x < -5) particle.x = canvas.clientWidth + 5;
         }
+
+        if (!prefersReducedMotion) requestAnimationFrame(drawFrame);
     }
 
-    drawRain();
+    const rebuild = () => {
+        resizeCanvas();
+        createParticles();
+        drawFrame();
+    };
+
+    window.addEventListener('resize', rebuild, { passive: true });
+    rebuild();
 }
 
-// Chama a função para aplicar o efeito em ambos os canvas
-document.addEventListener('DOMContentLoaded', function() {
+function setActiveNavigation() {
+    const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('nav a').forEach(link => {
+        const href = (link.getAttribute('href') || '').split('#')[0].toLowerCase();
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+function toggleFilter(button) {
+    button.classList.toggle('active');
+    button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false');
+    applyFilters();
+}
+
+function applyFilters() {
+    const activeFilters = [...document.querySelectorAll('.filter-button.active')]
+        .map(button => button.dataset.category);
+    const projects = [...document.querySelectorAll('.project')];
+
+    let visible = 0;
+    projects.forEach(project => {
+        const show = activeFilters.length === 0 || activeFilters.some(filter => project.classList.contains(filter));
+        project.hidden = !show;
+        if (show) visible++;
+    });
+
+    const counter = document.querySelector('.project-counter');
+    if (counter) {
+        const total = projects.length;
+        counter.textContent = activeFilters.length
+            ? `${visible} de ${total} projetos visíveis`
+            : `${total} projetos no painel`;
+    }
+}
+
+function setupRevealAnimations() {
+    const elements = document.querySelectorAll('.panel, .language-panel, .skills-panel, .project, .div_experience-block, .div_even, .contact-panel, .project-article');
+    elements.forEach(element => element.classList.add('reveal'));
+
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        elements.forEach(element => element.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    elements.forEach(element => observer.observe(element));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     createRainEffect('rainCanvasHeader');
     createRainEffect('rainCanvasFooter');
-});
-
-
-// ---------------------- projetos -------------------------------
-// Função para alternar o estado dos botões de filtro
-function toggleFilter(button) {
-    button.classList.toggle('active'); // Alterna a classe 'active' para indicar estado ativo/inativo
+    setActiveNavigation();
     applyFilters();
-  }
-  
-  // Função para aplicar os filtros com base nos botões ativos
-  function applyFilters() {
-    const activeFilters = Array.from(document.querySelectorAll('.filter-button.active')).map(button => button.getAttribute('data-category'));
-    const projects = document.querySelectorAll('.project');
-  
-    if (activeFilters.length === 0) {
-      // Se nenhum filtro estiver ativo, mostra todos os projetos
-      projects.forEach(project => project.style.display = 'block');
-    } else {
-      projects.forEach(project => {
-        const projectCategories = project.classList;
-        const showProject = activeFilters.some(filter => projectCategories.contains(filter));
-        
-        // Exibe ou oculta projetos com base nos filtros ativos
-        project.style.display = showProject ? 'block' : 'none';
-      });
-    }
-  }
-  
-  // Exibe todos os projetos ao carregar a página
-  document.addEventListener('DOMContentLoaded', () => {
-    applyFilters(); // Aplica os filtros ao carregar a página
-  });
-  
+    setupRevealAnimations();
+});
