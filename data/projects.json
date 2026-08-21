@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "owner": "jorgebandeo",
+      "repo": "PSE",
+      "ref": "portfolio-manifest-test",
+      "manifest": "portfolio.json"
+    }
+  ]
+}

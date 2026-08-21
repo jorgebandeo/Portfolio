@@ -3,147 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Web 1 - Blog</title>
-    <!-- Fontes do Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Estilos CSS -->
+    <meta name="description" content="Detalhes de projeto do portfólio de Jorge Bandeo.">
+    <title>Projeto Web 1 — Jorge Bandeo</title>
     <link rel="stylesheet" href="../style.css">
-    <style>
-        /* Estilos personalizados para a página do blog */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #1c1c1c;
-            color: #333;
-
-            margin-left: 0px;
-            margin-right: 0px;
-            width: auto%;
-            
-
-        }
-
-        header {
-            background-color: #2c1b30;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-
-            top: 0;
-            width: auto;
-
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            animation: fadeInDown 1s ease;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.1em;
-            opacity: 0.8;
-        }
-
-        .contai_description {
-            margin-top: 50px;
-            align-content: center;
-            margin-left: 5% ;
-            margin-right: 5%;
-            width: 90%;
-            
-        }
-
-        article {
-            background-color: white;
-            
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease;
-        }
-
-        article h2 {
-            color: #800020;
-            margin-top: 0;
-            border-bottom: 2px solid #f4f4f4;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-
-        article p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* Proporção de 16:9 */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin-bottom: 20px;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        footer {
-            background-color: #2c1b30;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            width: auto;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <canvas id="rainCanvasHeader"></canvas>
-        <h1>Projeto Web 1</h1>
-        <p>Data de criação: 01/01/2024</p>
+        <canvas id="rainCanvasHeader" aria-hidden="true"></canvas>
+        <div class="header-content">
+            <p class="eyebrow">LCARS // Project File</p>
+            <h1>Projeto Web 1</h1>
+            <p>Data de criação: 01/01/2024</p>
+        </div>
     </header>
 
-    <div class="contai_description">
-        <article>
+    <nav aria-label="Navegação do projeto">
+        <a href="../index.html">Sobre</a>
+        <a href="../projetos.html">Projetos</a>
+        <a href="../experiencia.html">Experiência</a>
+        <a href="../contato.html">Contato</a>
+    </nav>
+
+    <main class="container">
+        <article class="project-article">
+            <p class="lcars-label">Project Record // WEB-01</p>
+
             <h2>Introdução</h2>
-            <p>Bem-vindo ao blog do Projeto Web 1! Este projeto é um exemplo de como podemos criar um site moderno e responsivo, utilizando as melhores práticas de design e desenvolvimento web. Acompanhe nosso progresso e aprenda com nossa experiência.</p>
-            
-            <!-- Container de vídeo do YouTube -->
+            <p>Bem-vindo ao registro do Projeto Web 1. Este projeto é um exemplo de criação de site moderno e responsivo, utilizando boas práticas de design e desenvolvimento web. A proposta original foi preservada e integrada à nova identidade visual do portfólio.</p>
+
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/mxwWYP6ApuQ?si=WA_d2U9sQhD8W2tp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/mxwWYP6ApuQ?si=WA_d2U9sQhD8W2tp" title="Vídeo do Projeto Web 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <h2>Objetivo do Projeto</h2>
-            <p>O objetivo do Projeto Web 1 é criar uma plataforma inovadora que permita aos usuários interagir de forma intuitiva e eficiente, aproveitando as últimas tecnologias da web para fornecer uma experiência de usuário otimizada.</p>
+            <p>O objetivo do Projeto Web 1 é criar uma plataforma que permita aos usuários interagir de forma intuitiva e eficiente, utilizando tecnologias web para oferecer uma experiência otimizada em diferentes dispositivos.</p>
 
             <h2>Desenvolvimento</h2>
-            <p>O projeto foi desenvolvido utilizando HTML, CSS, e JavaScript, com foco em responsividade e desempenho. Utilizamos frameworks modernos para garantir a compatibilidade com diferentes dispositivos e proporcionar uma navegação suave e agradável.</p>
+            <p>O projeto foi desenvolvido utilizando HTML, CSS e JavaScript, com foco em responsividade, desempenho e organização da interface. A estrutura permite evoluir o projeto gradualmente sem perder a compatibilidade com o GitHub Pages.</p>
 
             <h2>Conclusão</h2>
-            <p>O Projeto Web 1 demonstra como é possível combinar estética, funcionalidade e tecnologia para criar uma experiência web única. Estamos empolgados com o que o futuro reserva para este projeto e esperamos que você esteja também!</p>
+            <p>O Projeto Web 1 demonstra como estética, funcionalidade e tecnologia podem ser combinadas em uma experiência web coesa, mantendo uma base simples e fácil de evoluir.</p>
         </article>
-    </div>
+    </main>
 
-    
     <footer>
-        <!-- Canvas para o efeito de gotas de chuva -->
-        <canvas id="rainCanvasFooter"></canvas>
-        <p>&copy; 2024 Jorge Bandeo. Todos os direitos reservados.</p>
+        <canvas id="rainCanvasFooter" aria-hidden="true"></canvas>
+        <p>&copy; 2026 Jorge Bandeo · Project file // LCARS interface</p>
     </footer>
 
     <script src="../script.js"></script>
