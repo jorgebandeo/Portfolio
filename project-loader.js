@@ -71,18 +71,20 @@ const PortfolioProjects = (() => {
         const visual = document.createElement('div');
         visual.className = 'project-visual manifest-cover';
 
-        const image = document.createElement('img');
-        image.src = resolveAsset(source, data.media?.cover);
-        image.alt = '';
-        image.loading = 'lazy';
-        image.addEventListener('load', () => visual.classList.add('has-image'));
-        image.addEventListener('error', () => image.remove());
-
         const fallback = document.createElement('i');
         fallback.className = `fas ${iconFor(categories)}`;
         fallback.setAttribute('aria-hidden', 'true');
+        visual.appendChild(fallback);
 
-        visual.append(image, fallback);
+        if (data.media?.cover) {
+            const image = document.createElement('img');
+            image.src = resolveAsset(source, data.media.cover);
+            image.alt = '';
+            image.loading = 'lazy';
+            image.addEventListener('load', () => visual.classList.add('has-image'));
+            image.addEventListener('error', () => image.remove());
+            visual.prepend(image);
+        }
 
         const title = document.createElement('h3');
         title.textContent = data.project.name;
@@ -151,7 +153,7 @@ const PortfolioProjects = (() => {
             host.innerHTML = '';
             host.appendChild(createDetail(data, source));
         } catch (error) {
-            host.innerHTML = `<div class="project-load-error">PROJECT DATA ERROR // ${error.message}</div>`;
+            host.innerHTML = `<div class="project-load-error">PROJECT DATA ERROR // ${escapeHtml(error.message)}</div>`;
         }
     }
 
@@ -166,7 +168,7 @@ const PortfolioProjects = (() => {
                     <h1>${escapeHtml(data.project.name)}</h1>
                     <p class="manifest-subtitle">${escapeHtml(data.project.subtitle)}</p>
                 </div>
-                <div class="manifest-status">${escapeHtml(data.project.status.toUpperCase())}</div>
+                <div class="manifest-status">${escapeHtml(String(data.project.status).toUpperCase())}</div>
             </section>
             <div class="manifest-tech">${data.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>
             <section class="manifest-overview">
@@ -193,21 +195,23 @@ const PortfolioProjects = (() => {
         `;
 
         const gallery = article.querySelector('.manifest-gallery');
-        (data.media?.gallery || []).forEach(item => gallery.appendChild(createMediaItem(item, source)));
+        (data.media?.gallery || []).forEach(item => gallery.appendChild(createMediaItem(item, source, data.project.name)));
 
         if (!gallery.children.length) {
             gallery.innerHTML = '<div class="media-placeholder">NO MEDIA // aguardando arquivos no repositório</div>';
         }
 
         const links = article.querySelector('.manifest-links');
-        const repoLink = document.createElement('a');
-        repoLink.href = data.links.repository;
-        repoLink.target = '_blank';
-        repoLink.rel = 'noopener noreferrer';
-        repoLink.textContent = 'ABRIR REPOSITÓRIO';
-        links.appendChild(repoLink);
+        if (data.links?.repository) {
+            const repoLink = document.createElement('a');
+            repoLink.href = data.links.repository;
+            repoLink.target = '_blank';
+            repoLink.rel = 'noopener noreferrer';
+            repoLink.textContent = 'ABRIR REPOSITÓRIO';
+            links.appendChild(repoLink);
+        }
 
-        if (data.links.source) {
+        if (data.links?.source && data.links?.repository) {
             const sourceLink = document.createElement('a');
             sourceLink.href = `${data.links.repository}/blob/${source.ref}/${data.links.source}`;
             sourceLink.target = '_blank';
@@ -218,28 +222,31 @@ const PortfolioProjects = (() => {
         return article;
     }
 
-    function createMediaItem(item, source) {
+    function createMediaItem(item, source, projectName) {
         const figure = document.createElement('figure');
         figure.className = 'manifest-media-card';
 
         const placeholder = document.createElement('div');
         placeholder.className = 'media-placeholder';
         placeholder.textContent = item.type === 'video' ? 'VIDEO SLOT // aguardando upload' : 'IMAGE SLOT // aguardando upload';
+        figure.appendChild(placeholder);
 
-        let media;
-        if (item.type === 'video') {
-            media = document.createElement('video');
-            media.controls = true;
-            media.preload = 'metadata';
-            media.src = resolveAsset(source, item.src);
-        } else {
-            media = document.createElement('img');
-            media.loading = 'lazy';
-            media.src = resolveAsset(source, item.src);
-            media.alt = item.caption || data?.project?.name || 'Imagem do projeto';
+        if (item.src) {
+            let media;
+            if (item.type === 'video') {
+                media = document.createElement('video');
+                media.controls = true;
+                media.preload = 'metadata';
+                media.src = resolveAsset(source, item.src);
+            } else {
+                media = document.createElement('img');
+                media.loading = 'lazy';
+                media.src = resolveAsset(source, item.src);
+                media.alt = item.caption || projectName || 'Imagem do projeto';
+            }
+            media.addEventListener('error', () => media.remove());
+            figure.appendChild(media);
         }
-        media.addEventListener('error', () => media.remove());
-        figure.append(placeholder, media);
 
         if (item.caption) {
             const caption = document.createElement('figcaption');
