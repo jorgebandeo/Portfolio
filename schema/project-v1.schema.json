@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+  "title": "Jorge Portfolio Manifest v1",
+  "type": "object",
+  "required": ["schemaVersion", "project", "categories", "technologies", "summary", "media", "links", "portfolio"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "subtitle", "date", "status"]
+    },
+    "categories": { "type": "array", "items": { "type": "string" } },
+    "technologies": { "type": "array", "items": { "type": "string" } },
+    "summary": { "type": "string" },
+    "development": { "type": "array" },
+    "highlights": { "type": "array", "items": { "type": "string" } },
+    "media": { "type": "object" },
+    "links": { "type": "object" },
+    "portfolio": { "type": "object" }
+  }
+}

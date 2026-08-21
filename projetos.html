@@ -6,6 +6,7 @@
     <meta name="description" content="Projetos de software, web e hardware de Jorge Bandeo.">
     <title>Jorge Bandeo — Projetos</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-loader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -29,6 +30,7 @@
         <section id="projects" class="projects">
             <h2>Projetos</h2>
             <p class="project-counter" aria-live="polite"></p>
+            <p class="lcars-label">AUTO DISCOVERY // projetos com <code>portfolio.json</code> são carregados automaticamente</p>
 
             <div class="filtos" aria-label="Filtros de projetos">
                 <button class="filter-button" type="button" data-category="web" aria-pressed="false" onclick="toggleFilter(this)">
@@ -76,5 +78,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="project-loader.js"></script>
 </body>
 </html>
