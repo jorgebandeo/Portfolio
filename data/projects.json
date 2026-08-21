@@ -1,11 +1,10 @@
 {
-  "version": 1,
-  "projects": [
-    {
-      "owner": "jorgebandeo",
-      "repo": "PSE",
-      "ref": "main",
-      "manifest": "portfolio.json"
-    }
-  ]
+  "version": 2,
+  "owner": "jorgebandeo",
+  "visibility": "public",
+  "exclude": [
+    "Portfolio",
+    "jorgebandeo"
+  ],
+  "generated": "data/projects.generated.json"
 }
