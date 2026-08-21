@@ -1,12 +1,8 @@
 const PortfolioProjects = (() => {
-    const registryUrl = 'data/projects.json';
+    const configUrl = 'data/projects.json';
 
     function rawBase(source) {
         return `https://raw.githubusercontent.com/${source.owner}/${source.repo}/${source.ref}/`;
-    }
-
-    function manifestUrl(source) {
-        return rawBase(source) + source.manifest;
     }
 
     function resolveAsset(source, path) {
@@ -15,18 +11,11 @@ const PortfolioProjects = (() => {
         return rawBase(source) + path.replace(/^\//, '');
     }
 
-    function projectHref(project, source) {
-        const params = new URLSearchParams({
-            owner: source.owner,
-            repo: source.repo,
-            ref: source.ref,
-            manifest: source.manifest,
-            id: project.project.id
-        });
-        return `projeto.html?${params.toString()}`;
+    function projectHref(project) {
+        return `projeto.html?id=${encodeURIComponent(project.project.id)}`;
     }
 
-    function validateManifest(data) {
+    function validateProject(data) {
         return Boolean(
             data &&
             data.schemaVersion === 1 &&
@@ -38,34 +27,35 @@ const PortfolioProjects = (() => {
         );
     }
 
-    async function loadManifest(source) {
-        const response = await fetch(manifestUrl(source), { cache: 'no-store' });
-        if (!response.ok) throw new Error(`Manifesto indisponível: ${source.repo}`);
-        const data = await response.json();
-        if (!validateManifest(data)) throw new Error(`Manifesto inválido: ${source.repo}`);
-        return { data, source };
+    async function loadConfig() {
+        const response = await fetch(configUrl, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Configuração do catálogo indisponível');
+        return response.json();
     }
 
-    async function loadRegistry() {
-        const response = await fetch(registryUrl, { cache: 'no-store' });
-        if (!response.ok) throw new Error('Registro de projetos indisponível');
-        const registry = await response.json();
-        return registry.projects || [];
+    async function loadCatalog() {
+        const config = await loadConfig();
+        const response = await fetch(config.generated || 'data/projects.generated.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Catálogo compilado indisponível');
+        const catalog = await response.json();
+        return (catalog.projects || []).filter(validateProject);
     }
 
     function iconFor(categories) {
+        if (categories.includes('ai')) return 'fa-brain';
+        if (categories.includes('mobile')) return 'fa-mobile-screen-button';
         if (categories.includes('hardware')) return 'fa-microchip';
-        if (categories.includes('software')) return 'fa-terminal';
-        return 'fa-code';
+        if (categories.includes('web')) return 'fa-globe';
+        return 'fa-terminal';
     }
 
-    function createCard(entry) {
-        const { data, source } = entry;
-        const card = document.createElement('a');
+    function createCard(data) {
+        const source = data._source || {};
         const categories = data.categories.map(c => c.toLowerCase());
+        const card = document.createElement('a');
         card.className = `project manifest-project ${categories.join(' ')}`;
-        card.href = projectHref(data, source);
-        card.dataset.label = `${categories.join(' + ').toUpperCase()} // AUTO`;
+        card.href = projectHref(data);
+        card.dataset.label = `${categories.join(' + ').toUpperCase()} // ${source.mode === 'manifest' ? 'MANIFEST' : 'AUTO'}`;
         card.dataset.projectId = data.project.id;
 
         const visual = document.createElement('div');
@@ -76,7 +66,7 @@ const PortfolioProjects = (() => {
         fallback.setAttribute('aria-hidden', 'true');
         visual.appendChild(fallback);
 
-        if (data.media?.cover) {
+        if (data.media?.cover && source.owner && source.repo && source.ref) {
             const image = document.createElement('img');
             image.src = resolveAsset(source, data.media.cover);
             image.alt = '';
@@ -90,17 +80,17 @@ const PortfolioProjects = (() => {
         title.textContent = data.project.name;
 
         const subtitle = document.createElement('p');
-        subtitle.textContent = data.project.subtitle;
+        subtitle.textContent = data.project.subtitle || data.summary || '';
 
         const tech = document.createElement('div');
         tech.className = 'project-tech-strip';
         tech.textContent = data.technologies.slice(0, 5).join(' · ');
 
-        const auto = document.createElement('span');
-        auto.className = 'manifest-badge';
-        auto.textContent = 'MANIFEST // ONLINE';
+        const badge = document.createElement('span');
+        badge.className = 'manifest-badge';
+        badge.textContent = source.mode === 'manifest' ? 'MANIFEST // CURATED' : 'CATALOG // AUTO';
 
-        card.append(visual, title, subtitle, tech, auto);
+        card.append(visual, title, subtitle, tech, badge);
         return card;
     }
 
@@ -108,73 +98,67 @@ const PortfolioProjects = (() => {
         const grid = document.querySelector('.project-grid');
         if (!grid) return;
 
-        let sources = [];
         try {
-            sources = await loadRegistry();
+            const projects = await loadCatalog();
+            const visible = projects
+                .filter(project => project.portfolio?.visible !== false)
+                .sort((a, b) => (a.portfolio?.order ?? 999) - (b.portfolio?.order ?? 999));
+
+            grid.innerHTML = '';
+            visible.forEach(project => grid.appendChild(createCard(project)));
+            if (typeof applyFilters === 'function') applyFilters();
+            if (typeof setupRevealAnimations === 'function') setupRevealAnimations();
         } catch (error) {
-            console.warn(error);
-            return;
+            console.error(error);
+            grid.innerHTML = `<div class="project-load-error">CATALOG ERROR // ${escapeHtml(error.message)}</div>`;
         }
-
-        const settled = await Promise.allSettled(sources.map(loadManifest));
-        const loaded = settled
-            .filter(item => item.status === 'fulfilled')
-            .map(item => item.value)
-            .filter(entry => entry.data.portfolio?.visible !== false)
-            .sort((a, b) => (a.data.portfolio?.order ?? 999) - (b.data.portfolio?.order ?? 999));
-
-        loaded.reverse().forEach(entry => grid.prepend(createCard(entry)));
-        if (typeof applyFilters === 'function') applyFilters();
-        if (typeof setupRevealAnimations === 'function') setupRevealAnimations();
     }
 
     async function renderProjectDetail() {
         const host = document.getElementById('manifest-project-detail');
         if (!host) return;
 
-        const params = new URLSearchParams(window.location.search);
-        const source = {
-            owner: params.get('owner') || 'jorgebandeo',
-            repo: params.get('repo'),
-            ref: params.get('ref') || 'main',
-            manifest: params.get('manifest') || 'portfolio.json'
-        };
-
-        if (!source.repo) {
-            host.innerHTML = '<div class="project-load-error">PROJECT DATA ERROR // repositório não informado.</div>';
+        const id = new URLSearchParams(window.location.search).get('id');
+        if (!id) {
+            host.innerHTML = '<div class="project-load-error">PROJECT DATA ERROR // projeto não informado.</div>';
             return;
         }
 
         host.innerHTML = '<div class="project-loading">LCARS // carregando registro do projeto…</div>';
 
         try {
-            const { data } = await loadManifest(source);
+            const projects = await loadCatalog();
+            const data = projects.find(project => project.project.id === id);
+            if (!data) throw new Error('Projeto não encontrado no catálogo compilado');
+
             document.title = `${data.project.name} — Jorge Bandeo`;
             host.innerHTML = '';
-            host.appendChild(createDetail(data, source));
+            host.appendChild(createDetail(data));
         } catch (error) {
             host.innerHTML = `<div class="project-load-error">PROJECT DATA ERROR // ${escapeHtml(error.message)}</div>`;
         }
     }
 
-    function createDetail(data, source) {
+    function createDetail(data) {
+        const source = data._source || {};
         const article = document.createElement('article');
         article.className = 'manifest-detail project-article';
 
+        const sourceLabel = source.mode === 'manifest' ? 'CURATED MANIFEST' : 'AUTO COMPILED';
         article.innerHTML = `
             <section class="manifest-hero">
                 <div>
-                    <p class="lcars-label">LCARS // PROJECT RECORD</p>
+                    <p class="lcars-label">LCARS // PROJECT RECORD // ${escapeHtml(sourceLabel)}</p>
                     <h1>${escapeHtml(data.project.name)}</h1>
-                    <p class="manifest-subtitle">${escapeHtml(data.project.subtitle)}</p>
+                    <p class="manifest-subtitle">${escapeHtml(data.project.subtitle || '')}</p>
                 </div>
-                <div class="manifest-status">${escapeHtml(String(data.project.status).toUpperCase())}</div>
+                <div class="manifest-status">${escapeHtml(String(data.project.status || 'repository').toUpperCase())}</div>
             </section>
             <div class="manifest-tech">${data.technologies.map(t => `<span>${escapeHtml(t)}</span>`).join('')}</div>
             <section class="manifest-overview">
                 <div class="manifest-copy panel">
                     <p class="lcars-label">01 // DEVELOPMENT LOG</p>
-                    <p>${escapeHtml(data.summary)}</p>
+                    <p>${escapeHtml(data.summary || '')}</p>
                     <div class="development-grid">
                         ${(data.development || []).map(item => `<div class="development-item"><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.text)}</p></div>`).join('')}
                     </div>
@@ -182,6 +166,7 @@ const PortfolioProjects = (() => {
                 <aside class="manifest-copy panel">
                     <p class="lcars-label">02 // CAPABILITIES</p>
                     <ul class="manifest-highlights">${(data.highlights || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+                    <div class="catalog-source-note">SOURCE // ${escapeHtml(source.repo || '')} · ${escapeHtml(source.ref || '')}</div>
                 </aside>
             </section>
             <section class="manifest-media-section">
@@ -196,30 +181,27 @@ const PortfolioProjects = (() => {
 
         const gallery = article.querySelector('.manifest-gallery');
         (data.media?.gallery || []).forEach(item => gallery.appendChild(createMediaItem(item, source, data.project.name)));
-
         if (!gallery.children.length) {
-            gallery.innerHTML = '<div class="media-placeholder">NO MEDIA // aguardando arquivos no repositório</div>';
+            gallery.innerHTML = '<div class="media-placeholder">NO MEDIA // este repositório ainda não possui mídia de portfólio mapeada</div>';
         }
 
         const links = article.querySelector('.manifest-links');
-        if (data.links?.repository) {
-            const repoLink = document.createElement('a');
-            repoLink.href = data.links.repository;
-            repoLink.target = '_blank';
-            repoLink.rel = 'noopener noreferrer';
-            repoLink.textContent = 'ABRIR REPOSITÓRIO';
-            links.appendChild(repoLink);
-        }
-
+        addLink(links, data.links?.repository, 'ABRIR REPOSITÓRIO');
+        addLink(links, data.links?.demo, 'ABRIR DEMO');
         if (data.links?.source && data.links?.repository) {
-            const sourceLink = document.createElement('a');
-            sourceLink.href = `${data.links.repository}/blob/${source.ref}/${data.links.source}`;
-            sourceLink.target = '_blank';
-            sourceLink.rel = 'noopener noreferrer';
-            sourceLink.textContent = 'VER CÓDIGO-FONTE';
-            links.appendChild(sourceLink);
+            addLink(links, `${data.links.repository}/blob/${source.ref || 'main'}/${data.links.source}`, 'VER CÓDIGO-FONTE');
         }
         return article;
+    }
+
+    function addLink(host, href, label) {
+        if (!href) return;
+        const link = document.createElement('a');
+        link.href = href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = label;
+        host.appendChild(link);
     }
 
     function createMediaItem(item, source, projectName) {
@@ -231,7 +213,7 @@ const PortfolioProjects = (() => {
         placeholder.textContent = item.type === 'video' ? 'VIDEO SLOT // aguardando upload' : 'IMAGE SLOT // aguardando upload';
         figure.appendChild(placeholder);
 
-        if (item.src) {
+        if (item.src && source.owner && source.repo && source.ref) {
             let media;
             if (item.type === 'video') {
                 media = document.createElement('video');
@@ -265,5 +247,5 @@ const PortfolioProjects = (() => {
         renderProjectDetail();
     });
 
-    return { loadRegistry, loadManifest, resolveAsset };
+    return { loadCatalog, resolveAsset };
 })();
