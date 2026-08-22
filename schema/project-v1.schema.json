@@ -35,6 +35,20 @@
         "results": { "type": "array", "items": { "type": "string" } }
       }
     },
+    "subprojects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "summary": { "type": "string" },
+          "details": { "type": "array", "items": { "type": "string" } },
+          "technologies": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
     "media": { "type": "object" },
     "links": { "type": "object" },
     "portfolio": { "type": "object" }
