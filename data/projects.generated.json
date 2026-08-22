@@ -7,11 +7,10 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "pse-smart-occupancy",
-        "name": "Sistema Embarcado de Ocupação e Iluminação Inteligente",
-        "subtitle": "Contagem de pessoas por sensores, controle de iluminação e comunicação entre ESP32 via MQTT",
-        "date": "2023-10",
-        "status": "prototype"
+        "id": "pse-embedded-projects",
+        "name": "Projetos de Sistemas Embarcados — PSE",
+        "subtitle": "Evolução acadêmica em ESP32: automação sensoriada, controle de atuadores e sistemas distribuídos via MQTT",
+        "status": "academic"
       },
       "categories": [
         "hardware",
@@ -20,70 +19,123 @@
       ],
       "technologies": [
         "ESP32",
-        "C",
+        "C/C++",
+        "Arduino Framework",
         "ESP-IDF",
         "FreeRTOS",
+        "Bluetooth",
         "MQTT",
         "Wi-Fi",
-        "LDR",
-        "GPIO"
+        "Sensores",
+        "Relés"
       ],
-      "summary": "Projeto acadêmico de sistemas embarcados para detectar o fluxo de entrada e saída de pessoas em ambientes, manter a contagem de ocupação e controlar a iluminação conforme presença e luminosidade. A evolução do projeto inclui firmware concorrente em FreeRTOS, clientes ESP32 e comunicação MQTT com uma implementação de broker local.",
+      "summary": "Repositório de Projetos de Sistemas Embarcados que reúne pelo menos duas implementações distintas em ESP32. A etapa M2 desenvolve um sistema de automação com leitura de temperatura, nível de água e luminosidade, controle de bomba, aquecedor e iluminação e supervisão por Bluetooth. A etapa M3 evolui para um sistema distribuído entre ESP32s, usando FreeRTOS, Wi-Fi e MQTT para detectar fluxo de pessoas, manter ocupação de ambientes e automatizar iluminação.",
       "development": [
         {
-          "title": "Detecção de fluxo",
-          "text": "Dois sensores são lidos em tarefas independentes e a sequência de acionamento é usada para distinguir entrada de saída, incrementando ou decrementando a ocupação do ambiente."
+          "title": "M2 — automação com sensores e atuadores",
+          "text": "Firmware no ecossistema Arduino para ESP32 integra DHT11, sensor de nível de água, LDR, dois relés e LED, oferecendo modos automáticos e comandos manuais via BluetoothSerial."
         },
         {
-          "title": "Iluminação automática",
-          "text": "A ocupação é combinada com a leitura analógica de luminosidade para comandar a saída de iluminação e publicar o estado do ambiente."
+          "title": "M3 — ambientes inteligentes distribuídos",
+          "text": "A fase seguinte usa ESP-IDF/FreeRTOS, sensores de passagem, ADC para luminosidade e comunicação MQTT para distribuir estados entre módulos ESP32."
         },
         {
-          "title": "Comunicação distribuída",
-          "text": "A etapa M3 evolui para ESP-IDF e MQTT, com clientes ESP32, publicação de estados e experimentação com broker MQTT executado em ESP32."
+          "title": "Progressão arquitetural",
+          "text": "O conjunto evidencia a passagem de um controlador embarcado monolítico conectado por Bluetooth para uma arquitetura concorrente e distribuída em rede."
         }
       ],
       "highlights": [
-        "Contagem bidirecional de pessoas",
-        "Tarefas concorrentes com FreeRTOS",
-        "Controle de iluminação por ocupação",
-        "Leitura de luminosidade via ADC",
-        "Comunicação MQTT",
-        "Arquitetura com múltiplos ESP32"
+        "Integração de múltiplos sensores no ESP32",
+        "Controle de bomba e aquecedor por relés",
+        "Supervisão Bluetooth",
+        "FreeRTOS e tarefas concorrentes",
+        "Detecção bidirecional de ocupação",
+        "Comunicação MQTT entre ESP32",
+        "Experimentação com broker local"
       ],
       "caseStudy": {
-        "title": "Da leitura de sensores a um sistema distribuído de ambientes inteligentes",
-        "intro": "O repositório reúne etapas de desenvolvimento de um sistema embarcado voltado a ambientes/quartos. O diagrama DSH modela portas com sensores de entrada e saída e estados de ocupação para diferentes quartos. O firmware implementa essa lógica e posteriormente distribui a comunicação entre dispositivos ESP32.",
-        "objective": "Determinar automaticamente se uma pessoa entrou ou saiu de um ambiente, manter uma contagem coerente de ocupantes e usar essa informação para controlar iluminação, acrescentando comunicação em rede para compartilhar estados entre módulos.",
-        "implementation": "Na etapa embarcada, tarefas independentes fazem polling dos sensores. Uma tarefa de lógica compara estados atuais e anteriores para reconhecer a ordem de passagem pelos sensores e atualizar a variável de ocupação. Outra tarefa lê o LDR pelo ADC, aciona a iluminação e publica mensagens MQTT. A evolução M3 usa ESP-IDF, Wi-Fi e clientes MQTT; o repositório também contém uma implementação de broker MQTT local baseada em Mongoose para ESP32.",
-        "architecture": "Sensores de passagem → tarefas FreeRTOS → lógica de direção/ocupação → controle de iluminação + leitura LDR → publicação MQTT. Em M3, módulos cliente e servidor/broker permitem distribuir a informação entre ESP32s e testar topologias locais de automação.",
-        "progress": "O repositório preserva diferentes iterações (M2 e M3), incluindo versões locais de cliente/servidor, testes de MQTT e um diagrama de estados/fluxo. É um protótipo acadêmico funcional e evolutivo, não um produto final de automação predial.",
+        "title": "Evolução de automação embarcada local para arquitetura distribuída",
+        "intro": "As etapas do repositório representam problemas distintos, mas compartilham a mesma base de engenharia embarcada: adquirir sinais físicos, tomar decisões de controle, acionar saídas e fornecer supervisão ao usuário ou a outros dispositivos.",
+        "objective": "Explorar integração hardware/software em ESP32 por meio de sensores, atuadores, comunicação sem fio e concorrência, evoluindo de um protótipo de automação local para uma arquitetura de dispositivos conectados.",
+        "implementation": "O M2 utiliza o framework Arduino e BluetoothSerial. Leituras de temperatura, nível de água e luminosidade alimentam regras de controle para relés e LED, enquanto comandos Bluetooth permitem sobrescrever estados. No M3, a implementação passa para ESP-IDF, tarefas FreeRTOS e MQTT; sensores de passagem alimentam uma máquina de estados que identifica entrada/saída e atualiza a ocupação, enquanto outros módulos publicam e recebem informações pela rede.",
+        "architecture": "M2: sensores → loop de controle → regras automáticas/comandos Bluetooth → relés e iluminação. M3: sensores → tarefas FreeRTOS → lógica de direção/ocupação → automação de iluminação → MQTT/Wi-Fi → outros ESP32s ou broker local.",
+        "progress": "O repositório preserva ambas as etapas e diferentes variantes de cliente/servidor do M3. Isso permite observar a evolução do mesmo eixo acadêmico de sistemas embarcados sem confundir os dois projetos em uma única aplicação.",
         "materials": [
           "ESP32",
-          "Sensores digitais de passagem/presença",
-          "Sensor de luminosidade LDR",
-          "LED/saída de iluminação",
+          "DHT11",
+          "Sensor de nível de água",
+          "LDR",
+          "Relés",
+          "LED/iluminação",
+          "BluetoothSerial",
           "ESP-IDF",
           "FreeRTOS",
           "MQTT",
-          "Mongoose networking library",
-          "Wi-Fi"
+          "Wi-Fi",
+          "Mongoose networking library"
         ],
         "results": [
-          "Lógica bidirecional para incrementar e decrementar ocupação",
-          "Acionamento de iluminação condicionado à presença",
-          "Leitura percentual aproximada de luminosidade",
-          "Publicação de estado via MQTT",
-          "Experimentação com broker MQTT executado no próprio ESP32",
-          "Separação do firmware em tarefas concorrentes"
+          "Aquisição e telemetria de múltiplos sensores",
+          "Controle automático e manual de bomba/aquecimento/iluminação",
+          "Comunicação Bluetooth no protótipo M2",
+          "Detecção de entrada e saída no M3",
+          "Contagem de ocupação e controle de iluminação",
+          "Publicação de estados por MQTT",
+          "Teste de broker MQTT executado em ESP32"
         ]
       },
+      "subprojects": [
+        {
+          "name": "M2 — Controlador de Automação com Bluetooth",
+          "path": "M2",
+          "summary": "Protótipo embarcado em ESP32 que combina temperatura, nível de água e luminosidade com controle de bomba, aquecedor e iluminação. O sistema transmite telemetria e recebe comandos manuais por Bluetooth.",
+          "details": [
+            "DHT11 mede a temperatura ambiente",
+            "Entrada analógica monitora o nível de água",
+            "LDR monitora luminosidade",
+            "Relé controla o aquecedor e outro relé controla a bomba",
+            "LED representa a saída de iluminação",
+            "Comandos Bluetooth alternam comando geral, luz, bomba e aquecedor",
+            "Regras automáticas usam temperatura e luminosidade como condições de acionamento"
+          ],
+          "technologies": [
+            "ESP32",
+            "Arduino",
+            "DHT11",
+            "Bluetooth",
+            "LDR",
+            "Relés",
+            "Sensores"
+          ]
+        },
+        {
+          "name": "M3 — Sistema Distribuído de Ocupação e Iluminação",
+          "path": "M3",
+          "summary": "Arquitetura com múltiplos ESP32s para reconhecer fluxo de pessoas, manter a ocupação de ambientes e comunicar estados por MQTT, incluindo variantes de cliente e servidor/broker local.",
+          "details": [
+            "Dois sensores permitem inferir a direção da passagem",
+            "Tarefas FreeRTOS separam aquisição e lógica",
+            "Ocupação é incrementada ou decrementada conforme a sequência dos sensores",
+            "Luminosidade via ADC participa da decisão de iluminação",
+            "Clientes ESP32 publicam estados por MQTT",
+            "Versões locais experimentam comunicação e broker executado no próprio ESP32"
+          ],
+          "technologies": [
+            "ESP32",
+            "ESP-IDF",
+            "FreeRTOS",
+            "MQTT",
+            "Wi-Fi",
+            "ADC",
+            "GPIO"
+          ]
+        }
+      ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/PSE",
-        "source": "M3/ESP_CLiente_local/main/app_main.c"
+        "repository": "https://github.com/jorgebandeo/PSE"
       },
       "portfolio": {
         "visible": true,
@@ -183,21 +235,46 @@
       "technologies": [
         "Python",
         "YOLOv8",
+        "Ultralytics",
         "Computer Vision",
         "Deep Learning"
       ],
-      "summary": "Repositório dedicado ao treinamento de modelos YOLOv8 para tarefas de detecção e classificação relacionadas ao projeto de detecção de quedas, integrado ao conjunto de dados do FallProject.",
+      "summary": "Repositório dedicado a experimentos de treinamento com YOLOv8 para detecção e classificação no contexto do projeto de detecção de quedas, incluindo configurações de dataset, pesos-base e scripts de treinamento.",
       "highlights": [
         "Treinamento de detecção",
         "Treinamento de classificação",
         "Visão computacional",
-        "Integração com Dataset FallProject"
+        "Integração com Dataset FallProject",
+        "Configuração de experimentos"
       ],
+      "caseStudy": {
+        "title": "Pipelines experimentais de detecção e classificação com YOLOv8",
+        "intro": "O repositório representa a etapa de treinamento da pesquisa de visão computacional, separando experimentos de detecção de pessoas/eventos e classificação de imagens preparados a partir do conjunto de dados da pesquisa.",
+        "objective": "Avaliar modelos YOLOv8 como base para localizar pessoas e produzir classificadores aplicáveis ao reconhecimento de situações de queda.",
+        "implementation": "O pipeline de detecção usa Ultralytics YOLO com pesos YOLOv8n e um dataset configurado por YAML. Um dos experimentos registrados executa treinamento com imagens de 480 px, até 1000 épocas, patience 30 e batch 8. Há também scripts separados para treinamento de classificação com YOLOv8.",
+        "architecture": "Dataset preparado → configuração YAML → inicialização de pesos/modelo YOLOv8 → treinamento → checkpoints/artefatos → experimentos de detecção e classificação.",
+        "progress": "O repositório conserva scripts e configurações experimentais, incluindo pesos-base. Ele deve ser interpretado como laboratório de treinamento da pesquisa, complementando o repositório de preparação de dados.",
+        "materials": [
+          "Python",
+          "Ultralytics YOLOv8",
+          "YOLOv8n",
+          "Arquivos YAML de dataset/configuração",
+          "CPU nos scripts preservados",
+          "Dataset FallProject"
+        ],
+        "results": [
+          "Pipeline reproduzível de treinamento de detecção",
+          "Separação entre experimentos de detecção e classificação",
+          "Configurações de treinamento preservadas no repositório",
+          "Integração com a etapa de preparação de datasets"
+        ]
+      },
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/YOLOv8Train"
+        "repository": "https://github.com/jorgebandeo/YOLOv8Train",
+        "source": "Detect/TreinamentoDeteccao.py"
       },
       "portfolio": {
         "visible": true,
@@ -253,6 +330,30 @@
         "Lista de convidados",
         "Reconstrução funcional para GitHub Pages"
       ],
+      "caseStudy": {
+        "title": "Reconstrução de uma aplicação web a partir do histórico do projeto",
+        "intro": "O projeto original foi desenvolvido para uso real na organização de um casamento. A versão mais avançada permaneceu na hospedagem e não havia sido preservada integralmente no GitHub, tornando necessária uma reconstrução baseada no código remanescente e no histórico funcional do desenvolvimento.",
+        "objective": "Preservar a experiência e as principais regras do site — especialmente RSVP, pesquisa de convidados e contador — em uma versão demonstrável e sustentável no GitHub Pages.",
+        "implementation": "A estrutura de interface foi recuperada em HTML/CSS/JavaScript. Os pontos que originalmente dependiam de PHP e SQL foram adaptados para dados locais simulados, mantendo autocomplete, lista e fluxos de confirmação demonstráveis sem backend no GitHub Pages.",
+        "architecture": "Interface HTML/CSS → JavaScript de interação/RSVP → camada de dados local para demonstração. A arquitetura original também possuía endpoints PHP e persistência SQL, preservados como referência histórica do projeto.",
+        "progress": "O projeto está arquivado como reconstrução histórica funcional. O objetivo atual não é operar o evento, mas preservar decisões de produto, experiência e implementação realizadas durante o desenvolvimento original.",
+        "materials": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "PHP no projeto original",
+          "SQL no projeto original",
+          "GitHub Pages",
+          "Dados locais simulados"
+        ],
+        "results": [
+          "Versão navegável publicada no GitHub Pages",
+          "Fluxo de RSVP preservado para demonstração",
+          "Autocomplete e lista de convidados funcionais com dados locais",
+          "Contador e identidade visual recuperados",
+          "Código histórico reorganizado e documentado"
+        ]
+      },
       "media": {
         "gallery": []
       },
@@ -301,6 +402,30 @@
         "Filtros kernelizados",
         "Filtro de Kalman"
       ],
+      "caseStudy": {
+        "title": "Comparação experimental de estratégias de filtragem",
+        "intro": "O projeto explora abordagens lineares, kernelizadas e baseadas em estimação de estado para observar como diferentes filtros respondem a sinais contaminados por ruído.",
+        "objective": "Comparar qualidade de filtragem e custo computacional usando métricas e visualizações comuns, permitindo observar vantagens e limitações de LMS, KLMS, Kalman e KFxLMS.",
+        "implementation": "Os algoritmos são executados sobre sinais de teste e seus resultados são comparados por erro quadrático médio, comportamento de convergência e tempo de execução. O repositório preserva imagens com os sinais/resultados e medições comparativas.",
+        "architecture": "Sinal de referência + ruído → execução independente de cada filtro → cálculo de erro/MSE → medição de tempo → comparação gráfica dos resultados.",
+        "progress": "O trabalho está estruturado como estudo comparativo e registra resultados gráficos das abordagens implementadas, adequado para análise acadêmica de desempenho e comportamento dos filtros.",
+        "materials": [
+          "Python",
+          "Sinais de teste",
+          "LMS",
+          "KLMS",
+          "Filtro de Kalman",
+          "KFxLMS",
+          "Métricas de MSE",
+          "Medição de tempo de execução"
+        ],
+        "results": [
+          "Comparação visual dos sinais filtrados",
+          "Comparação de erro quadrático médio",
+          "Análise de convergência",
+          "Comparação de custo temporal entre algoritmos"
+        ]
+      },
       "media": {
         "gallery": [
           {
@@ -334,6 +459,88 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
+        "id": "materia-ia",
+        "name": "Sistema Baseado em Casos para Predição de Desempenho Acadêmico",
+        "subtitle": "Raciocínio Baseado em Casos aplicado à previsão de notas a partir de dados educacionais",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "research",
+        "ai"
+      ],
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Case-Based Reasoning",
+        "Data Analysis",
+        "Similarity Metrics"
+      ],
+      "summary": "Projeto de Inteligência Artificial que implementa um Sistema Baseado em Casos para estimar o desempenho acadêmico de estudantes. A solução utiliza um conjunto de dados educacionais, seleciona atributos como notas anteriores, reprovações, faltas, intenção de cursar ensino superior, suporte escolar e aspectos sociais, atribui pesos a essas características e calcula similaridade ponderada entre um novo caso e registros históricos para recuperar os casos mais próximos e inferir a classe de nota final.",
+      "development": [
+        {
+          "title": "Representação dos casos",
+          "text": "Cada aluno é descrito por um vetor de atributos acadêmicos e contextuais. As notas são convertidas em classes A–F para a etapa de recuperação e predição."
+        },
+        {
+          "title": "Funções de similaridade",
+          "text": "O algoritmo diferencia atributos numéricos, booleanos e ordinais, aplicando funções de similaridade específicas antes da agregação ponderada."
+        },
+        {
+          "title": "Recuperação e decisão",
+          "text": "As similaridades são normalizadas pelos pesos dos atributos; os registros históricos são ordenados e os cinco casos mais próximos são apresentados como evidência para a estimativa da nota final."
+        }
+      ],
+      "highlights": [
+        "Raciocínio Baseado em Casos",
+        "Similaridade ponderada por atributo",
+        "Dados reais de desempenho estudantil",
+        "Tratamento distinto de variáveis numéricas, booleanas e ordinais",
+        "Recuperação dos casos mais semelhantes"
+      ],
+      "caseStudy": {
+        "title": "Predição explicável por recuperação de casos semelhantes",
+        "intro": "Em vez de treinar um modelo de caixa-preta, o trabalho utiliza Raciocínio Baseado em Casos: uma nova situação é comparada a experiências históricas e a decisão pode ser explicada pelos registros que mais se aproximam dela.",
+        "objective": "Estimar a classe de desempenho final de um estudante a partir de características acadêmicas e contextuais, preservando uma lógica de decisão rastreável e baseada em similaridade.",
+        "implementation": "O sistema usa Pandas para preparar o dataset student-mat. Onze atributos recebem pesos explícitos. Funções independentes calculam similaridade numérica, igualdade booleana ou proximidade ordinal. A soma ponderada produz um índice global usado para ranquear os casos históricos.",
+        "architecture": "Dataset histórico → seleção/transformação de atributos → cálculo de similaridade por característica → agregação ponderada → ranking de casos → estimativa da classe G3.",
+        "progress": "Além do código-fonte, o repositório contém dataset de testes, base de estudantes, executável do protótipo e relatório acadêmico específico sobre o Sistema Baseado em Casos.",
+        "materials": [
+          "Python e Pandas",
+          "Student Performance Dataset",
+          "Dataset próprio de casos de teste",
+          "Relatório acadêmico em PDF",
+          "Executável do protótipo"
+        ],
+        "results": [
+          "Motor de similaridade implementado sem biblioteca de ML de alto nível",
+          "Ranking dos cinco casos históricos mais próximos",
+          "Predição de classe de nota final A–F",
+          "Modelo interpretável pela inspeção direta dos casos recuperados"
+        ]
+      },
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Mataria-de-IA"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 55
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Mataria-de-IA",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
         "id": "processamento-digital-sinais",
         "name": "Processamento Digital de Sinais",
         "subtitle": "Filtros, Fourier, amostragem e análise de sinais",
@@ -351,16 +558,56 @@
         "DSP",
         "FFT"
       ],
-      "summary": "Coleção de códigos de Processamento Digital de Sinais cobrindo filtragem FIR e IIR, transformadas DFT/FFT, amostragem, quantização, filtragem adaptativa e análise de sinais de áudio.",
+      "summary": "Coleção acadêmica de Processamento Digital de Sinais cobrindo filtragem, transformadas, amostragem, quantização, filtragem adaptativa e análise computacional de sinais.",
       "highlights": [
         "Filtros FIR e IIR",
         "DFT e FFT",
         "Amostragem e quantização",
         "Filtragem adaptativa",
-        "Análise de áudio"
+        "Análise e visualização de sinais"
       ],
+      "caseStudy": {
+        "title": "Percurso prático em Processamento Digital de Sinais",
+        "intro": "O repositório reúne uma sequência de aulas e atividades avaliativas em DSP, preservando implementações e gráficos produzidos ao longo da disciplina em vez de representar um único programa monolítico.",
+        "objective": "Aplicar computacionalmente os fundamentos de sinais discretos, espectro, amostragem e filtragem, observando os efeitos das operações por meio de código e visualizações.",
+        "implementation": "Os exercícios usam Python e bibliotecas numéricas para gerar, transformar, filtrar e visualizar sinais. A estrutura em aulas e avaliações registra a evolução dos tópicos e inclui figuras resultantes dos experimentos.",
+        "architecture": "Sinal/amostra → processamento numérico → transformação ou filtro → análise no domínio do tempo/frequência → visualização e comparação.",
+        "progress": "É um registro acadêmico incremental, organizado por aulas e avaliações. O valor do projeto está na amplitude de experimentos e na evolução prática dos conceitos de DSP.",
+        "materials": [
+          "Python",
+          "NumPy",
+          "SciPy",
+          "Matplotlib",
+          "Sinais digitais",
+          "Transformadas DFT/FFT",
+          "Filtros digitais"
+        ],
+        "results": [
+          "Implementações de transformadas e filtragem",
+          "Visualizações de sinais processados",
+          "Exercícios de amostragem e quantização",
+          "Experimentos com filtros adaptativos",
+          "Registro de resultados gráficos no repositório"
+        ]
+      },
       "media": {
-        "gallery": []
+        "gallery": [
+          {
+            "type": "image",
+            "src": "Figure_1.png",
+            "caption": "Resultado gráfico preservado no repositório"
+          },
+          {
+            "type": "image",
+            "src": "Figure_2.png",
+            "caption": "Visualização de experimento de processamento de sinais"
+          },
+          {
+            "type": "image",
+            "src": "Figure_3.png",
+            "caption": "Resultado de análise de sinais"
+          }
+        ]
       },
       "links": {
         "repository": "https://github.com/jorgebandeo/Processamento-Digital-de-Sinais"
@@ -381,9 +628,277 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
+        "id": "sistemas-tempo-real",
+        "name": "Sistemas em Tempo Real",
+        "subtitle": "Coleção acadêmica com otimização paralela de imagens e simulação concorrente de sistemas automotivos",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "embedded",
+        "research"
+      ],
+      "technologies": [
+        "C",
+        "C++",
+        "POSIX Threads",
+        "Paralelismo",
+        "Mutex",
+        "Condition Variables",
+        "LUT",
+        "Processamento de Imagens",
+        "PGM"
+      ],
+      "summary": "Repositório da disciplina de Sistemas em Tempo Real com dois trabalhos tecnicamente distintos. O primeiro investiga desempenho computacional em processamento de imagens, comparando uma implementação sequencial com versões baseadas em lookup table e paralelização. O segundo implementa uma simulação concorrente de um carro inteligente em C, na qual subsistemas como ABS, airbag, temperatura, cinto, iluminação, vidros e travas são monitorados por threads independentes e sincronizados com primitivas POSIX.",
+      "development": [
+        {
+          "title": "M1 — processamento e otimização",
+          "text": "Uma carga de processamento bidimensional sobre imagens PGM é mantida em múltiplas versões para comparar execução original, pré-cálculo por LUT e paralelismo."
+        },
+        {
+          "title": "M2 — sistema automotivo concorrente",
+          "text": "O segundo trabalho modela componentes de um carro inteligente como atividades concorrentes, medindo tempos de resposta e utilizando mutexes e condition variables para coordenar o acesso aos estados compartilhados."
+        },
+        {
+          "title": "Foco em temporalidade",
+          "text": "Os dois trabalhos abordam o mesmo princípio por ângulos diferentes: reduzir tempo de computação e estruturar atividades concorrentes cujo comportamento também depende do tempo de resposta."
+        }
+      ],
+      "highlights": [
+        "Otimização por lookup table",
+        "Processamento paralelo de imagens",
+        "POSIX Threads",
+        "Sincronização com mutex e condition variables",
+        "Simulação de ABS, airbag e subsistemas automotivos",
+        "Medição de tempos de resposta"
+      ],
+      "caseStudy": {
+        "title": "Tempo de execução, concorrência e previsibilidade computacional",
+        "intro": "Sistemas de tempo real precisam produzir resultados corretos dentro de restrições temporais. O repositório explora esse requisito tanto pela otimização de uma carga computacional quanto pela decomposição concorrente de um sistema automotivo simulado.",
+        "objective": "Aplicar técnicas de otimização, paralelismo e programação concorrente para compreender como arquitetura e implementação afetam latência, tempo de resposta e comportamento de tarefas simultâneas.",
+        "implementation": "No M1 são preservadas variantes do mesmo algoritmo de imagem — original, LUT, paralelo e LUT paralelo — executadas sobre arquivos PGM. No M2, pthreads representam subsistemas automotivos; estados globais compartilhados são protegidos por mutexes e eventos são coordenados com variáveis de condição. O programa recebe comandos de teclado e registra respostas dos componentes.",
+        "architecture": "M1: imagem PGM → processamento 2D → implementação selecionada → imagem de saída/medição. M2: entrada de eventos → estados compartilhados → threads de subsistemas → sincronização → resposta e registro temporal.",
+        "progress": "Os dois trabalhos possuem fontes e artefatos executáveis no repositório. O M1 mantém várias versões comparáveis do algoritmo; o M2 contém uma implementação integrada de aproximadamente vários subsistemas do carro com instrumentação temporal.",
+        "materials": [
+          "C/C++",
+          "pthreads",
+          "Mutexes",
+          "Condition variables",
+          "Imagens PGM",
+          "Lookup tables",
+          "CSV/registro de medições",
+          "Makefile"
+        ],
+        "results": [
+          "Comparação estrutural entre implementação original e versões otimizadas",
+          "Paralelização da carga de processamento",
+          "Modelagem concorrente de componentes automotivos",
+          "Sincronização explícita de estados compartilhados",
+          "Medição de tempos de resposta durante a simulação"
+        ]
+      },
+      "subprojects": [
+        {
+          "name": "M1 — FDA: processamento de imagens e otimização",
+          "path": "Trabalho M1",
+          "summary": "Experimento de desempenho com uma rotina de processamento bidimensional aplicada a imagens PGM. O mesmo problema é implementado em diferentes variantes para estudar o efeito de pré-cálculo e paralelização sobre o custo computacional.",
+          "details": [
+            "Versão sequencial original em C",
+            "Versão com lookup table para evitar cálculos repetidos",
+            "Versão paralela com divisão da carga entre threads",
+            "Versão combinando LUT e paralelismo",
+            "Arquivos PGM de entrada e saída usados para comparar o processamento"
+          ],
+          "technologies": [
+            "C",
+            "C++",
+            "Threads",
+            "LUT",
+            "PGM",
+            "Processamento de Imagens"
+          ]
+        },
+        {
+          "name": "M2 — Sistema de Controle de Carro Inteligente",
+          "path": "Trabalho M2",
+          "summary": "Simulação de um sistema automotivo concorrente em C. Threads independentes monitoram e controlam acelerador, ABS, temperatura do motor, airbag, cinto de segurança, iluminação, vidros e travas, permitindo observar o tempo de resposta de cada subsistema.",
+          "details": [
+            "Comandos de teclado alteram eventos e estados do veículo",
+            "Mutexes independentes protegem grupos de variáveis compartilhadas",
+            "Condition variable coordena atualização de display/estado",
+            "Relógios de alta resolução registram início e fim das respostas",
+            "Subsistemas de segurança e conforto executam concorrentemente",
+            "Arquivos CSV são utilizados para registro de dados do experimento"
+          ],
+          "technologies": [
+            "C",
+            "POSIX Threads",
+            "Mutex",
+            "Condition Variables",
+            "time.h",
+            "CSV"
+          ]
+        }
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/STR",
+        "source": "Trabalho M2/main.c"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 65
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "STR",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "redes-computadores",
+        "name": "Implementação e Análise de Protocolos de Rede",
+        "subtitle": "Dois experimentos em Python: HTTP/TCP e UDP observados do código ao pacote",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "networking",
+        "academic"
+      ],
+      "technologies": [
+        "Python",
+        "TCP/IP",
+        "HTTP",
+        "UDP",
+        "Sockets",
+        "Wireshark",
+        "HTML"
+      ],
+      "summary": "Repositório acadêmico de Redes de Computadores organizado em dois trabalhos. O primeiro implementa servidor e cliente HTTP sobre TCP e adapta o servidor para gerar uma página HTML com a listagem de arquivos do diretório. O segundo implementa comunicação UDP diretamente por sockets. Em ambos, a execução é confrontada com capturas no Wireshark para relacionar APIs de programação a endereçamento, portas, payloads, datagramas e comportamento efetivo da pilha de rede.",
+      "development": [
+        {
+          "title": "M2.1 — HTTP/TCP",
+          "text": "Servidor e cliente são implementados em Python com http.server; a versão estendida responde a GET / construindo dinamicamente uma listagem HTML dos arquivos locais."
+        },
+        {
+          "title": "M2.2 — UDP",
+          "text": "Transmissor e receptor utilizam socket(AF_INET, SOCK_DGRAM), bind, sendto e recvfrom para troca bidirecional de mensagens sem conexão."
+        },
+        {
+          "title": "Análise experimental",
+          "text": "Wireshark é utilizado para capturar a comunicação, identificar tuplas de socket, interpretar payloads e relacionar os experimentos a checksum, fragmentação IP, overhead e confiabilidade."
+        }
+      ],
+      "highlights": [
+        "Servidor HTTP na porta 8000",
+        "Cliente HTTP",
+        "HTML gerado dinamicamente",
+        "Sockets UDP na porta 1234",
+        "Captura de pacotes no Wireshark",
+        "Diagrama de sequência",
+        "Transcrição de datagramas"
+      ],
+      "caseStudy": {
+        "title": "Protocolos observados entre aplicação, transporte e rede",
+        "intro": "O objetivo da coleção é reduzir a distância entre o código de aplicação e o tráfego realmente produzido. Cada trabalho implementa um protocolo e depois examina seus pacotes, permitindo compreender as abstrações oferecidas pelas bibliotecas de rede.",
+        "objective": "Implementar e validar comunicação em HTTP/TCP e UDP, identificando os elementos que compõem uma sessão ou datagrama e discutindo implicações de transporte, overhead, integridade e fragmentação.",
+        "implementation": "No trabalho HTTP, handlers Python processam GET, produzem status HTTP e conteúdo HTML. No UDP, sockets datagram são configurados explicitamente e realizam troca de mensagens com endereço e porta. Capturas no Wireshark fornecem evidência externa do comportamento de ambos.",
+        "architecture": "Aplicação Python → API de sockets/protocolo → TCP ou UDP → IPv4 → interface de rede; Wireshark observa os quadros/pacotes gerados e permite validar endereços, portas e conteúdo.",
+        "progress": "Os READMEs incluem enunciados, implementação, explicações conceituais, capturas, GIFs, diagrama de sequência e transcrição de pacotes, tornando o repositório um registro técnico do experimento e não apenas um conjunto de scripts.",
+        "materials": [
+          "Python http.server",
+          "Python socket",
+          "Wireshark",
+          "HTML",
+          "Capturas de pacotes",
+          "Diagramas de sequência"
+        ],
+        "results": [
+          "Servidor HTTP funcional e cliente correspondente",
+          "Listagem dinâmica de arquivos via GET",
+          "Troca bidirecional UDP",
+          "Identificação das tuplas IP/porta",
+          "Inspeção de payloads e datagramas",
+          "Discussão prática de checksum, fragmentação e perdas"
+        ]
+      },
+      "subprojects": [
+        {
+          "name": "M2.1 — Web Server HTTP sobre TCP",
+          "path": "trabalho M2 1",
+          "summary": "Implementação e análise de um serviço HTTP em Python. O trabalho parte de servidor/cliente básicos e evolui para um handler que gera HTML dinamicamente a partir dos arquivos disponíveis no diretório raiz.",
+          "details": [
+            "Servidor baseado em BaseHTTPRequestHandler/http.server",
+            "Cliente HTTP para validar as respostas",
+            "Resposta ao método GET",
+            "Geração de lista HTML usando os.listdir",
+            "Resposta 404 para rotas não tratadas",
+            "Captura no Wireshark e identificação da tupla de socket"
+          ],
+          "technologies": [
+            "Python",
+            "HTTP",
+            "TCP",
+            "http.server",
+            "HTML",
+            "Wireshark"
+          ]
+        },
+        {
+          "name": "M2.2 — Comunicação UDP e Análise de Datagramas",
+          "path": "trabalho M2 2",
+          "summary": "Implementação de transmissor e receptor UDP com a biblioteca socket e análise detalhada da comunicação no Wireshark.",
+          "details": [
+            "Socket SOCK_DGRAM",
+            "Bind do receptor em localhost:1234",
+            "sendto e recvfrom",
+            "Comunicação bidirecional sem estabelecimento de conexão",
+            "Diagrama de sequência da comunicação",
+            "Transcrição de um datagrama recebido",
+            "Estudo do checksum UDP e da relação entre tamanho, fragmentação IP e probabilidade de perda"
+          ],
+          "technologies": [
+            "Python",
+            "UDP",
+            "Sockets",
+            "Wireshark",
+            "IPv4"
+          ]
+        }
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Materia-RedCop"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 75
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Materia-RedCop",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
         "id": "app-clinica",
         "name": "Gerenciador de Consultas Médicas",
-        "subtitle": "Aplicativo Android para organização de consultas",
+        "subtitle": "Aplicação Android em Java com persistência local e módulos de médicos, pacientes e consultas",
         "status": "academic"
       },
       "categories": [
@@ -392,15 +907,54 @@
       ],
       "technologies": [
         "Java",
+        "Android SDK",
         "Android Studio",
-        "Android"
+        "SQLite",
+        "Fragments",
+        "XML"
       ],
-      "summary": "Aplicativo desenvolvido no Android Studio para gerenciamento de consultas médicas, explorando desenvolvimento mobile em Java e organização de informações em uma interface Android.",
+      "summary": "Aplicação Android acadêmica para gerenciamento local de uma clínica, estruturada em entidades de domínio para médicos, pacientes e consultas. O projeto implementa fluxos independentes de cadastro, edição, listagem e associação de registros, persistência em banco de dados local e navegação por Fragments, constituindo uma aplicação CRUD mobile completa em Java.",
+      "development": [
+        {
+          "title": "Modelagem de domínio",
+          "text": "Separação das entidades Médico, Paciente e Consulta em classes e módulos próprios, refletindo as relações centrais do problema de agendamento clínico."
+        },
+        {
+          "title": "Persistência local",
+          "text": "Camada DataBase centraliza criação e manipulação do banco local, permitindo manter os registros entre execuções da aplicação."
+        },
+        {
+          "title": "Interface Android",
+          "text": "Fluxos de inclusão, edição, listagem e visualização foram implementados em Fragments e layouts XML, com MainActivity como ponto de entrada da aplicação."
+        }
+      ],
       "highlights": [
-        "Aplicação Android",
-        "Gerenciamento de consultas",
-        "Desenvolvimento em Java"
+        "CRUD de médicos, pacientes e consultas",
+        "Persistência local estruturada",
+        "Arquitetura modular por entidades",
+        "Navegação Android baseada em Fragments"
       ],
+      "caseStudy": {
+        "title": "Aplicação mobile de gestão clínica",
+        "intro": "O projeto aplica conceitos de engenharia de software mobile a um domínio administrativo real: a organização de profissionais, pacientes e seus respectivos atendimentos.",
+        "objective": "Construir uma aplicação Android capaz de representar e persistir as principais entidades de uma clínica, permitindo operações de manutenção cadastral e gerenciamento de consultas sem depender de um serviço remoto.",
+        "implementation": "A solução foi desenvolvida em Java sobre o Android SDK. Cada domínio possui classes de modelo e Fragments específicos para adicionar, editar e listar registros. Uma camada dedicada de banco de dados concentra a persistência e as operações necessárias aos módulos funcionais.",
+        "architecture": "Interface Android → Fragments de domínio → objetos Médico/Paciente/Consulta → camada DataBase → armazenamento local.",
+        "progress": "O repositório contém a estrutura completa de um projeto Android, código das entidades, múltiplos fluxos CRUD, layouts, recursos e implementação de persistência, caracterizando um protótipo acadêmico funcional e não apenas exercícios isolados.",
+        "materials": [
+          "Android Studio e Gradle",
+          "Java e Android SDK",
+          "Layouts e recursos XML",
+          "Banco de dados local",
+          "Fragments e componentes de interface"
+        ],
+        "results": [
+          "Modelagem integrada de três entidades de negócio",
+          "Persistência de dados no dispositivo",
+          "Operações de cadastro, consulta e alteração",
+          "Aplicação da separação entre interface, domínio e persistência"
+        ]
+      },
       "media": {
         "gallery": []
       },
@@ -415,6 +969,317 @@
       "_source": {
         "owner": "jorgebandeo",
         "repo": "APP-Clinica",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "materia-ia-py",
+        "name": "Análise de Dados e Esteganografia em Python",
+        "subtitle": "Coleção de trabalhos com séries financeiras e codificação de informação em imagens",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "research",
+        "academic"
+      ],
+      "technologies": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "OpenCV",
+        "Matplotlib",
+        "CSV",
+        "Image Processing"
+      ],
+      "summary": "Repositório acadêmico com dois trabalhos independentes em Python. O primeiro processa uma base histórica do S&P 500, segmentando dados por empresa e ano, calculando agregações e produzindo gráficos de preços e volume. O segundo explora esteganografia em imagens, convertendo texto em bits, alterando diferenças entre pares de pixels do canal vermelho e reconstruindo posteriormente a mensagem oculta.",
+      "development": [
+        {
+          "title": "Trabalho 1 — análise financeira",
+          "text": "Pandas é utilizado para filtrar séries temporais por companhia e ano; dados Open, High, Low, Close e Volume são consolidados e visualizados com Matplotlib."
+        },
+        {
+          "title": "Trabalho 2 — esteganografia",
+          "text": "Texto é transformado em bytes e bits, inserido em uma imagem por pequenas alterações em pares de pixels e recuperado por um decodificador implementado no próprio código."
+        },
+        {
+          "title": "Manipulação de dados heterogêneos",
+          "text": "A coleção mostra o uso de Python tanto em dados tabulares quanto em matrizes de imagem, explorando transformação, persistência e visualização."
+        }
+      ],
+      "highlights": [
+        "Processamento de histórico do S&P 500",
+        "Agregação anual por empresa",
+        "Visualização OHLC e volume",
+        "Codificação binária de texto",
+        "Esteganografia no canal vermelho",
+        "Decodificação própria da mensagem"
+      ],
+      "caseStudy": {
+        "title": "Transformação e representação de informação em dados tabulares e imagens",
+        "intro": "Os dois trabalhos usam Python para problemas diferentes, mas compartilham um mesmo eixo: transformar dados brutos em uma representação útil e aplicar operações programáticas sobre essa representação.",
+        "objective": "Praticar leitura, filtragem, transformação e visualização de dados e, em paralelo, experimentar como uma mensagem digital pode ser representada discretamente dentro de uma imagem.",
+        "implementation": "Na análise financeira, arquivos CSV são carregados em DataFrames, filtrados por símbolo e período e convertidos em subconjuntos anuais e gráficos. Na esteganografia, OpenCV lê a imagem, NumPy transforma o canal vermelho em um vetor e pares de pixels são ajustados para representar bits; um valor sentinela indica o fim da mensagem.",
+        "architecture": "Trabalho 1: CSV → Pandas → filtros/agregações → exportação e gráficos. Trabalho 2: texto → bytes/bits → imagem OpenCV/NumPy → alterações controladas → imagem codificada → leitura das diferenças → texto recuperado.",
+        "progress": "O repositório contém código, dados de teste e artefatos gerados, incluindo arquivos anuais do experimento financeiro e imagens de entrada/saída do experimento de esteganografia.",
+        "materials": [
+          "Python",
+          "Pandas",
+          "Matplotlib",
+          "NumPy",
+          "OpenCV",
+          "Base histórica do S&P 500",
+          "Imagem fotográfica e arquivo de mensagem"
+        ],
+        "results": [
+          "Extração e visualização de séries anuais",
+          "Geração de subconjuntos por empresa/período",
+          "Inserção de mensagem textual em imagem",
+          "Recuperação automatizada do conteúdo oculto"
+        ]
+      },
+      "subprojects": [
+        {
+          "name": "Análise Histórica do S&P 500",
+          "path": "Trabalho M2",
+          "summary": "Pipeline de análise de dados financeiros que processa uma base histórica do S&P 500 e gera recortes anuais e visualizações para uma empresa selecionada.",
+          "details": [
+            "Leitura do dataset em CSV",
+            "Filtragem por empresa e período",
+            "Geração de arquivos anuais MMM2018 a MMM2023",
+            "Agregação do volume negociado",
+            "Visualização de Open, High, Low e Close com Matplotlib",
+            "Uso de Pandas para organização temporal dos registros"
+          ],
+          "technologies": [
+            "Python",
+            "Pandas",
+            "Matplotlib",
+            "CSV",
+            "Data Analysis"
+          ]
+        },
+        {
+          "name": "Esteganografia em Imagens",
+          "path": "Trabalho 2 M2",
+          "summary": "Experimento de codificação de mensagem textual dentro de uma fotografia. A mensagem é convertida em bits e representada por diferenças controladas entre pares de pixels no canal vermelho.",
+          "details": [
+            "Conversão de caracteres para representação binária de 8 bits",
+            "Leitura da imagem com OpenCV",
+            "Manipulação vetorial com NumPy",
+            "Codificação dos bits em pares de pixels",
+            "Uso de marcador de término da mensagem",
+            "Decodificação da imagem para reconstruir o texto",
+            "Comparação entre imagem original e imagem modificada"
+          ],
+          "technologies": [
+            "Python",
+            "OpenCV",
+            "NumPy",
+            "Image Processing",
+            "Steganography"
+          ]
+        }
+      ],
+      "media": {
+        "gallery": [
+          {
+            "type": "image",
+            "src": "Trabalho 2 M2/IMG_20220315_112141930.jpg",
+            "caption": "Imagem utilizada como entrada no experimento de esteganografia."
+          },
+          {
+            "type": "image",
+            "src": "Trabalho 2 M2/trste.jpg",
+            "caption": "Imagem resultante produzida pelo processo de codificação."
+          }
+        ]
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Materia-I-A-Py"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 95
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Materia-I-A-Py",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "eletronica-aplicada",
+        "name": "Eletrônica Aplicada — Circuitos Analógicos e Conversão de Sinais",
+        "subtitle": "Estudo técnico de amplificadores operacionais, filtros ativos, ADC/DAC, sensores e instrumentação",
+        "status": "academic"
+      },
+      "categories": [
+        "hardware",
+        "embedded",
+        "research"
+      ],
+      "technologies": [
+        "Eletrônica Analógica",
+        "Amplificadores Operacionais",
+        "Filtros Ativos",
+        "ADC/DAC",
+        "Instrumentação",
+        "Sensores"
+      ],
+      "summary": "Compêndio técnico-acadêmico de Eletrônica Aplicada voltado ao condicionamento, processamento e conversão de sinais. O material percorre o modelo ideal e as limitações reais de amplificadores operacionais, topologias inversora e não inversora, buffers, integradores, diferenciadores, somadores, amplificadores diferenciais e de instrumentação, além de projeto de filtros ativos e fundamentos de conversão analógico-digital e digital-analógica.",
+      "development": [
+        {
+          "title": "Amplificação e condicionamento",
+          "text": "Estudo de ganho, impedâncias, largura de banda, CMRR, PSRR, offset e slew rate, relacionando o modelo ideal às limitações de componentes reais."
+        },
+        {
+          "title": "Topologias analógicas",
+          "text": "Análise de amplificadores inversores/não inversores, seguidores, integradores, diferenciadores, somadores, amplificadores diferenciais e de instrumentação."
+        },
+        {
+          "title": "Filtragem e conversão",
+          "text": "O material aborda especificação e projeto de filtros ativos e os parâmetros fundamentais de conversores ADC e DAC, como resolução, taxa de amostragem, linearidade, precisão e erro de quantização."
+        }
+      ],
+      "highlights": [
+        "Modelo ideal versus comportamento real de amplificadores operacionais",
+        "Condicionamento e instrumentação de sinais",
+        "Filtros ativos e definição de frequência de corte",
+        "Conversão A/D e D/A",
+        "Relação entre circuitos analógicos, sensores e sistemas embarcados"
+      ],
+      "caseStudy": {
+        "title": "Fundamentos de interface entre o mundo analógico e sistemas digitais",
+        "intro": "Sistemas embarcados e de aquisição dependem de uma cadeia analógica anterior ao processamento digital. O material documenta justamente os elementos responsáveis por amplificar, filtrar, adaptar e converter esses sinais.",
+        "objective": "Consolidar os fundamentos necessários para analisar e projetar estágios de condicionamento e conversão de sinais, conectando características físicas dos componentes às especificações de um sistema eletrônico.",
+        "implementation": "O conteúdo é organizado por unidades conceituais, partindo das características dos amplificadores operacionais, avançando pelas topologias clássicas e chegando ao projeto de filtros e conversores de sinais. São discutidos tanto modelos ideais quanto efeitos de ganho finito, frequência e limitações práticas.",
+        "architecture": "Sensor/sinal analógico → condicionamento por amplificador → filtragem → conversão A/D → processamento digital; no sentido inverso, dados digitais → D/A → estágio analógico/atuador.",
+        "progress": "Trata-se de material de estudo técnico consolidado em um README extenso, e não de um único protótipo físico. Por isso, o portfólio o apresenta como base acadêmica de engenharia, sem atribuir resultados experimentais inexistentes.",
+        "materials": [
+          "Teoria de amplificadores operacionais",
+          "Topologias de instrumentação",
+          "Filtros ativos",
+          "Conversores SAR e Delta-Sigma",
+          "Conceitos de DAC",
+          "Sensores e transdutores"
+        ],
+        "results": [
+          "Síntese estruturada de eletrônica analógica aplicada",
+          "Relação entre especificações reais e modelos ideais",
+          "Base para projeto de aquisição e condicionamento de sinais",
+          "Cobertura da interface analógica/digital utilizada em sistemas embarcados"
+        ]
+      },
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Eletr-nica-Aplicada-"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 110
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Eletr-nica-Aplicada-",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "linguagens-formais-automatos",
+        "name": "Analisador de Linguagem com GALS",
+        "subtitle": "Scanner, parser SLR e análise semântica para uma linguagem aritmética em Java",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "compiler"
+      ],
+      "technologies": [
+        "Java",
+        "GALS",
+        "Análise Léxica",
+        "Parsing SLR",
+        "Gramáticas Formais",
+        "Análise Semântica"
+      ],
+      "summary": "Projeto acadêmico de construção de uma pequena linguagem formal utilizando o gerador GALS. A especificação define tokens, identificadores, números binários, operadores aritméticos, precedência, atribuição e comando de saída; a partir dela são gerados os componentes de análise léxica e sintática em Java, complementados por uma camada semântica para executar as ações associadas à gramática.",
+      "development": [
+        {
+          "title": "Especificação lexical",
+          "text": "A linguagem define identificadores iniciados por letras, literais binários, operadores de soma, subtração, multiplicação, divisão e exponenciação, delimitadores e palavras reservadas."
+        },
+        {
+          "title": "Gramática e precedência",
+          "text": "A gramática é organizada em níveis de prioridade para expressões, permitindo parênteses, atribuições e o comando show, com parser configurado no modo SLR."
+        },
+        {
+          "title": "Pipeline de análise",
+          "text": "O GALS gera ScannerConstants, ParserConstants, analisador léxico e analisador sintático; classes específicas tratam tokens e erros léxicos, sintáticos e semânticos, enquanto Semantico implementa as ações da linguagem."
+        }
+      ],
+      "highlights": [
+        "Definição de linguagem própria",
+        "Scanner gerado pelo GALS",
+        "Parser SLR",
+        "Precedência de operadores",
+        "Análise semântica em Java",
+        "Tratamento separado de erros de compilação"
+      ],
+      "caseStudy": {
+        "title": "Construção de um front-end de compilador com GALS",
+        "intro": "O trabalho aplica conceitos de Linguagens Formais e Compiladores na implementação de um front-end capaz de reconhecer e interpretar uma linguagem aritmética compacta.",
+        "objective": "Especificar formalmente uma linguagem com variáveis, números binários, operações aritméticas, atribuição e saída, e transformá-la em um conjunto executável de analisadores léxico, sintático e semântico.",
+        "implementation": "O arquivo mat.gals contém definições regulares, tokens, não-terminais, gramática e marcações de ações semânticas. O gerador GALS produz o scanner e o parser SLR em Java. O código resultante é organizado em classes de tokens, constantes, analisadores e exceções especializadas; uma classe principal aciona o pipeline de análise.",
+        "architecture": "Código-fonte da linguagem → scanner léxico → sequência de tokens → parser SLR → ações semânticas → resultado ou erro especializado.",
+        "progress": "O repositório preserva a especificação GALS e o código Java gerado/implementado, permitindo examinar tanto a definição formal quanto a materialização do analisador.",
+        "materials": [
+          "GALS",
+          "Java",
+          "Gramáticas livres de contexto",
+          "Expressões regulares",
+          "Parser SLR",
+          "Tabela de símbolos e ações semânticas"
+        ],
+        "results": [
+          "Reconhecimento léxico de identificadores, binários e operadores",
+          "Análise de expressões com precedência",
+          "Suporte a atribuição e comando show",
+          "Separação de erros léxicos, sintáticos e semânticos",
+          "Pipeline completo de análise de uma linguagem definida no projeto"
+        ]
+      },
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/LFA",
+        "source": "M2 - GALS/mat.gals"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 115
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "LFA",
         "ref": "main",
         "mode": "manifest"
       }
@@ -446,6 +1311,27 @@
         "Reposicionamento com seek",
         "Aplicação em sistemas embarcados"
       ],
+      "caseStudy": {
+        "title": "Abstração de acesso a memória em sistemas embarcados",
+        "intro": "O projeto concentra uma pequena camada de software para manipular memória serial sem espalhar a lógica de posicionamento e limites pelo restante da aplicação embarcada.",
+        "objective": "Oferecer operações previsíveis de leitura, escrita e reposicionamento, controlando capacidade e evitando acessos inválidos em um recurso de memória limitado.",
+        "implementation": "A biblioteca organiza as operações de acesso em C, mantendo posição corrente e verificações de faixa para permitir leitura/escrita sequencial e movimentação explícita com comportamento semelhante a seek.",
+        "architecture": "Aplicação embarcada → API da biblioteca → validação de posição/capacidade → operação de leitura ou escrita → memória serial.",
+        "progress": "Projeto acadêmico compacto e concluído como exercício de abstração de hardware e organização de uma API de baixo nível.",
+        "materials": [
+          "C",
+          "Microcontrolador",
+          "Memória serial",
+          "Controle de endereçamento",
+          "API de leitura/escrita"
+        ],
+        "results": [
+          "Encapsulamento das operações de memória",
+          "Controle de limites de acesso",
+          "Reposicionamento explícito",
+          "Interface reutilizável para código embarcado"
+        ]
+      },
       "media": {
         "gallery": []
       },
@@ -470,31 +1356,124 @@
       "project": {
         "id": "sistemas-operacionais",
         "name": "Escalonadores de Sistemas Operacionais",
-        "subtitle": "Implementação de Round-Robin, prioridade e FCFS",
+        "subtitle": "Implementação e comparação de FCFS, Round-Robin e Round-Robin com prioridade em C",
         "status": "academic"
       },
       "categories": [
-        "software"
+        "software",
+        "academic"
       ],
       "technologies": [
         "C",
         "Schedulers",
         "Round-Robin",
         "FCFS",
-        "Estruturas de Dados"
+        "Prioridades",
+        "Listas Encadeadas",
+        "Makefile"
       ],
-      "summary": "Projeto acadêmico de Sistemas Operacionais voltado à implementação e comparação de algoritmos de escalonamento de tarefas, incluindo Round-Robin, Round-Robin com prioridade e FCFS.",
+      "summary": "Projeto acadêmico de Sistemas Operacionais focado em escalonamento de CPU. A implementação utiliza uma infraestrutura em C composta por driver, representação de tarefas, monitor de CPU e lista encadeada, sobre a qual são construídas três políticas de escalonamento: FCFS, Round-Robin e Round-Robin com prioridade. O repositório inclui código, arquivos de entrada para simulação e relatório em PDF com análise dos resultados.",
+      "development": [
+        {
+          "title": "Infraestrutura de simulação",
+          "text": "driver.c lê tarefas de arquivos de teste, cria a fila de aptos e aciona o escalonador. CPU.c representa a execução de uma tarefa e list.c fornece a estrutura encadeada usada pelos algoritmos."
+        },
+        {
+          "title": "Políticas de escalonamento",
+          "text": "As versões schedule_fcfs.c, schedule_rr.c e schedule_rr_p.c implementam regras distintas de seleção e rotação das tarefas."
+        },
+        {
+          "title": "Análise experimental",
+          "text": "Arquivos de entrada específicos e relatório acadêmico permitem executar cenários e comparar o comportamento de ordem de chegada, fatias de tempo e prioridade."
+        }
+      ],
       "highlights": [
-        "Round-Robin",
-        "Escalonamento por prioridade",
         "FCFS",
-        "Filas de tarefas"
+        "Round-Robin",
+        "Round-Robin com prioridade",
+        "Fila de aptos em lista encadeada",
+        "Time slice configurável",
+        "Simulação a partir de arquivos de tarefas",
+        "Relatório técnico com resultados"
+      ],
+      "caseStudy": {
+        "title": "Implementação prática de políticas de escalonamento de CPU",
+        "intro": "O escalonador é responsável por escolher qual tarefa utiliza a CPU a cada momento. O trabalho transforma essa abstração de Sistemas Operacionais em implementações executáveis, usando a mesma infraestrutura de tarefas e fila para comparar diferentes políticas.",
+        "objective": "Implementar três estratégias clássicas de escalonamento e observar como ordem de chegada, quantum e prioridade modificam a sequência de execução das tarefas.",
+        "implementation": "O driver carrega cada task e a adiciona à estrutura de aptos. A camada de CPU simula a execução imprimindo qual tarefa está ativa. Cada arquivo schedule implementa add() e schedule() segundo uma política específica. A versão Round-Robin rotaciona tarefas de acordo com um slice; a versão com prioridade acrescenta filas/seleção por prioridade; FCFS mantém a ordem de chegada.",
+        "architecture": "Arquivo de tarefas → driver → lista/fila de aptos → implementação do scheduler → CPU.run(task, slice) → atualização da tarefa/fila → próxima seleção.",
+        "progress": "O repositório contém as três implementações, Makefile, arquivos de teste e relatório acadêmico, formando um experimento completo de escalonamento e não apenas pseudocódigo conceitual.",
+        "materials": [
+          "C",
+          "Makefile",
+          "Lista encadeada",
+          "Estrutura Task",
+          "Arquivos de cenário",
+          "Relatório PDF"
+        ],
+        "results": [
+          "Implementação funcional de FCFS",
+          "Implementação de Round-Robin com quantum",
+          "Implementação de Round-Robin considerando prioridade",
+          "Uso de uma fila de aptos persistente",
+          "Comparação dos efeitos das diferentes políticas sobre a ordem de execução"
+        ]
+      },
+      "subprojects": [
+        {
+          "name": "FCFS — First Come, First Served",
+          "path": "codigos/schedule_fcfs.c",
+          "summary": "Escalonador não preemptivo orientado pela ordem de chegada das tarefas. A fila é percorrida mantendo o princípio de que a primeira tarefa admitida é a primeira executada.",
+          "details": [
+            "Uso da lista encadeada como fila de aptos",
+            "Seleção por ordem de chegada",
+            "Execução de cada tarefa até o processamento previsto pelo simulador"
+          ],
+          "technologies": [
+            "C",
+            "FCFS",
+            "Linked List"
+          ]
+        },
+        {
+          "name": "Round-Robin",
+          "path": "codigos/schedule_rr.c",
+          "summary": "Escalonador preemptivo que distribui a CPU entre as tarefas através de fatias de tempo, recolocando tarefas ainda não concluídas na fila para ciclos posteriores.",
+          "details": [
+            "Quantum/time slice limitado pelo exercício",
+            "Rotação circular da fila de aptos",
+            "Atualização do tempo restante de CPU",
+            "Redistribuição periódica do processador"
+          ],
+          "technologies": [
+            "C",
+            "Round-Robin",
+            "Time Slice"
+          ]
+        },
+        {
+          "name": "Round-Robin com Prioridade",
+          "path": "codigos/schedule_rr_p.c",
+          "summary": "Extensão do Round-Robin que considera a prioridade das tarefas quando múltiplas tarefas estão aptas, mantendo o conceito de fatias de tempo dentro dos níveis de prioridade.",
+          "details": [
+            "Prioridade 1 representa o maior nível",
+            "Seleção por prioridade quando há concorrência",
+            "Uso de filas/organização distinta por prioridade",
+            "Manutenção da lógica de rotação temporal"
+          ],
+          "technologies": [
+            "C",
+            "Round-Robin",
+            "Priority Scheduling"
+          ]
+        }
       ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/Sistemas-Operacionais"
+        "repository": "https://github.com/jorgebandeo/Sistemas-Operacionais",
+        "source": "codigos/schedule_rr_p.c"
       },
       "portfolio": {
         "visible": true,
@@ -504,48 +1483,6 @@
       "_source": {
         "owner": "jorgebandeo",
         "repo": "Sistemas-Operacionais",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "sistemas-tempo-real",
-        "name": "Sistemas em Tempo Real",
-        "subtitle": "Trabalhos acadêmicos de sistemas temporizados",
-        "status": "academic"
-      },
-      "categories": [
-        "software",
-        "embedded"
-      ],
-      "technologies": [
-        "Sistemas em Tempo Real",
-        "C",
-        "Concorrência"
-      ],
-      "summary": "Conjunto de trabalhos acadêmicos da disciplina de Sistemas em Tempo Real, reunindo implementações e exercícios relacionados a execução concorrente e restrições temporais.",
-      "highlights": [
-        "Sistemas em tempo real",
-        "Concorrência",
-        "Atividades acadêmicas"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/STR"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 140
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "STR",
         "ref": "main",
         "mode": "manifest"
       }
@@ -575,6 +1512,28 @@
         "Comunicação via pipes",
         "Processamento multithread"
       ],
+      "caseStudy": {
+        "title": "Experimentos de comunicação e concorrência entre processos",
+        "intro": "O projeto reúne exercícios voltados aos mecanismos usados por processos e threads para compartilhar dados e coordenar trabalho em um sistema operacional.",
+        "objective": "Explorar na prática diferentes modelos de IPC e concorrência, entendendo como dados podem ser transportados ou compartilhados entre unidades de execução.",
+        "implementation": "As implementações em C exercitam pipes, memória compartilhada e multithreading como estratégias distintas, permitindo observar diferenças de comunicação, sincronização e organização do fluxo de execução.",
+        "architecture": "Processo/thread produtor → mecanismo IPC (pipe ou memória compartilhada) → processo/thread consumidor, com experimentos separados para cada abordagem.",
+        "progress": "Coleção acadêmica de experimentos concluídos, adequada como registro dos fundamentos de IPC e programação concorrente.",
+        "materials": [
+          "C",
+          "Processos",
+          "Threads",
+          "Pipes",
+          "Memória compartilhada",
+          "Recursos de sistemas operacionais"
+        ],
+        "results": [
+          "Implementações de comunicação via pipe",
+          "Uso de memória compartilhada",
+          "Exercícios com execução multithread",
+          "Comparação prática de mecanismos IPC"
+        ]
+      },
       "media": {
         "gallery": []
       },
@@ -597,209 +1556,561 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "eletronica-aplicada",
-        "name": "Eletrônica Aplicada",
-        "subtitle": "Estudos de amplificadores, conversores, sensores e circuitos analógicos",
-        "status": "academic"
-      },
-      "categories": [
-        "hardware",
-        "embedded"
-      ],
-      "technologies": [
-        "Eletrônica Analógica",
-        "Amplificadores Operacionais",
-        "ADC/DAC",
-        "Sensores"
-      ],
-      "summary": "Material acadêmico de Eletrônica Aplicada cobrindo amplificadores operacionais, circuitos analógicos, filtros ativos, conversores A/D e D/A, sensores e transdutores.",
-      "highlights": [
-        "Amplificadores operacionais",
-        "Filtros ativos",
-        "Conversores A/D e D/A",
-        "Sensores e transdutores"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Eletr-nica-Aplicada-"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 160
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Eletr-nica-Aplicada-",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "materia-ia",
-        "name": "Estudos de Inteligência Artificial",
-        "subtitle": "Projetos acadêmicos e experimentos de IA",
-        "status": "academic"
-      },
-      "categories": [
-        "software",
-        "research"
-      ],
-      "technologies": [
-        "Python",
-        "Inteligência Artificial",
-        "Machine Learning"
-      ],
-      "summary": "Repositório de estudos e trabalhos acadêmicos de Inteligência Artificial, organizado em exercícios, experimentos e avaliações desenvolvidas durante a graduação.",
-      "highlights": [
-        "Estudos de IA",
-        "Experimentos acadêmicos",
-        "Implementações em Python"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Mataria-de-IA"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 170
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Mataria-de-IA",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "materia-ia-py",
-        "name": "Inteligência Artificial em Python",
-        "subtitle": "Exercícios e experimentos acadêmicos de IA",
-        "status": "academic"
-      },
-      "categories": [
-        "software",
-        "research"
-      ],
-      "technologies": [
-        "Python",
-        "Machine Learning",
-        "Inteligência Artificial"
-      ],
-      "summary": "Repositório de atividades acadêmicas de Inteligência Artificial desenvolvidas em Python, reunindo exercícios, experimentos e códigos utilizados durante a disciplina.",
-      "highlights": [
-        "Implementações em Python",
-        "Conceitos de IA",
-        "Experimentação acadêmica"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Materia-I-A-Py"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 175
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Materia-I-A-Py",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "redes-computadores",
-        "name": "Redes de Computadores",
-        "subtitle": "Trabalhos acadêmicos de comunicação e redes",
-        "status": "academic"
-      },
-      "categories": [
-        "software",
-        "networking"
-      ],
-      "technologies": [
-        "Redes de Computadores",
-        "Protocolos",
-        "Comunicação"
-      ],
-      "summary": "Repositório de trabalhos acadêmicos da disciplina de Redes de Computadores, organizado em atividades e avaliações práticas sobre comunicação entre sistemas e fundamentos de redes.",
-      "highlights": [
-        "Fundamentos de redes",
-        "Protocolos de comunicação",
-        "Atividades práticas acadêmicas"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Materia-RedCop"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 185
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Materia-RedCop",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "linguagens-formais-automatos",
-        "name": "Linguagens Formais e Autômatos",
-        "subtitle": "Exercícios acadêmicos de linguagens formais e teoria da computação",
+        "id": "algoritmos-programacao-2",
+        "name": "Algoritmos e Programação II",
+        "subtitle": "Coleção de implementações em C++ sobre modularização, recursividade, busca e estruturas de dados",
         "status": "academic"
       },
       "categories": [
         "software"
       ],
       "technologies": [
-        "Autômatos",
-        "Linguagens Formais",
-        "Teoria da Computação"
+        "C++",
+        "Algoritmos",
+        "Recursividade",
+        "Busca Binária",
+        "Estruturas de Dados",
+        "Arquivos",
+        "Ponteiros",
+        "Alocação Dinâmica"
       ],
-      "summary": "Repositório de trabalhos da disciplina de Linguagens Formais e Autômatos, reunindo exercícios e implementações relacionados aos fundamentos teóricos da computação.",
+      "summary": "Coleção acadêmica extensa de programas independentes em C++. O repositório funciona como um arquivo da disciplina Algoritmos e Programação II: cada subpasta representa um exercício ou pequeno projeto e registra a evolução desde funções e vetores até aplicações de console, arquivos, matrizes, ponteiros, alocação dinâmica, ordenação, busca e recursividade.",
+      "development": [
+        {
+          "title": "Aplicações completas",
+          "text": "Além de exercícios isolados, há aplicações maiores como agenda de contatos, cadastros, gestão de condomínio e jogos de Bingo, nas quais múltiplas funções e estruturas trabalham em conjunto."
+        },
+        {
+          "title": "Estruturas e gerenciamento de dados",
+          "text": "Diversos módulos exercitam vetores, matrizes, registros, arquivos, ponteiros, memória dinâmica, ordenação e operações entre conjuntos de dados."
+        },
+        {
+          "title": "Recursividade e algoritmos",
+          "text": "Uma parte específica explora decomposição recursiva em busca binária, conversão decimal-binário, módulo, quociente e séries matemáticas, além de algoritmos iterativos de ordenação."
+        }
+      ],
       "highlights": [
-        "Linguagens formais",
-        "Autômatos",
-        "Teoria da computação"
+        "Agenda e cadastro de contatos",
+        "Gestão de condomínio e cadastros estruturados",
+        "Bingo e geração de cartelas",
+        "Busca binária recursiva",
+        "Conversão decimal-binário recursiva",
+        "Bubble Sort e Insertion Sort",
+        "Manipulação de matrizes, vetores e arquivos"
+      ],
+      "caseStudy": {
+        "title": "Evolução prática em algoritmos e programação estruturada",
+        "intro": "Este repositório não representa um único software. Ele reúne dezenas de implementações independentes produzidas durante a disciplina e preserva, em subpastas, problemas progressivamente mais complexos.",
+        "objective": "Consolidar programação estruturada em C++ por meio da implementação prática de funções, estruturas, vetores, matrizes, arquivos, ponteiros, memória dinâmica, algoritmos de busca/ordenação e recursividade.",
+        "implementation": "Os trabalhos são organizados por temas como Agenda e Contatos, Cálculos e Funções, Gerenciamento de Dados e Jogos. Cada exercício possui seu próprio código e, em muitos casos, README explicando a regra implementada. Isso permite tratar cada pasta como um pequeno projeto dentro do conjunto maior.",
+        "architecture": "Entrada de dados → validação → estruturas/funções especializadas → processamento algorítmico → apresentação ou persistência em arquivo. A arquitetura varia por subprojeto, mas mantém a decomposição funcional típica dos exercícios da disciplina.",
+        "progress": "O repositório contém dezenas de módulos preservados. A página do portfólio passa a apresentar os subprojetos relevantes individualmente, em vez de resumir toda a coleção como se fosse uma única aplicação.",
+        "materials": [
+          "C++",
+          "Programação estruturada",
+          "Structs e templates",
+          "Vetores e matrizes",
+          "Ponteiros e alocação dinâmica",
+          "Arquivos texto",
+          "Recursividade",
+          "Busca e ordenação"
+        ],
+        "results": [
+          "Aplicações de console com múltiplas operações",
+          "Persistência simples em arquivos",
+          "Algoritmos recursivos e iterativos",
+          "Manipulação de coleções e registros",
+          "Base prática para disciplinas posteriores"
+        ]
+      },
+      "subprojects": [
+        {
+          "name": "Agenda de Contatos",
+          "path": "Agenda e Contatos/Agenda_CPP",
+          "summary": "Aplicação de agenda em C++ para cadastrar e manipular registros de contatos, exercitando organização de dados e funções em um programa de console maior.",
+          "details": [
+            "Cadastro e consulta de contatos",
+            "Uso de estruturas para representar registros",
+            "Separação das operações em funções"
+          ],
+          "technologies": [
+            "C++",
+            "Structs",
+            "Console"
+          ]
+        },
+        {
+          "name": "Cálculo de Intervalo entre Datas",
+          "path": "Cálculos e Funções/CalculoIntervaloDatas",
+          "summary": "Programa que recebe duas datas, valida dia, mês, ano e anos bissextos e calcula a diferença entre elas.",
+          "details": [
+            "Validação completa das datas",
+            "Cálculo do intervalo em dias, meses e anos",
+            "Estrutura própria para representar data"
+          ],
+          "technologies": [
+            "C++",
+            "Structs",
+            "Funções"
+          ]
+        },
+        {
+          "name": "Validação de Datas",
+          "path": "Cálculos e Funções/ValidacaoData",
+          "summary": "Exercício focado na validação de datas fornecidas pelo usuário, incluindo limites de meses e tratamento de anos bissextos.",
+          "details": [
+            "Validação de dia/mês/ano",
+            "Controle de múltiplas tentativas",
+            "Tratamento de ano bissexto"
+          ],
+          "technologies": [
+            "C++",
+            "Validação"
+          ]
+        },
+        {
+          "name": "Gerador de Cartela de Bingo",
+          "path": "Cálculos e Funções/GeradorCartelaBingo",
+          "summary": "Gera uma cartela 5x5 com números pseudoaleatórios sem repetição nas colunas e ordena os valores com Insertion Sort.",
+          "details": [
+            "Matriz 5x5",
+            "Controle de números repetidos",
+            "Ordenação por inserção"
+          ],
+          "technologies": [
+            "C++",
+            "Matrizes",
+            "Insertion Sort"
+          ]
+        },
+        {
+          "name": "Fatorial e Superfatorial",
+          "path": "Cálculos e Funções/Fatorial_Superfatorial_Calculator",
+          "summary": "Calcula fatorial e superfatorial e utiliza alocação dinâmica de matriz para organizar resultados.",
+          "details": [
+            "Funções matemáticas",
+            "Matriz alocada dinamicamente",
+            "Manipulação de memória"
+          ],
+          "technologies": [
+            "C++",
+            "Matemática",
+            "Memória Dinâmica"
+          ]
+        },
+        {
+          "name": "Busca Binária Recursiva",
+          "path": "Cálculos e Funções/Recursiviade/BuscaBinariaRecursiva",
+          "summary": "Cria um vetor sem repetições, ordena os dados e procura um valor utilizando busca binária implementada de forma recursiva.",
+          "details": [
+            "Geração de vetor",
+            "Ordenação prévia",
+            "Divisão recursiva do espaço de busca"
+          ],
+          "technologies": [
+            "C++",
+            "Recursividade",
+            "Busca Binária"
+          ]
+        },
+        {
+          "name": "Conversão Decimal para Binário",
+          "path": "Cálculos e Funções/Recursiviade/ConversãoDecimalParaBinário",
+          "summary": "Implementa a conversão de números decimais para binário por divisão sucessiva por dois usando chamadas recursivas.",
+          "details": [
+            "Divisão sucessiva",
+            "Caso-base recursivo",
+            "Construção da representação binária"
+          ],
+          "technologies": [
+            "C++",
+            "Recursividade"
+          ]
+        },
+        {
+          "name": "Conversor de Texto para Maiúsculas",
+          "path": "Cálculos e Funções/ConversorMaiusculas",
+          "summary": "Lê um arquivo texto, converte seu conteúdo para letras maiúsculas e grava o resultado em outro arquivo.",
+          "details": [
+            "Leitura e escrita de arquivos",
+            "Transformação caractere a caractere",
+            "Persistência do resultado"
+          ],
+          "technologies": [
+            "C++",
+            "fstream",
+            "Strings"
+          ]
+        },
+        {
+          "name": "Registro de Médias Parciais",
+          "path": "Cálculos e Funções/RegistroMediasParciais",
+          "summary": "Recebe médias informadas pelo usuário e cria um registro sequencial em arquivo texto para consulta posterior.",
+          "details": [
+            "Entrada variável de médias",
+            "Numeração sequencial",
+            "Gravação em arquivo"
+          ],
+          "technologies": [
+            "C++",
+            "Arquivos"
+          ]
+        },
+        {
+          "name": "Separação de Pares e Ímpares",
+          "path": "Cálculos e Funções/SeparacaoParImpar",
+          "summary": "Distribui valores de um vetor dinâmico em coleções de números pares e ímpares e calcula as somas de cada grupo.",
+          "details": [
+            "Arrays dinâmicos",
+            "Classificação por paridade",
+            "Somas independentes"
+          ],
+          "technologies": [
+            "C++",
+            "Vetores",
+            "Memória Dinâmica"
+          ]
+        },
+        {
+          "name": "Verificador de Simetria",
+          "path": "Cálculos e Funções/VerificadorSimetria",
+          "summary": "Verifica se os valores de um vetor apresentam simetria em relação ao centro da sequência.",
+          "details": [
+            "Leitura de vetor",
+            "Comparação de posições espelhadas",
+            "Resultado booleano de simetria"
+          ],
+          "technologies": [
+            "C++",
+            "Vetores"
+          ]
+        },
+        {
+          "name": "Cadastro de Usuários",
+          "path": "Gerenciamento de Dados/CadastroUsuarios",
+          "summary": "Cadastra nomes e datas de nascimento, valida os dados e permite listar usuários ordenados por data de nascimento.",
+          "details": [
+            "Estruturas para usuários",
+            "Validação de nascimento",
+            "Ordenação cronológica"
+          ],
+          "technologies": [
+            "C++",
+            "Structs",
+            "Ordenação"
+          ]
+        },
+        {
+          "name": "Cadastro de Pessoas",
+          "path": "Gerenciamento de Dados/Cadastro_Pessoas",
+          "summary": "Aplicação de cadastro e pesquisa de dados pessoais para múltiplos registros, utilizando estruturas, templates e funções.",
+          "details": [
+            "Cadastro de nome e nascimento",
+            "Pesquisa por código",
+            "Organização por estruturas"
+          ],
+          "technologies": [
+            "C++",
+            "Structs",
+            "Templates"
+          ]
+        },
+        {
+          "name": "Cadastro de Nomes em Arquivo",
+          "path": "Gerenciamento de Dados/CadastroDeNomes",
+          "summary": "Permite digitar nomes, persistir os registros em arquivo texto e posteriormente ler e apresentar o conteúdo armazenado.",
+          "details": [
+            "Persistência em arquivo",
+            "Leitura posterior",
+            "Entrada e saída de texto"
+          ],
+          "technologies": [
+            "C++",
+            "Arquivos"
+          ]
+        },
+        {
+          "name": "Gestão de Condomínio",
+          "path": "Gerenciamento de Dados/GestãoCondominio",
+          "summary": "Sistema de console para registrar apartamentos, responsáveis, áreas e número de moradores, calculando indicadores do condomínio.",
+          "details": [
+            "Cadastro das unidades",
+            "Cálculo da área total",
+            "Identificação do apartamento com mais moradores"
+          ],
+          "technologies": [
+            "C++",
+            "Structs",
+            "Dados"
+          ]
+        },
+        {
+          "name": "Bubble Sort",
+          "path": "Gerenciamento de Dados/OrdenacaoBubbleSort",
+          "summary": "Implementação didática do Bubble Sort que recebe um vetor e permite ordená-lo em ordem crescente ou decrescente.",
+          "details": [
+            "Leitura do vetor",
+            "Ordenação crescente/decrescente",
+            "Exibição do resultado"
+          ],
+          "technologies": [
+            "C++",
+            "Bubble Sort"
+          ]
+        },
+        {
+          "name": "Interseção de Vetores sem Repetição",
+          "path": "Gerenciamento de Dados/IntersecaoVetoresSemRepeticao",
+          "summary": "Calcula os valores comuns entre dois vetores, controla duplicidades e utiliza ponteiros e memória dinâmica para construir o resultado.",
+          "details": [
+            "Validação de duplicidades",
+            "Interseção entre conjuntos",
+            "Alocação dinâmica"
+          ],
+          "technologies": [
+            "C++",
+            "Ponteiros",
+            "Vetores"
+          ]
+        },
+        {
+          "name": "Intercalação de Vetores",
+          "path": "Gerenciamento de Dados/IntercalacaoVetores",
+          "summary": "Ordena dois vetores sem duplicatas e cria um terceiro vetor intercalando os valores em ordem crescente.",
+          "details": [
+            "Ordenação dos vetores",
+            "Intercalação ordenada",
+            "Controle de duplicatas"
+          ],
+          "technologies": [
+            "C++",
+            "Vetores",
+            "Ordenação"
+          ]
+        },
+        {
+          "name": "Operações com Matrizes",
+          "path": "Gerenciamento de Dados/MatrixSum",
+          "summary": "Exercício de matrizes com alocação dinâmica, preenchimento, impressão, soma e transformação de posições em matriz quadrada.",
+          "details": [
+            "Matrizes dinâmicas",
+            "Soma elemento a elemento",
+            "Troca de posições e gerenciamento de memória"
+          ],
+          "technologies": [
+            "C++",
+            "Matrizes",
+            "Ponteiros"
+          ]
+        },
+        {
+          "name": "Posicionamento no Console",
+          "path": "Gerenciamento de Dados/Posicionamento no Console",
+          "summary": "Demonstra controle de interface textual usando Windows.h e uma função gotoxy para posicionar o cursor em coordenadas específicas.",
+          "details": [
+            "Controle de linha e coluna",
+            "Manipulação do cursor",
+            "Base para interfaces de console"
+          ],
+          "technologies": [
+            "C++",
+            "Windows API",
+            "Console"
+          ]
+        },
+        {
+          "name": "Bingo Multiplayer",
+          "path": "Jogos/BingoGame",
+          "summary": "Jogo de Bingo para até cinco jogadores, com geração e acompanhamento de cartelas, sorteio de números e detecção de vitória por linha, coluna ou diagonal.",
+          "details": [
+            "Até cinco jogadores",
+            "Sorteio e marcação de números",
+            "Detecção automática de Bingo"
+          ],
+          "technologies": [
+            "C++",
+            "Matrizes",
+            "Jogo"
+          ]
+        },
+        {
+          "name": "Bingo — Trabalho de Algoritmos II",
+          "path": "Jogos/BingoGame_Algoritmos_e_Programacao_II",
+          "summary": "Versão acadêmica completa do Bingo desenvolvida em equipe, estruturada em múltiplas funções para cartelas, jogadores, sorteios e fluxo da partida.",
+          "details": [
+            "Cadastro dos jogadores",
+            "Geração de cartelas",
+            "Controle central da partida"
+          ],
+          "technologies": [
+            "C++",
+            "Funções",
+            "Matrizes"
+          ]
+        },
+        {
+          "name": "Batalha Naval Multiplayer",
+          "path": "Jogos/BatalhaNavalMultiplayer",
+          "summary": "Projeto de jogo de Batalha Naval organizado como aplicação multiplayer dentro da coleção de Algoritmos e Programação II.",
+          "details": [
+            "Lógica de tabuleiro",
+            "Interação entre jogadores",
+            "Aplicação dos fundamentos em um jogo maior"
+          ],
+          "technologies": [
+            "C++",
+            "Jogo",
+            "Matrizes"
+          ]
+        }
       ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/LFA"
+        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-2"
       },
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 200
+        "order": 180
       },
       "_source": {
         "owner": "jorgebandeo",
-        "repo": "LFA",
+        "repo": "Algoritmos-e-Programacao-2",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "algoritmos-programacao-1",
+        "name": "Algoritmos e Programação I",
+        "subtitle": "Coleção acadêmica de fundamentos de programação em C++ com projetos independentes de console",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "academic"
+      ],
+      "technologies": [
+        "C++",
+        "Algoritmos",
+        "Lógica de Programação",
+        "Estruturas de Controle",
+        "Matrizes",
+        "Validação de Dados"
+      ],
+      "summary": "Repositório de formação inicial em programação estruturada. Em vez de um único software, reúne exercícios e pequenos projetos independentes desenvolvidos em C++, evoluindo de operações matemáticas e condicionais para validação de documentos, manipulação de matrizes e jogos completos de console. A página apresenta os módulos mais representativos para que o conteúdo possa ser compreendido sem navegar pela árvore do GitHub.",
+      "development": [
+        {
+          "title": "Fundamentos e cálculos",
+          "text": "Conjunto de calculadoras para operações aritméticas, porcentagens, médias, despesas e outros problemas introdutórios, exercitando entrada, saída, operadores e condicionais."
+        },
+        {
+          "title": "Validação de CPF",
+          "text": "Programa que recebe a base numérica de um CPF e calcula os dois dígitos verificadores aplicando os pesos e a regra de módulo 11 utilizada no documento brasileiro."
+        },
+        {
+          "title": "Campo Minado",
+          "text": "Jogo de console com dimensões configuráveis, distribuição aleatória de minas, cálculo de vizinhança, validação de jogadas e condições de vitória e derrota."
+        }
+      ],
+      "highlights": [
+        "Cálculo de dígitos verificadores de CPF",
+        "Campo Minado completo em console",
+        "Coleção de calculadoras matemáticas",
+        "Uso de matrizes e geração aleatória",
+        "Progressão prática de lógica para aplicações interativas"
+      ],
+      "subprojects": [
+        {
+          "name": "Campo Minado",
+          "path": "campo minado",
+          "summary": "Jogo de Campo Minado para um jogador desenvolvido em C++. O usuário define linhas, colunas e quantidade de minas; o programa distribui as minas aleatoriamente, calcula a quantidade de minas adjacentes e mantém uma matriz separada para representar o que já foi revelado ao jogador.",
+          "details": [
+            "Validação das dimensões e quantidade de minas",
+            "Geração aleatória evitando posições duplicadas",
+            "Cálculo da vizinhança de cada célula",
+            "Loop de jogadas por linha e coluna",
+            "Detecção de vitória ao revelar todas as posições seguras e derrota ao selecionar uma mina"
+          ],
+          "technologies": [
+            "C++",
+            "Matrizes",
+            "Randomização",
+            "Lógica de Jogos"
+          ]
+        },
+        {
+          "name": "Verificador e Gerador de Dígitos de CPF",
+          "path": "Verificador de cpf",
+          "summary": "Aplicação de console que processa os primeiros dígitos de um CPF e calcula os dois dígitos verificadores segundo a regra aritmética de validação utilizada no Brasil.",
+          "details": [
+            "Separação dos dígitos da entrada",
+            "Aplicação de pesos distintos para cada etapa",
+            "Cálculo pelo resto da divisão por 11",
+            "Tratamento da regra especial para restos menores que 2",
+            "Montagem do CPF com os dígitos calculados"
+          ],
+          "technologies": [
+            "C++",
+            "Aritmética",
+            "Validação de Dados"
+          ]
+        },
+        {
+          "name": "Calculadoras Matemáticas",
+          "path": "Cálculadoras/Mátematica",
+          "summary": "Série de programas independentes voltados à implementação de expressões e operações matemáticas em console.",
+          "details": [
+            "Calculadora aritmética",
+            "Calculadora de expressões matemáticas",
+            "Multiplicação",
+            "Raízes quadráticas",
+            "Porcentagem",
+            "Dobro de valores",
+            "Média ponderada"
+          ],
+          "technologies": [
+            "C++",
+            "Matemática",
+            "Entrada e Saída"
+          ]
+        },
+        {
+          "name": "Calculadoras Aplicadas",
+          "path": "Cálculadoras/Implementadas",
+          "summary": "Exercícios que aplicam os mesmos fundamentos a cenários de dados financeiros e acadêmicos.",
+          "details": [
+            "Cálculo de despesas",
+            "Cálculo de dívidas",
+            "Percentual de alunos reprovados",
+            "Contagem e processamento de reprovações"
+          ],
+          "technologies": [
+            "C++",
+            "Condicionais",
+            "Cálculos Aplicados"
+          ]
+        }
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-1"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 190
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Algoritmos-e-Programacao-1",
         "ref": "main",
         "mode": "manifest"
       }
@@ -929,88 +2240,6 @@
       "_source": {
         "owner": "jorgebandeo",
         "repo": "site-musica",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "algoritmos-programacao-2",
-        "name": "Algoritmos e Programação II",
-        "subtitle": "Estruturas de dados e programação intermediária",
-        "status": "academic"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "C",
-        "Estruturas de Dados",
-        "Algoritmos"
-      ],
-      "summary": "Continuação dos estudos de algoritmos e programação, com exercícios e trabalhos acadêmicos voltados a estruturas de dados e técnicas de programação intermediária.",
-      "highlights": [
-        "Estruturas de dados",
-        "Algoritmos intermediários",
-        "Prática acadêmica em programação"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-2"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 235
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Algoritmos-e-Programacao-2",
-        "ref": "main",
-        "mode": "manifest"
-      }
-    },
-    {
-      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
-      "schemaVersion": 1,
-      "project": {
-        "id": "algoritmos-programacao-1",
-        "name": "Algoritmos e Programação I",
-        "subtitle": "Fundamentos de lógica, algoritmos e programação",
-        "status": "academic"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "C",
-        "Algoritmos",
-        "Lógica de Programação"
-      ],
-      "summary": "Coleção de exercícios e trabalhos introdutórios de algoritmos e programação desenvolvidos durante a graduação, cobrindo fundamentos de lógica, estruturas de controle e resolução de problemas.",
-      "highlights": [
-        "Fundamentos de algoritmos",
-        "Lógica de programação",
-        "Exercícios acadêmicos"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-1"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 240
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Algoritmos-e-Programacao-1",
         "ref": "main",
         "mode": "manifest"
       }
