@@ -142,7 +142,29 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 10
+        "order": 10,
+        "discovery": [
+          "featured",
+          "software",
+          "architecture",
+          "embedded",
+          "academic"
+        ],
+        "searchTerms": [
+          "sistemas embarcados",
+          "ESP32",
+          "Arduino",
+          "ESP-IDF",
+          "FreeRTOS",
+          "MQTT",
+          "Bluetooth",
+          "sensores",
+          "atuadores",
+          "IoT",
+          "automação embarcada",
+          "arquitetura distribuída",
+          "cliente servidor"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -152,8 +174,8 @@
       },
       "_repository": {
         "createdAt": "2023-10-25T04:43:50Z",
-        "pushedAt": "2026-08-22T01:13:54Z",
-        "updatedAt": "2026-08-22T01:14:04Z",
+        "pushedAt": "2026-08-22T03:44:31Z",
+        "updatedAt": "2026-08-22T03:44:44Z",
         "firstActivityAt": "2023-10-25T04:43:50Z",
         "firstActivitySha": "c3f5bc32e7cebe942ac2bb316affa5cc8b19c758",
         "firstActivityBranch": "main",
@@ -168,7 +190,7 @@
           "main",
           "portfolio-manifest-test"
         ],
-        "ignoredManifestOnlyCommits": 2,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -217,7 +239,13 @@
         "visible": true,
         "featured": true,
         "private": true,
-        "order": 20
+        "order": 20,
+        "discovery": [
+          "featured",
+          "ai",
+          "software",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -289,7 +317,23 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 25
+        "order": 25,
+        "discovery": [
+          "featured",
+          "software",
+          "ai",
+          "academic"
+        ],
+        "searchTerms": [
+          "detecção de quedas",
+          "visão computacional",
+          "YOLO",
+          "dataset",
+          "pré-processamento",
+          "bounding boxes",
+          "classificação",
+          "Python"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -299,8 +343,8 @@
       },
       "_repository": {
         "createdAt": "2023-09-21T19:21:34Z",
-        "pushedAt": "2026-08-22T00:39:13Z",
-        "updatedAt": "2026-08-22T00:39:17Z",
+        "pushedAt": "2026-08-22T03:28:33Z",
+        "updatedAt": "2026-08-22T03:28:46Z",
         "firstActivityAt": "2023-09-21T19:21:34Z",
         "firstActivitySha": "856a1d8c217d4f9e1ab918951aa5aa8bad2692bd",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -315,7 +359,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -364,7 +408,13 @@
         "visible": true,
         "featured": true,
         "private": true,
-        "order": 25
+        "order": 25,
+        "discovery": [
+          "featured",
+          "ai",
+          "software",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -422,7 +472,14 @@
         "visible": true,
         "featured": true,
         "private": true,
-        "order": 30
+        "order": 30,
+        "discovery": [
+          "featured",
+          "applied",
+          "software",
+          "webmobile",
+          "architecture"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -495,7 +552,24 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 30
+        "order": 30,
+        "discovery": [
+          "featured",
+          "software",
+          "ai",
+          "academic"
+        ],
+        "searchTerms": [
+          "YOLOv8",
+          "YOLO",
+          "visão computacional",
+          "deep learning",
+          "detecção de quedas",
+          "classificação",
+          "treinamento",
+          "Ultralytics",
+          "Python"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -505,8 +579,8 @@
       },
       "_repository": {
         "createdAt": "2023-09-20T23:26:11Z",
-        "pushedAt": "2026-08-22T00:39:25Z",
-        "updatedAt": "2026-08-22T00:40:04Z",
+        "pushedAt": "2026-08-22T03:28:43Z",
+        "updatedAt": "2026-08-22T03:28:50Z",
         "firstActivityAt": "2023-09-20T23:26:11Z",
         "firstActivitySha": "f99ce2fa03a0c36e550fd486bd54e4860e45398b",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -522,7 +596,7 @@
           "jorgebandeo-patch-1",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -572,7 +646,13 @@
         "visible": true,
         "featured": true,
         "private": true,
-        "order": 35
+        "order": 35,
+        "discovery": [
+          "featured",
+          "applied",
+          "software",
+          "embedded"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -660,7 +740,30 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 40
+        "order": 40,
+        "discovery": [
+          "featured",
+          "software",
+          "architecture",
+          "webmobile"
+        ],
+        "searchTerms": [
+          "site",
+          "web",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "SQL",
+          "RSVP",
+          "frontend",
+          "backend",
+          "GitHub Pages",
+          "responsivo",
+          "arquitetura web",
+          "camada de dados",
+          "persistência"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -670,8 +773,8 @@
       },
       "_repository": {
         "createdAt": "2025-03-29T22:31:37Z",
-        "pushedAt": "2026-08-22T00:39:58Z",
-        "updatedAt": "2026-08-22T00:40:02Z",
+        "pushedAt": "2026-08-22T03:44:48Z",
+        "updatedAt": "2026-08-22T03:44:52Z",
         "firstActivityAt": "2025-03-29T22:31:38Z",
         "firstActivitySha": "7755a7c295711d489e009562cb96b48790b5a3f5",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -687,7 +790,7 @@
           "main",
           "portfolio-rebuild"
         ],
-        "ignoredManifestOnlyCommits": 4,
+        "ignoredManifestOnlyCommits": 6,
         "visibility": "public"
       }
     },
@@ -702,7 +805,8 @@
       },
       "categories": [
         "software",
-        "research"
+        "research",
+        "signals"
       ],
       "technologies": [
         "Python",
@@ -764,7 +868,26 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 50
+        "order": 50,
+        "discovery": [
+          "featured",
+          "software",
+          "signals",
+          "academic"
+        ],
+        "searchTerms": [
+          "processamento de sinais",
+          "DSP",
+          "filtros adaptativos",
+          "LMS",
+          "KLMS",
+          "KFxLMS",
+          "Kalman",
+          "sinais ruidosos",
+          "atenuação de ruído",
+          "MSE",
+          "filtragem"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -774,8 +897,8 @@
       },
       "_repository": {
         "createdAt": "2024-07-23T23:51:32Z",
-        "pushedAt": "2026-08-22T00:39:36Z",
-        "updatedAt": "2026-08-22T00:39:49Z",
+        "pushedAt": "2026-08-22T03:28:00Z",
+        "updatedAt": "2026-08-22T03:28:12Z",
         "firstActivityAt": "2024-07-23T23:53:42Z",
         "firstActivitySha": "ed3f1831847fabf5cf2692e8d3fc3d4fbcf72f1f",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -790,7 +913,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -867,7 +990,24 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 55
+        "order": 55,
+        "discovery": [
+          "featured",
+          "software",
+          "ai",
+          "academic"
+        ],
+        "searchTerms": [
+          "inteligência artificial",
+          "IA",
+          "case based reasoning",
+          "CBR",
+          "Python",
+          "Pandas",
+          "similaridade",
+          "predição",
+          "análise de dados"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -877,8 +1017,8 @@
       },
       "_repository": {
         "createdAt": "2023-05-09T23:42:29Z",
-        "pushedAt": "2026-08-22T00:51:49Z",
-        "updatedAt": "2026-08-22T00:51:53Z",
+        "pushedAt": "2026-08-22T03:29:17Z",
+        "updatedAt": "2026-08-22T03:29:21Z",
         "firstActivityAt": "2023-05-09T23:40:25Z",
         "firstActivitySha": "2d6aed72e5179401ddc6b54be4f6c9150f4f417a",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -893,7 +1033,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -908,7 +1048,8 @@
       },
       "categories": [
         "software",
-        "research"
+        "research",
+        "signals"
       ],
       "technologies": [
         "Python",
@@ -975,7 +1116,27 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 60
+        "order": 60,
+        "discovery": [
+          "featured",
+          "software",
+          "signals",
+          "academic"
+        ],
+        "searchTerms": [
+          "processamento digital de sinais",
+          "DSP",
+          "FFT",
+          "DFT",
+          "FIR",
+          "IIR",
+          "Fourier",
+          "amostragem",
+          "quantização",
+          "filtragem adaptativa",
+          "filtros digitais",
+          "redução de ruído"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -985,8 +1146,8 @@
       },
       "_repository": {
         "createdAt": "2024-08-21T03:29:58Z",
-        "pushedAt": "2026-08-22T00:39:47Z",
-        "updatedAt": "2026-08-22T00:39:59Z",
+        "pushedAt": "2026-08-22T03:28:09Z",
+        "updatedAt": "2026-08-22T03:28:13Z",
         "firstActivityAt": "2024-08-21T03:29:59Z",
         "firstActivitySha": "d00abd4ef7c85c31d56d8cd5140e2c4bede548d8",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1001,7 +1162,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -1131,7 +1292,25 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 65
+        "order": 65,
+        "discovery": [
+          "featured",
+          "software",
+          "embedded",
+          "academic"
+        ],
+        "searchTerms": [
+          "sistemas em tempo real",
+          "C",
+          "C++",
+          "threads",
+          "pthreads",
+          "paralelismo",
+          "mutex",
+          "condition variables",
+          "sistema automotivo",
+          "otimização"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1141,8 +1320,8 @@
       },
       "_repository": {
         "createdAt": "2023-09-10T17:05:06Z",
-        "pushedAt": "2026-08-22T01:13:27Z",
-        "updatedAt": "2026-08-22T01:13:39Z",
+        "pushedAt": "2026-08-22T03:29:42Z",
+        "updatedAt": "2026-08-22T03:30:00Z",
         "firstActivityAt": "2023-09-10T17:05:06Z",
         "firstActivitySha": "7d12202fa55e8ed798839943ec872cc5aa4d9a0b",
         "firstActivityBranch": "Jorge",
@@ -1158,7 +1337,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 4,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -1286,7 +1465,25 @@
       "portfolio": {
         "visible": true,
         "featured": true,
-        "order": 75
+        "order": 75,
+        "discovery": [
+          "featured",
+          "software",
+          "webmobile",
+          "academic"
+        ],
+        "searchTerms": [
+          "redes",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "sockets",
+          "Wireshark",
+          "IPv4",
+          "cliente servidor",
+          "Python",
+          "protocolos de rede"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1296,8 +1493,8 @@
       },
       "_repository": {
         "createdAt": "2023-05-14T18:13:11Z",
-        "pushedAt": "2026-08-22T01:14:17Z",
-        "updatedAt": "2026-08-22T01:14:39Z",
+        "pushedAt": "2026-08-22T03:29:55Z",
+        "updatedAt": "2026-08-22T03:30:02Z",
         "firstActivityAt": "2023-05-14T18:14:07Z",
         "firstActivitySha": "ec0db0d4f80aefcfb4c05c34e773aa06ad2c0b71",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1312,7 +1509,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 4,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -1388,7 +1585,26 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 80
+        "order": 80,
+        "discovery": [
+          "software",
+          "architecture",
+          "webmobile",
+          "academic"
+        ],
+        "searchTerms": [
+          "Android",
+          "Java",
+          "SQLite",
+          "mobile",
+          "CRUD",
+          "persistência",
+          "Fragments",
+          "gestão clínica",
+          "arquitetura modular",
+          "camada de dados",
+          "separação de responsabilidades"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1398,8 +1614,8 @@
       },
       "_repository": {
         "createdAt": "2021-11-15T20:33:18Z",
-        "pushedAt": "2026-08-22T00:51:16Z",
-        "updatedAt": "2026-08-22T00:52:00Z",
+        "pushedAt": "2026-08-22T03:44:39Z",
+        "updatedAt": "2026-08-22T03:44:43Z",
         "firstActivityAt": "2021-11-15T20:27:44Z",
         "firstActivitySha": "851b708715e9358044475375224822f470a3de87",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1414,7 +1630,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -1462,7 +1678,12 @@
         "visible": true,
         "featured": false,
         "private": true,
-        "order": 90
+        "order": 90,
+        "discovery": [
+          "ai",
+          "software",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -1548,14 +1769,6 @@
           "name": "Análise Histórica do S&P 500",
           "path": "Trabalho M2",
           "summary": "Pipeline de análise de dados financeiros que processa uma base histórica do S&P 500 e gera recortes anuais e visualizações para uma empresa selecionada.",
-          "details": [
-            "Leitura do dataset em CSV",
-            "Filtragem por empresa e período",
-            "Geração de arquivos anuais MMM2018 a MMM2023",
-            "Agregação do volume negociado",
-            "Visualização de Open, High, Low e Close com Matplotlib",
-            "Uso de Pandas para organização temporal dos registros"
-          ],
           "technologies": [
             "Python",
             "Pandas",
@@ -1567,16 +1780,7 @@
         {
           "name": "Esteganografia em Imagens",
           "path": "Trabalho 2 M2",
-          "summary": "Experimento de codificação de mensagem textual dentro de uma fotografia. A mensagem é convertida em bits e representada por diferenças controladas entre pares de pixels no canal vermelho.",
-          "details": [
-            "Conversão de caracteres para representação binária de 8 bits",
-            "Leitura da imagem com OpenCV",
-            "Manipulação vetorial com NumPy",
-            "Codificação dos bits em pares de pixels",
-            "Uso de marcador de término da mensagem",
-            "Decodificação da imagem para reconstruir o texto",
-            "Comparação entre imagem original e imagem modificada"
-          ],
+          "summary": "Experimento de codificação de mensagem textual dentro de uma fotografia.",
           "technologies": [
             "Python",
             "OpenCV",
@@ -1606,7 +1810,22 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 95
+        "order": 95,
+        "discovery": [
+          "software",
+          "academic"
+        ],
+        "searchTerms": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "OpenCV",
+          "análise de dados",
+          "S&P 500",
+          "esteganografia",
+          "processamento de imagens",
+          "Matplotlib"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1616,8 +1835,8 @@
       },
       "_repository": {
         "createdAt": "2023-05-14T14:49:30Z",
-        "pushedAt": "2026-08-22T01:14:38Z",
-        "updatedAt": "2026-08-22T01:14:55Z",
+        "pushedAt": "2026-08-22T03:30:52Z",
+        "updatedAt": "2026-08-22T03:31:00Z",
         "firstActivityAt": "2023-05-14T14:55:47Z",
         "firstActivitySha": "e8b0aacee513f3a9076b85ffa99b09d3e639dae6",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1632,7 +1851,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 4,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -1648,7 +1867,8 @@
       "categories": [
         "hardware",
         "embedded",
-        "research"
+        "research",
+        "signals"
       ],
       "technologies": [
         "Eletrônica Analógica",
@@ -1711,7 +1931,23 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 110
+        "order": 110,
+        "discovery": [
+          "embedded",
+          "signals",
+          "academic"
+        ],
+        "searchTerms": [
+          "eletrônica analógica",
+          "sinais",
+          "filtros ativos",
+          "ADC",
+          "DAC",
+          "amplificadores operacionais",
+          "instrumentação",
+          "sensores",
+          "condicionamento de sinais"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1721,8 +1957,8 @@
       },
       "_repository": {
         "createdAt": "2024-06-07T22:02:30Z",
-        "pushedAt": "2026-08-22T00:52:34Z",
-        "updatedAt": "2026-08-22T00:52:42Z",
+        "pushedAt": "2026-08-22T03:29:28Z",
+        "updatedAt": "2026-08-22T03:29:39Z",
         "firstActivityAt": "2024-06-07T22:02:30Z",
         "firstActivitySha": "c9420e47471b714066c14c916da5fb82bee93d90",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1737,7 +1973,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -1818,7 +2054,22 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 115
+        "order": 115,
+        "discovery": [
+          "software",
+          "academic"
+        ],
+        "searchTerms": [
+          "Java",
+          "GALS",
+          "compiladores",
+          "linguagens formais",
+          "parser",
+          "SLR",
+          "scanner",
+          "análise léxica",
+          "análise semântica"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1828,8 +2079,8 @@
       },
       "_repository": {
         "createdAt": "2023-10-18T13:43:28Z",
-        "pushedAt": "2026-08-22T00:55:20Z",
-        "updatedAt": "2026-08-22T00:55:23Z",
+        "pushedAt": "2026-08-22T03:30:39Z",
+        "updatedAt": "2026-08-22T03:30:50Z",
         "firstActivityAt": "2023-10-18T13:43:29Z",
         "firstActivitySha": "ff3e0da867887d03b5fdf1bc74c2e9dff9984847",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1844,7 +2095,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -1873,7 +2124,8 @@
         "Leitura sequencial de memória",
         "Escrita com controle de limites",
         "Reposicionamento com seek",
-        "Aplicação em sistemas embarcados"
+        "Aplicação em sistemas embarcados",
+        "Abstração entre aplicação e hardware"
       ],
       "caseStudy": {
         "title": "Abstração de acesso a memória em sistemas embarcados",
@@ -1905,7 +2157,26 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 120
+        "order": 120,
+        "discovery": [
+          "software",
+          "architecture",
+          "embedded",
+          "academic"
+        ],
+        "searchTerms": [
+          "C",
+          "microcontrolador",
+          "memória serial",
+          "sistemas embarcados",
+          "embedded",
+          "leitura",
+          "escrita",
+          "seek",
+          "arquitetura de software",
+          "abstração de hardware",
+          "API"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -1915,8 +2186,8 @@
       },
       "_repository": {
         "createdAt": "2024-05-21T02:30:13Z",
-        "pushedAt": "2026-08-22T00:40:19Z",
-        "updatedAt": "2026-08-22T00:40:36Z",
+        "pushedAt": "2026-08-22T03:44:55Z",
+        "updatedAt": "2026-08-22T03:45:02Z",
         "firstActivityAt": "2024-05-21T02:30:14Z",
         "firstActivitySha": "3300e5ece4ec49961ab89abaa0ee65fa39f4f66f",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -1931,7 +2202,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -2008,12 +2279,7 @@
         {
           "name": "FCFS — First Come, First Served",
           "path": "codigos/schedule_fcfs.c",
-          "summary": "Escalonador não preemptivo orientado pela ordem de chegada das tarefas. A fila é percorrida mantendo o princípio de que a primeira tarefa admitida é a primeira executada.",
-          "details": [
-            "Uso da lista encadeada como fila de aptos",
-            "Seleção por ordem de chegada",
-            "Execução de cada tarefa até o processamento previsto pelo simulador"
-          ],
+          "summary": "Escalonador não preemptivo orientado pela ordem de chegada das tarefas.",
           "technologies": [
             "C",
             "FCFS",
@@ -2023,13 +2289,7 @@
         {
           "name": "Round-Robin",
           "path": "codigos/schedule_rr.c",
-          "summary": "Escalonador preemptivo que distribui a CPU entre as tarefas através de fatias de tempo, recolocando tarefas ainda não concluídas na fila para ciclos posteriores.",
-          "details": [
-            "Quantum/time slice limitado pelo exercício",
-            "Rotação circular da fila de aptos",
-            "Atualização do tempo restante de CPU",
-            "Redistribuição periódica do processador"
-          ],
+          "summary": "Escalonador preemptivo que distribui a CPU entre tarefas através de fatias de tempo.",
           "technologies": [
             "C",
             "Round-Robin",
@@ -2039,13 +2299,7 @@
         {
           "name": "Round-Robin com Prioridade",
           "path": "codigos/schedule_rr_p.c",
-          "summary": "Extensão do Round-Robin que considera a prioridade das tarefas quando múltiplas tarefas estão aptas, mantendo o conceito de fatias de tempo dentro dos níveis de prioridade.",
-          "details": [
-            "Prioridade 1 representa o maior nível",
-            "Seleção por prioridade quando há concorrência",
-            "Uso de filas/organização distinta por prioridade",
-            "Manutenção da lógica de rotação temporal"
-          ],
+          "summary": "Extensão do Round-Robin que considera prioridade das tarefas.",
           "technologies": [
             "C",
             "Round-Robin",
@@ -2063,7 +2317,22 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 130
+        "order": 130,
+        "discovery": [
+          "software",
+          "academic"
+        ],
+        "searchTerms": [
+          "sistemas operacionais",
+          "C",
+          "escalonamento",
+          "FCFS",
+          "Round Robin",
+          "prioridade",
+          "scheduler",
+          "CPU",
+          "lista encadeada"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -2073,8 +2342,8 @@
       },
       "_repository": {
         "createdAt": "2023-05-13T20:17:24Z",
-        "pushedAt": "2026-08-22T01:15:00Z",
-        "updatedAt": "2026-08-22T01:15:03Z",
+        "pushedAt": "2026-08-22T03:30:09Z",
+        "updatedAt": "2026-08-22T03:30:28Z",
         "firstActivityAt": "2023-05-13T20:14:15Z",
         "firstActivitySha": "4597b8dab21d7720f2e879c61e9c744fb1970073",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -2089,7 +2358,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 4,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -2103,7 +2372,8 @@
         "status": "academic"
       },
       "categories": [
-        "software"
+        "software",
+        "academic"
       ],
       "technologies": [
         "C",
@@ -2116,7 +2386,8 @@
       "highlights": [
         "Memória compartilhada",
         "Comunicação via pipes",
-        "Processamento multithread"
+        "Processamento multithread",
+        "Organização produtor/consumidor"
       ],
       "caseStudy": {
         "title": "Experimentos de comunicação e concorrência entre processos",
@@ -2149,7 +2420,24 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 150
+        "order": 150,
+        "discovery": [
+          "software",
+          "architecture",
+          "academic"
+        ],
+        "searchTerms": [
+          "IPC",
+          "C",
+          "threads",
+          "processos",
+          "pipes",
+          "memória compartilhada",
+          "concorrência",
+          "sistemas operacionais",
+          "arquitetura de sistemas",
+          "produtor consumidor"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -2159,8 +2447,8 @@
       },
       "_repository": {
         "createdAt": "2023-04-10T19:21:37Z",
-        "pushedAt": "2026-08-22T00:40:30Z",
-        "updatedAt": "2026-08-22T00:40:41Z",
+        "pushedAt": "2026-08-22T03:45:02Z",
+        "updatedAt": "2026-08-22T03:45:11Z",
         "firstActivityAt": "2023-04-10T19:19:50Z",
         "firstActivitySha": "5745108aec20de7839712bae62006ce32ec23860",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -2175,7 +2463,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 5,
         "visibility": "public"
       }
     },
@@ -2816,7 +3104,17 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 210
+        "order": 210,
+        "discovery": [
+          "webmobile",
+          "academic"
+        ],
+        "searchTerms": [
+          "mobile",
+          "Android",
+          "desenvolvimento mobile",
+          "documentação técnica"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -2826,8 +3124,8 @@
       },
       "_repository": {
         "createdAt": "2021-10-03T23:51:29Z",
-        "pushedAt": "2026-08-21T23:47:37Z",
-        "updatedAt": "2026-08-21T23:47:45Z",
+        "pushedAt": "2026-08-22T03:31:00Z",
+        "updatedAt": "2026-08-22T03:31:34Z",
         "firstActivityAt": "2021-10-04T00:08:25Z",
         "firstActivitySha": "3b72456de9f9b734bda24c8673ac85aa2e37efae",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -2842,7 +3140,7 @@
           "feat/portfolio-manifest",
           "master"
         ],
-        "ignoredManifestOnlyCommits": 3,
+        "ignoredManifestOnlyCommits": 4,
         "visibility": "public"
       }
     },
@@ -2882,7 +3180,21 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 220
+        "order": 220,
+        "discovery": [
+          "software",
+          "academic"
+        ],
+        "searchTerms": [
+          "UNIVALI",
+          "Engenharia de Computação",
+          "C",
+          "C++",
+          "Java",
+          "Python",
+          "graduação",
+          "projetos acadêmicos"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -2892,8 +3204,8 @@
       },
       "_repository": {
         "createdAt": "2022-04-19T11:43:33Z",
-        "pushedAt": "2026-08-22T00:08:06Z",
-        "updatedAt": "2026-08-22T00:08:37Z",
+        "pushedAt": "2026-08-22T03:31:16Z",
+        "updatedAt": "2026-08-22T03:31:27Z",
         "firstActivityAt": "2022-04-19T11:43:34Z",
         "firstActivitySha": "34494ae32134a5027badc341f126e4be1e720ade",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -2909,7 +3221,7 @@
           "main",
           "master"
         ],
-        "ignoredManifestOnlyCommits": 2,
+        "ignoredManifestOnlyCommits": 3,
         "visibility": "public"
       }
     },
@@ -2956,7 +3268,11 @@
         "visible": true,
         "featured": false,
         "private": true,
-        "order": 230
+        "order": 230,
+        "discovery": [
+          "software",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -3002,7 +3318,20 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 230
+        "order": 230,
+        "discovery": [
+          "webmobile"
+        ],
+        "searchTerms": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "web",
+          "frontend",
+          "áudio",
+          "HTML5 Audio",
+          "animação"
+        ]
       },
       "_source": {
         "owner": "jorgebandeo",
@@ -3012,8 +3341,8 @@
       },
       "_repository": {
         "createdAt": "2025-04-26T05:17:13Z",
-        "pushedAt": "2026-08-22T00:12:10Z",
-        "updatedAt": "2026-08-22T00:12:17Z",
+        "pushedAt": "2026-08-22T03:31:09Z",
+        "updatedAt": "2026-08-22T03:31:42Z",
         "firstActivityAt": "2025-04-26T05:17:13Z",
         "firstActivitySha": "81d646b8acf98f455956c72daaaf38adbaecf468",
         "firstActivityBranch": "feat/portfolio-manifest",
@@ -3028,7 +3357,7 @@
           "feat/portfolio-manifest",
           "main"
         ],
-        "ignoredManifestOnlyCommits": 2,
+        "ignoredManifestOnlyCommits": 3,
         "visibility": "public"
       }
     },
@@ -3074,7 +3403,12 @@
         "visible": true,
         "featured": false,
         "private": true,
-        "order": 250
+        "order": 250,
+        "discovery": [
+          "software",
+          "architecture",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
@@ -3129,7 +3463,11 @@
         "visible": true,
         "featured": false,
         "private": true,
-        "order": 260
+        "order": 260,
+        "discovery": [
+          "software",
+          "academic"
+        ]
       },
       "_source": {
         "mode": "private-snapshot"
