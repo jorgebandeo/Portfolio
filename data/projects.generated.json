@@ -1,8 +1,8 @@
 {
   "version": 2,
   "owner": "jorgebandeo",
-  "count": 29,
-  "publicCount": 21,
+  "count": 31,
+  "publicCount": 23,
   "privateCount": 8,
   "projects": [
     {
@@ -2100,6 +2100,140 @@
       }
     },
     {
+      "schemaVersion": 1,
+      "project": {
+        "id": "bennie-flow",
+        "name": "Bennie Flow",
+        "subtitle": "MVP estático de gestão de pedidos, capacidade produtiva, BOM, estoque, cronograma, cotação e otimização de nesting.",
+        "status": "MVP estático conceitual",
+        "date": "2026-08-22"
+      },
+      "categories": [
+        "software",
+        "web",
+        "arquitetura",
+        "experiência aplicada",
+        "otimização",
+        "gestão de produção"
+      ],
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Canvas API",
+        "SVG",
+        "Pointer Events",
+        "Web Audio API",
+        "GitHub Pages"
+      ],
+      "summary": "Projeto aplicado criado para validar, em um MVP frontend estático, a gestão integrada de pedidos, produtos, BOM, materiais, recursos, tempos produtivos, capacidade, cotação, cronograma, defeitos, retrabalho e aproveitamento de folhas. O objetivo é transformar pedidos comerciais em necessidades reais de materiais e tempo antes da evolução para uma aplicação persistente com backend Node.js e banco de dados.",
+      "development": [
+        "Modelagem do pedido como unidade comercial formada por múltiplos itens com estados produtivos independentes.",
+        "Fluxo visual em que produtos do mesmo pedido podem seguir etapas diferentes e voltar a se agrupar automaticamente quando chegam ao mesmo estágio.",
+        "Cronograma produtivo com processos paralelos, dias úteis, horas de trabalho, drag-and-drop no desktop e toque prolongado no mobile.",
+        "BOM com matérias-primas, consumo por unidade, custos e roteiro produtivo.",
+        "Roteiro com operações manuais e equipamentos, tempo de preparação, tempo por lote, tamanho do lote, desgaste e retorno/setup.",
+        "Cotação multi-produto consolidando quantidade, custo de materiais, preço e tempo produtivo.",
+        "Portal do cliente para consulta de disponibilidade e prazo com base na capacidade estimada.",
+        "Controle de defeitos e retrabalho por item do pedido.",
+        "Nesting de PNG/SVG por máscara alfa para reduzir desperdício em impressão e corte, com testes de rotação, compactação e padrões repetitivos.",
+        "Responsividade específica para desktop e dispositivos móveis."
+      ],
+      "highlights": [
+        "MVP concebido para validar regras de negócio antes da implementação do backend.",
+        "Aplicação prática de BOM, routing, capacity planning, estoque, scheduling e retrabalho.",
+        "Uso de Canvas e máscara alfa para colisão e otimização geométrica.",
+        "Separação entre contexto interno de produção e visão simplificada para o cliente.",
+        "Arquitetura preparada conceitualmente para futura migração para Node.js e banco relacional."
+      ],
+      "knowledge": {
+        "applied": [
+          "Engenharia de software",
+          "Arquitetura de sistemas",
+          "Modelagem de entidades e estado",
+          "Bill of Materials",
+          "MRP conceitual",
+          "Capacity planning",
+          "Scheduling",
+          "Gestão de estoque",
+          "Controle de qualidade",
+          "Responsive UX",
+          "Computação gráfica",
+          "2D irregular packing",
+          "Heurísticas de otimização"
+        ],
+        "acquired": [
+          "Importância de usar o item do pedido como fonte de verdade em fluxos produtivos divididos.",
+          "Como BOM e roteiro podem alimentar simultaneamente custo, estoque, capacidade e prazo.",
+          "Como operações manuais também devem ser tratadas como recursos produtivos limitados.",
+          "Impacto de defeitos e retrabalho sobre material, horas e cronograma.",
+          "Limitações de heurísticas gulosas em nesting e necessidade de preservar best-so-far.",
+          "Diferenças práticas de interação entre desktop e touch.",
+          "Uso de rasterização e canal alfa para aproximar geometria irregular no navegador."
+        ]
+      },
+      "architecture": {
+        "current": "Frontend estático sem persistência, utilizado como prova de conceito e ambiente de validação das regras.",
+        "plannedBackend": "Node.js",
+        "plannedDatabase": "Banco de dados relacional",
+        "futureEntities": [
+          "Customer",
+          "Order",
+          "OrderItem",
+          "Product",
+          "ProductRevision",
+          "BOMItem",
+          "Operation",
+          "Resource",
+          "Material",
+          "InventoryTransaction",
+          "ProductionTask",
+          "Defect",
+          "Rework",
+          "Quote"
+        ]
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Bennie-Flow",
+        "demo": "https://jorgebandeo.github.io/Bennie-Flow/"
+      },
+      "media": {
+        "gallery": []
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 120,
+        "private": false
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Bennie-Flow",
+        "ref": "main",
+        "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2026-08-22T03:59:46Z",
+        "pushedAt": "2026-08-22T13:14:23Z",
+        "updatedAt": "2026-08-22T13:14:57Z",
+        "firstActivityAt": "2026-08-22T04:01:19Z",
+        "firstActivitySha": "410c21ed354a9026181c470a94aa6624ae6018c7",
+        "firstActivityBranch": "main",
+        "lastActivityAt": "2026-08-22T13:14:23Z",
+        "lastActivitySha": "5187799b8c4354ecd8cc4e79c11b0092be27797a",
+        "lastActivityBranch": "main",
+        "projectDate": "2026-08-22T04:01:19Z",
+        "projectDateSource": "first-non-portfolio-only-commit-across-branches",
+        "declaredProjectDate": "2026-08-22",
+        "lastActivitySource": "latest-non-portfolio-only-commit-across-branches",
+        "branchesChecked": [
+          "main"
+        ],
+        "ignoredManifestOnlyCommits": 0,
+        "visibility": "public"
+      }
+    },
+    {
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
@@ -3477,6 +3611,67 @@
         "projectDate": "2021-03-29",
         "lastActivityAt": "2022-06-28T14:25:56Z",
         "projectDateSource": "repository-created-at"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "portfolio",
+        "name": "Portfolio",
+        "subtitle": "This repository serves as a portfolio of my projects, showcased through GitHub Pages.",
+        "status": "repository"
+      },
+      "categories": [
+        "web",
+        "software"
+      ],
+      "technologies": [
+        "HTML",
+        "Python",
+        "JavaScript"
+      ],
+      "summary": "This repository serves as a portfolio of my projects, showcased through GitHub Pages.",
+      "development": [],
+      "highlights": [
+        "Linguagens detectadas: HTML, Python, JavaScript"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Portfolio"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 500,
+        "private": false
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Portfolio",
+        "ref": "main",
+        "mode": "auto"
+      },
+      "_repository": {
+        "createdAt": "2024-08-21T02:28:33Z",
+        "pushedAt": "2026-08-22T13:22:45Z",
+        "updatedAt": "2026-08-22T04:01:17Z",
+        "firstActivityAt": "2024-08-21T02:28:33Z",
+        "firstActivitySha": "1883e1267af842242f679324c1a1c90ad6ee7b70",
+        "firstActivityBranch": "main",
+        "lastActivityAt": "2026-08-22T13:22:45Z",
+        "lastActivitySha": "3daeaac9fac47ede80f30de2cc5afb036fe096aa",
+        "lastActivityBranch": "main",
+        "projectDate": "2024-08-21T02:28:33Z",
+        "projectDateSource": "first-non-portfolio-only-commit-across-branches",
+        "declaredProjectDate": "",
+        "lastActivitySource": "latest-non-portfolio-only-commit-across-branches",
+        "branchesChecked": [
+          "main"
+        ],
+        "ignoredManifestOnlyCommits": 1,
+        "visibility": "public"
       }
     }
   ]
