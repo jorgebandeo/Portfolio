@@ -1,76 +1,89 @@
 {
   "version": 2,
   "owner": "jorgebandeo",
-  "count": 22,
+  "count": 21,
   "projects": [
     {
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "dog-washer-pse",
-        "name": "Máquina de Lavar Cachorros",
-        "subtitle": "Protótipo embarcado para controle de lavagem, temperatura e acionamentos",
+        "id": "pse-smart-occupancy",
+        "name": "Sistema Embarcado de Ocupação e Iluminação Inteligente",
+        "subtitle": "Contagem de pessoas por sensores, controle de iluminação e comunicação entre ESP32 via MQTT",
         "date": "2023-10",
         "status": "prototype"
       },
       "categories": [
         "hardware",
-        "software"
+        "software",
+        "embedded"
       ],
       "technologies": [
         "ESP32",
         "C",
-        "Bluetooth",
-        "DHT11",
-        "Relés",
-        "Sensores"
+        "ESP-IDF",
+        "FreeRTOS",
+        "MQTT",
+        "Wi-Fi",
+        "LDR",
+        "GPIO"
       ],
-      "summary": "Protótipo acadêmico de sistema embarcado aplicado a uma máquina de lavar cachorros, com controle de bomba, aquecimento, iluminação e leitura de sensores. O projeto utiliza ESP32 e comunicação Bluetooth para supervisão e comandos manuais.",
+      "summary": "Projeto acadêmico de sistemas embarcados para detectar o fluxo de entrada e saída de pessoas em ambientes, manter a contagem de ocupação e controlar a iluminação conforme presença e luminosidade. A evolução do projeto inclui firmware concorrente em FreeRTOS, clientes ESP32 e comunicação MQTT com uma implementação de broker local.",
       "development": [
         {
-          "title": "Controle embarcado",
-          "text": "Firmware em C para ESP32 responsável pela leitura dos sensores e pelo acionamento dos periféricos do protótipo."
+          "title": "Detecção de fluxo",
+          "text": "Dois sensores são lidos em tarefas independentes e a sequência de acionamento é usada para distinguir entrada de saída, incrementando ou decrementando a ocupação do ambiente."
         },
         {
-          "title": "Monitoramento",
-          "text": "Leitura de temperatura, nível de água e luminosidade, com envio do estado do sistema por Bluetooth."
+          "title": "Iluminação automática",
+          "text": "A ocupação é combinada com a leitura analógica de luminosidade para comandar a saída de iluminação e publicar o estado do ambiente."
         },
         {
-          "title": "Acionamentos",
-          "text": "Controle de bomba, aquecedor e iluminação por relés, incluindo comandos manuais recebidos via Bluetooth."
+          "title": "Comunicação distribuída",
+          "text": "A etapa M3 evolui para ESP-IDF e MQTT, com clientes ESP32, publicação de estados e experimentação com broker MQTT executado em ESP32."
         }
       ],
       "highlights": [
-        "Controle da bomba de água",
-        "Controle do aquecedor",
-        "Leitura de temperatura com DHT11",
-        "Leitura de nível de água",
-        "Leitura de luminosidade",
-        "Comandos e telemetria via Bluetooth"
+        "Contagem bidirecional de pessoas",
+        "Tarefas concorrentes com FreeRTOS",
+        "Controle de iluminação por ocupação",
+        "Leitura de luminosidade via ADC",
+        "Comunicação MQTT",
+        "Arquitetura com múltiplos ESP32"
       ],
-      "media": {
-        "cover": "portfolio/media/prototipo-01.jpg",
-        "gallery": [
-          {
-            "type": "image",
-            "src": "portfolio/media/prototipo-01.jpg",
-            "caption": "Protótipo da máquina"
-          },
-          {
-            "type": "image",
-            "src": "portfolio/media/montagem-01.jpg",
-            "caption": "Montagem e integração eletrônica"
-          },
-          {
-            "type": "video",
-            "src": "portfolio/media/teste-funcionamento.mp4",
-            "caption": "Teste de funcionamento"
-          }
+      "caseStudy": {
+        "title": "Da leitura de sensores a um sistema distribuído de ambientes inteligentes",
+        "intro": "O repositório reúne etapas de desenvolvimento de um sistema embarcado voltado a ambientes/quartos. O diagrama DSH modela portas com sensores de entrada e saída e estados de ocupação para diferentes quartos. O firmware implementa essa lógica e posteriormente distribui a comunicação entre dispositivos ESP32.",
+        "objective": "Determinar automaticamente se uma pessoa entrou ou saiu de um ambiente, manter uma contagem coerente de ocupantes e usar essa informação para controlar iluminação, acrescentando comunicação em rede para compartilhar estados entre módulos.",
+        "implementation": "Na etapa embarcada, tarefas independentes fazem polling dos sensores. Uma tarefa de lógica compara estados atuais e anteriores para reconhecer a ordem de passagem pelos sensores e atualizar a variável de ocupação. Outra tarefa lê o LDR pelo ADC, aciona a iluminação e publica mensagens MQTT. A evolução M3 usa ESP-IDF, Wi-Fi e clientes MQTT; o repositório também contém uma implementação de broker MQTT local baseada em Mongoose para ESP32.",
+        "architecture": "Sensores de passagem → tarefas FreeRTOS → lógica de direção/ocupação → controle de iluminação + leitura LDR → publicação MQTT. Em M3, módulos cliente e servidor/broker permitem distribuir a informação entre ESP32s e testar topologias locais de automação.",
+        "progress": "O repositório preserva diferentes iterações (M2 e M3), incluindo versões locais de cliente/servidor, testes de MQTT e um diagrama de estados/fluxo. É um protótipo acadêmico funcional e evolutivo, não um produto final de automação predial.",
+        "materials": [
+          "ESP32",
+          "Sensores digitais de passagem/presença",
+          "Sensor de luminosidade LDR",
+          "LED/saída de iluminação",
+          "ESP-IDF",
+          "FreeRTOS",
+          "MQTT",
+          "Mongoose networking library",
+          "Wi-Fi"
+        ],
+        "results": [
+          "Lógica bidirecional para incrementar e decrementar ocupação",
+          "Acionamento de iluminação condicionado à presença",
+          "Leitura percentual aproximada de luminosidade",
+          "Publicação de estado via MQTT",
+          "Experimentação com broker MQTT executado no próprio ESP32",
+          "Separação do firmware em tarefas concorrentes"
         ]
+      },
+      "media": {
+        "gallery": []
       },
       "links": {
         "repository": "https://github.com/jorgebandeo/PSE",
-        "source": "M2/main.c"
+        "source": "M3/ESP_CLiente_local/main/app_main.c"
       },
       "portfolio": {
         "visible": true,
@@ -113,6 +126,28 @@
         "Recorte e preparação de imagens",
         "Dados para detecção e classificação"
       ],
+      "caseStudy": {
+        "title": "Construção da base de dados para detecção de quedas",
+        "intro": "Esta etapa concentra a engenharia de dados da pesquisa de detecção de quedas. Diferentes conjuntos públicos precisam ser transformados para uma representação consistente antes de serem usados nos experimentos de visão computacional.",
+        "objective": "Criar uma base utilizável tanto por modelos de detecção quanto por classificadores, reduzindo incompatibilidades entre formatos de anotação e padronizando a organização dos dados.",
+        "implementation": "Scripts em Python fazem leitura e transformação das anotações, normalização de bounding boxes, conversão para o formato esperado pelo YOLO, recorte das regiões de pessoas e organização dos conjuntos de treino, validação e teste.",
+        "architecture": "Datasets de origem → leitura/conversão de anotações → normalização espacial → recorte/preparação das imagens → divisão dos conjuntos → consumo pelos pipelines de treinamento.",
+        "progress": "O repositório registra a etapa de preparação e curadoria que antecede os treinamentos mantidos em repositórios complementares. Ele representa a infraestrutura de dados da pesquisa, e não um modelo final isolado.",
+        "materials": [
+          "Python",
+          "Datasets públicos de quedas",
+          "Anotações de bounding boxes",
+          "Formato YOLO",
+          "Ferramentas de processamento de imagens"
+        ],
+        "results": [
+          "Padronização das anotações",
+          "Estrutura de dados compatível com YOLO",
+          "Separação de treino/validação/teste",
+          "Imagens de pessoas preparadas para classificação",
+          "Base reutilizável nos experimentos de detecção de quedas"
+        ]
+      },
       "media": {
         "gallery": []
       },
@@ -978,42 +1013,6 @@
         "repo": "Algoritmos-e-Programacao-1",
         "ref": "main",
         "mode": "manifest"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "yolo",
-        "name": "yolo",
-        "subtitle": "Repositório público de desenvolvimento e estudos: yolo.",
-        "date": "2026-08",
-        "status": "empty"
-      },
-      "categories": [
-        "ai"
-      ],
-      "technologies": [
-        "YOLO"
-      ],
-      "summary": "Repositório público de desenvolvimento e estudos: yolo.",
-      "development": [],
-      "highlights": [],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/yolo"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "yolo",
-        "ref": "main",
-        "mode": "auto"
       }
     }
   ]
