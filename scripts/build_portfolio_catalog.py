@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import base64, json, os, re, urllib.request
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / 'data/projects.json').read_text(encoding='utf-8'))
@@ -9,6 +10,8 @@ HEADERS={'Accept':'application/vnd.github+json','User-Agent':'jorgebandeo-portfo
 if TOKEN: HEADERS['Authorization']=f'Bearer {TOKEN}'
 ALIASES={'APP-Clinica':'Gerenciador de Consultas Médicas','PSE':'Projetos de Sistemas Embarcados — PSE','STR':'Sistemas em Tempo Real','LFA':'Linguagens Formais e Autômatos','micro-M2':'Biblioteca de Memória Serial','Kernel-Filter':'Análise Comparativa de Filtros Adaptativos','Processamento-Digital-de-Sinais':'Processamento Digital de Sinais','Dataset_FallProject':'Dataset para Detecção de Quedas','YOLOv8Train':'Treinamento YOLOv8 para Detecção de Quedas','Site-Casamento':'Site de Casamento','site-musica':'Experiência Web com Áudio','Eletr-nica-Aplicada-':'Eletrônica Aplicada','Materia-RedCop':'Redes de Computadores','Materia-I-A-Py':'Inteligência Artificial em Python','Mataria-de-IA':'Estudos de Inteligência Artificial','Sistemas-Operacionais':'Escalonadores de Sistemas Operacionais','Repositorio-Univali':'Projetos Acadêmicos de Engenharia de Computação'}
 TECH_PATTERNS={'ESP32':r'\besp32\b','Arduino':r'\barduino\b','OpenCV':r'\bopencv\b','YOLO':r'\byolo\w*\b','TensorFlow':r'\btensorflow\b','PyTorch':r'\bpytorch\b','Android':r'android studio|\bandroid\b','Bluetooth':r'\bbluetooth\b','MQTT':r'\bmqtt\b','DHT11':r'\bdht11\b','Kalman':r'\bkalman\b','LMS':r'\blms\b','FFT':r'\bfft\b','DSP':r'processamento digital de sinais|\bdsp\b'}
+IGNORED_ACTIVITY_PATHS={'portfolio.json'}
+MAX_ACTIVITY_COMMITS=30
 
 def api(url):
     with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=30) as r:return json.load(r)
@@ -47,19 +50,67 @@ def infer_summary(repo,desc,readme):
         if len(s)>=45:return s[:360]
     return f'Repositório público de desenvolvimento e estudos: {repo}.'
 
-def repository_metadata(repo, manifest=None):
-    created = repo.get('created_at') or ''
-    pushed = repo.get('pushed_at') or ''
-    updated = repo.get('updated_at') or ''
-    explicit_project_date = ((manifest or {}).get('project') or {}).get('date')
-    project_date = explicit_project_date or (created[:10] if created else '')
+def commit_date(commit):
+    meta=(commit or {}).get('commit') or {}
+    return ((meta.get('committer') or {}).get('date') or (meta.get('author') or {}).get('date') or '')
+
+def meaningful_last_update(repo_name, branch, fallback=''):
+    repo_q=quote(repo_name,safe='')
+    branch_q=quote(branch,safe='')
+    commits=try_api(f'https://api.github.com/repos/{OWNER}/{repo_q}/commits?sha={branch_q}&per_page={MAX_ACTIVITY_COMMITS}')
+    if not isinstance(commits,list):
+        return {'date':fallback,'sha':'','ignoredManifestOnlyCommits':0,'source':'repository-pushed-at-fallback'}
+
+    ignored=0
+    for commit in commits:
+        sha=commit.get('sha') or ''
+        if not sha:continue
+        detail=try_api(f'https://api.github.com/repos/{OWNER}/{repo_q}/commits/{sha}')
+        if not detail:continue
+        files=detail.get('files') or []
+        paths={item.get('filename','') for item in files if item.get('filename')}
+
+        # Alterações exclusivamente no manifesto de portfólio não representam
+        # evolução do projeto e, portanto, não mudam a data exibida no site.
+        if paths and paths.issubset(IGNORED_ACTIVITY_PATHS):
+            ignored+=1
+            continue
+
+        # Commits sem diff de arquivos (por exemplo, casos incomuns de merge vazio)
+        # também não são usados como atualização de conteúdo.
+        if not paths:continue
+
+        return {
+            'date':commit_date(detail) or commit_date(commit) or fallback,
+            'sha':sha,
+            'ignoredManifestOnlyCommits':ignored,
+            'source':'last-non-portfolio-commit'
+        }
+
     return {
-        'createdAt': created,
-        'pushedAt': pushed,
-        'updatedAt': updated,
-        'lastActivityAt': pushed or updated,
-        'projectDate': project_date,
-        'projectDateSource': 'manifest' if explicit_project_date else 'repository-created-at'
+        'date':fallback,
+        'sha':'',
+        'ignoredManifestOnlyCommits':ignored,
+        'source':'repository-pushed-at-fallback'
+    }
+
+def repository_metadata(repo, manifest=None):
+    created=repo.get('created_at') or ''
+    pushed=repo.get('pushed_at') or ''
+    updated=repo.get('updated_at') or ''
+    explicit_project_date=((manifest or {}).get('project') or {}).get('date')
+    project_date=explicit_project_date or (created[:10] if created else '')
+    meaningful=meaningful_last_update(repo['name'],repo['default_branch'],pushed or updated)
+    return {
+        'createdAt':created,
+        'pushedAt':pushed,
+        'updatedAt':updated,
+        'lastActivityAt':meaningful['date'],
+        'lastActivitySha':meaningful['sha'],
+        'lastActivitySource':meaningful['source'],
+        'ignoredManifestOnlyCommits':meaningful['ignoredManifestOnlyCommits'],
+        'projectDate':project_date,
+        'projectDateSource':'manifest' if explicit_project_date else 'repository-created-at'
     }
 
 def compile_repo(repo):
