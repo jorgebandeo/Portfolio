@@ -6,51 +6,16 @@
   "required": ["schemaVersion", "project", "categories", "technologies", "summary", "media", "links", "portfolio"],
   "properties": {
     "schemaVersion": { "const": 1 },
-    "project": {
-      "type": "object",
-      "required": ["id", "name", "subtitle", "status"],
-      "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string" },
-        "subtitle": { "type": "string" },
-        "date": { "type": "string" },
-        "status": { "type": "string" }
-      }
-    },
-    "categories": { "type": "array", "items": { "type": "string" } },
-    "technologies": { "type": "array", "items": { "type": "string" } },
-    "summary": { "type": "string" },
-    "development": { "type": "array" },
-    "highlights": { "type": "array", "items": { "type": "string" } },
-    "caseStudy": {
-      "type": "object",
-      "properties": {
-        "title": { "type": "string" },
-        "intro": { "type": "string" },
-        "objective": { "type": "string" },
-        "implementation": { "type": "string" },
-        "architecture": { "type": "string" },
-        "progress": { "type": "string" },
-        "materials": { "type": "array", "items": { "type": "string" } },
-        "results": { "type": "array", "items": { "type": "string" } }
-      }
-    },
-    "subprojects": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["name", "summary"],
-        "properties": {
-          "name": { "type": "string" },
-          "path": { "type": "string" },
-          "summary": { "type": "string" },
-          "details": { "type": "array", "items": { "type": "string" } },
-          "technologies": { "type": "array", "items": { "type": "string" } }
-        }
-      }
-    },
-    "media": { "type": "object" },
-    "links": { "type": "object" },
-    "portfolio": { "type": "object" }
+    "project": {"type":"object","required":["id","name","subtitle","status"],"properties":{"id":{"type":"string"},"name":{"type":"string"},"subtitle":{"type":"string"},"date":{"type":"string"},"status":{"type":"string"}}},
+    "categories": {"type":"array","items":{"type":"string"}},
+    "technologies": {"type":"array","items":{"type":"string"}},
+    "summary": {"type":"string"},
+    "development": {"type":"array"},
+    "highlights": {"type":"array","items":{"type":"string"}},
+    "caseStudy": {"type":"object","properties":{"title":{"type":"string"},"intro":{"type":"string"},"objective":{"type":"string"},"implementation":{"type":"string"},"architecture":{"type":"string"},"progress":{"type":"string"},"materials":{"type":"array","items":{"type":"string"}},"results":{"type":"array","items":{"type":"string"}}}},
+    "subprojects": {"type":"array","items":{"type":"object","required":["name","summary"],"properties":{"name":{"type":"string"},"path":{"type":"string"},"summary":{"type":"string"},"details":{"type":"array","items":{"type":"string"}},"technologies":{"type":"array","items":{"type":"string"}}}}},
+    "media": {"type":"object"},
+    "links": {"type":"object"},
+    "portfolio": {"type":"object","properties":{"visible":{"type":"boolean"},"featured":{"type":"boolean"},"private":{"type":"boolean"},"order":{"type":"number"},"discovery":{"type":"array","items":{"enum":["featured","applied","ai","software","architecture","signals","embedded","webmobile","academic"]},"uniqueItems":true},"searchTerms":{"type":"array","items":{"type":"string"},"uniqueItems":true}}}
   }
 }
