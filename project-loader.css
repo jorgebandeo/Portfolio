@@ -13,196 +13,96 @@
     letter-spacing: .16em;
 }
 
-.manifest-cover {
-    position: relative;
-    overflow: hidden;
-}
-
-.manifest-cover img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity .25s ease;
-}
-
+.manifest-cover { position: relative; overflow: hidden; }
+.manifest-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s ease; }
 .manifest-cover.has-image img { opacity: 1; }
 .manifest-cover.has-image i { opacity: 0; }
 
-.project-date-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin-top: 14px;
-    color: var(--muted);
-    font-size: .72rem;
-    letter-spacing: .04em;
-}
+.project-date-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 14px; color: var(--muted); font-size: .72rem; letter-spacing: .04em; }
+.project-date-meta span { display: inline-flex; gap: 6px; align-items: center; min-width: 0; }
+.project-date-meta b { color: var(--amber); font-size: .64rem; letter-spacing: .1em; }
+.project-date-meta--compact { padding-top: 12px; border-top: 1px solid rgba(255,255,255,.06); }
+.project-tech-strip { margin-top: 16px; color: var(--cyan); font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; overflow-wrap: anywhere; }
+.manifest-badge { display: inline-flex; margin-top: 16px; padding: 5px 9px; border: 1px solid rgba(148,201,169,.28); border-radius: 999px; color: var(--green); background: rgba(148,201,169,.08); font-size: .62rem; font-weight: 900; letter-spacing: .12em; }
 
-.project-date-meta span {
-    display: inline-flex;
-    gap: 6px;
-    align-items: center;
-}
+.project-loading,.project-load-error { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--muted); font-weight: 800; letter-spacing: .08em; overflow-wrap: anywhere; }
+.project-load-error { border-color: rgba(239,143,114,.35); color: var(--peach); }
 
-.project-date-meta b {
-    color: var(--amber);
-    font-size: .64rem;
-    letter-spacing: .1em;
-}
+.manifest-detail { display: grid; gap: 24px; min-width: 0; }
+.manifest-detail > * { min-width: 0; }
+.manifest-hero { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(135deg,rgba(124,24,56,.26),transparent 40%),linear-gradient(160deg,var(--surface-2),#0d1118); box-shadow: var(--shadow); min-width: 0; }
+.manifest-hero > div { min-width: 0; }
+.manifest-hero h1 { margin: 0; font-size: clamp(2rem,5vw,4rem); line-height: .98; letter-spacing: -.045em; overflow-wrap: anywhere; }
+.manifest-subtitle { max-width: 780px; margin: 18px 0 0; color: var(--muted); font-size: 1.05rem; overflow-wrap: anywhere; }
+.manifest-hero-dates { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.manifest-hero-dates span { display: grid; gap: 3px; min-width: 150px; padding: 9px 12px; border: 1px solid rgba(111,168,220,.18); border-radius: 12px; background: rgba(255,255,255,.03); color: #dfe3ea; font-size: .82rem; }
+.manifest-hero-dates b { color: var(--cyan); font-size: .62rem; letter-spacing: .12em; }
+.manifest-status { padding: 8px 12px; border-radius: 999px; color: #111; background: var(--amber); font-size: .72rem; font-weight: 900; letter-spacing: .1em; white-space: normal; text-align: center; overflow-wrap: anywhere; }
 
-.project-date-meta--compact {
-    padding-top: 12px;
-    border-top: 1px solid rgba(255,255,255,.06);
-}
-
-.project-tech-strip {
-    margin-top: 16px;
-    color: var(--cyan);
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-}
-
-.manifest-badge {
-    display: inline-flex;
-    margin-top: 16px;
-    padding: 5px 9px;
-    border: 1px solid rgba(148, 201, 169, .28);
-    border-radius: 999px;
-    color: var(--green);
-    background: rgba(148, 201, 169, .08);
-    font-size: .62rem;
-    font-weight: 900;
-    letter-spacing: .12em;
-}
-
-.project-loading,
-.project-load-error {
-    padding: 28px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    color: var(--muted);
-    font-weight: 800;
-    letter-spacing: .08em;
-}
-
-.project-load-error {
-    border-color: rgba(239, 143, 114, .35);
-    color: var(--peach);
-}
-
-.manifest-detail { display: grid; gap: 24px; }
-
-.manifest-hero {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 28px;
-    align-items: end;
-    padding: 34px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background:
-        linear-gradient(135deg, rgba(124, 24, 56, .26), transparent 40%),
-        linear-gradient(160deg, var(--surface-2), #0d1118);
-    box-shadow: var(--shadow);
-}
-
-.manifest-hero h1 {
-    margin: 0;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: .98;
-    letter-spacing: -.045em;
-}
-
-.manifest-subtitle {
-    max-width: 780px;
-    margin: 18px 0 0;
-    color: var(--muted);
-    font-size: 1.05rem;
-}
-
-.manifest-hero-dates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 22px;
-}
-
-.manifest-hero-dates span {
-    display: grid;
-    gap: 3px;
-    min-width: 150px;
-    padding: 9px 12px;
-    border: 1px solid rgba(111,168,220,.18);
-    border-radius: 12px;
-    background: rgba(255,255,255,.03);
-    color: #dfe3ea;
-    font-size: .82rem;
-}
-
-.manifest-hero-dates b {
-    color: var(--cyan);
-    font-size: .62rem;
-    letter-spacing: .12em;
-}
-
-.manifest-status {
-    padding: 8px 12px;
-    border-radius: 999px;
-    color: #111;
-    background: var(--amber);
-    font-size: .72rem;
-    font-weight: 900;
-    letter-spacing: .1em;
-}
-
-.manifest-tech { display: flex; flex-wrap: wrap; gap: 8px; }
-.manifest-tech span { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.035); color: var(--cyan); font-size: .74rem; font-weight: 800; }
-.manifest-overview { display: grid; grid-template-columns: 1.65fr .9fr; gap: 20px; }
-.manifest-copy { padding: 28px; }
-.development-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
-.development-item { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
-.development-item strong { color: var(--amber); }
+.manifest-tech { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.manifest-tech span { max-width: 100%; padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.035); color: var(--cyan); font-size: .74rem; font-weight: 800; overflow-wrap: anywhere; }
+.manifest-overview { display: grid; grid-template-columns: 1.65fr .9fr; gap: 20px; min-width: 0; }
+.manifest-copy { padding: 28px; min-width: 0; }
+.manifest-copy p,.manifest-copy li,.catalog-source-note { overflow-wrap: anywhere; }
+.development-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 24px; }
+.development-item { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
+.development-item strong { color: var(--amber); overflow-wrap: anywhere; }
 .development-item p { margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
 .manifest-highlights { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
 .manifest-highlights li { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.035); color: #dfe3ea; }
 .manifest-highlights li::before { content: "▸ "; color: var(--blue); }
-.manifest-media-section { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.018); }
+.catalog-source-note { color: var(--muted); font-size: .7rem; margin-top: 18px; }
+
+.manifest-media-section { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.018); min-width: 0; }
 .manifest-section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 20px; }
 .manifest-section-heading h2 { margin: 0; }
 .manifest-section-heading > span { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
-.manifest-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.manifest-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
 .manifest-media-card { display: grid; gap: 10px; margin: 0; min-width: 0; }
-.manifest-media-card > img,
-.manifest-media-card > video,
-.media-placeholder { grid-area: 1 / 1; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(124,24,56,.22), rgba(124,166,216,.10)), var(--surface-3); }
-.manifest-media-card > img,
-.manifest-media-card > video { position: relative; z-index: 2; height: 100%; object-fit: cover; }
+.manifest-media-card > img,.manifest-media-card > video,.media-placeholder { grid-area: 1 / 1; width: 100%; max-width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg,rgba(124,24,56,.22),rgba(124,166,216,.10)),var(--surface-3); }
+.manifest-media-card > img,.manifest-media-card > video { position: relative; z-index: 2; height: 100%; object-fit: cover; }
 .media-placeholder { display: grid; place-items: center; padding: 20px; color: rgba(169,175,189,.7); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-align: center; }
-.manifest-media-card figcaption { color: var(--muted); font-size: .85rem; }
-.manifest-links { display: flex; flex-wrap: wrap; gap: 10px; }
-.manifest-links a { padding: 11px 16px; border-radius: 999px; background: var(--amber); color: #111; font-size: .75rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; }
+.manifest-media-card figcaption { color: var(--muted); font-size: .85rem; overflow-wrap: anywhere; }
+.manifest-links { display: flex; flex-wrap: wrap; gap: 10px; min-width: 0; }
+.manifest-links a { max-width: 100%; padding: 11px 16px; border-radius: 999px; background: var(--amber); color: #111; font-size: .75rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-align: center; overflow-wrap: anywhere; }
 
 @media (max-width: 900px) {
-    .manifest-overview,
-    .development-grid { grid-template-columns: 1fr; }
+    .manifest-overview,.development-grid { grid-template-columns: 1fr; }
     .manifest-gallery { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
-    .manifest-hero { grid-template-columns: 1fr; align-items: start; padding: 24px; }
-    .manifest-status { justify-self: start; }
-    .manifest-section-heading { display: block; }
-    .manifest-section-heading > span { display: block; margin-top: 8px; }
-    .project-date-meta { display: grid; gap: 6px; }
-    .manifest-hero-dates { display: grid; grid-template-columns: 1fr 1fr; }
+    .project-article.manifest-detail { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .manifest-detail { gap: 14px; }
+    .manifest-hero { grid-template-columns: 1fr; align-items: start; gap: 16px; padding: 18px; border-radius: 18px; }
+    .manifest-hero h1 { font-size: clamp(1.7rem,9vw,2.45rem); line-height: 1.03; letter-spacing: -.035em; }
+    .manifest-subtitle { margin-top: 12px; font-size: .93rem; line-height: 1.55; }
+    .manifest-status { justify-self: start; padding: 6px 10px; font-size: .64rem; }
+    .manifest-hero-dates { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 16px; }
+    .manifest-hero-dates span { min-width: 0; padding: 8px 10px; font-size: .78rem; }
+    .manifest-tech { gap: 6px; }
+    .manifest-tech span { padding: 6px 9px; font-size: .68rem; }
+    .manifest-copy,.manifest-media-section { padding: 16px; border-radius: 18px; }
+    .development-grid { gap: 9px; margin-top: 16px; }
+    .development-item { padding: 14px; border-radius: 13px; }
+    .development-item p { font-size: .86rem; line-height: 1.55; }
+    .manifest-highlights { gap: 7px; margin-top: 12px; }
+    .manifest-highlights li { padding: 8px 10px; font-size: .86rem; }
+    .manifest-section-heading { display: block; margin-bottom: 14px; }
+    .manifest-section-heading > span { display: block; margin-top: 6px; font-size: .66rem; }
+    .manifest-gallery { gap: 10px; }
+    .manifest-media-card > img,.manifest-media-card > video,.media-placeholder { border-radius: 12px; }
+    .manifest-links { display: grid; grid-template-columns: 1fr; }
+    .manifest-links a { width: 100%; min-height: 44px; display: grid; place-items: center; border-radius: 13px; }
+    .project-date-meta { display: grid; gap: 5px; }
+    .project-date-meta span { align-items: baseline; }
+    .catalog-source-note { font-size: .64rem; }
 }
 
-@media (max-width: 420px) {
-    .manifest-hero-dates { grid-template-columns: 1fr; }
+@media (max-width: 380px) {
+    .manifest-hero { padding: 15px; }
+    .manifest-copy,.manifest-media-section { padding: 14px; }
+    .manifest-hero h1 { font-size: 1.65rem; }
+    .manifest-tech span { font-size: .64rem; }
+    .lcars-label { letter-spacing: .11em; font-size: .66rem; }
 }
