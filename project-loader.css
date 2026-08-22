@@ -28,12 +28,34 @@
     transition: opacity .25s ease;
 }
 
-.manifest-cover.has-image img {
-    opacity: 1;
+.manifest-cover.has-image img { opacity: 1; }
+.manifest-cover.has-image i { opacity: 0; }
+
+.project-date-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: .72rem;
+    letter-spacing: .04em;
 }
 
-.manifest-cover.has-image i {
-    opacity: 0;
+.project-date-meta span {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.project-date-meta b {
+    color: var(--amber);
+    font-size: .64rem;
+    letter-spacing: .1em;
+}
+
+.project-date-meta--compact {
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.06);
 }
 
 .project-tech-strip {
@@ -74,10 +96,7 @@
     color: var(--peach);
 }
 
-.manifest-detail {
-    display: grid;
-    gap: 24px;
-}
+.manifest-detail { display: grid; gap: 24px; }
 
 .manifest-hero {
     display: grid;
@@ -107,6 +126,31 @@
     font-size: 1.05rem;
 }
 
+.manifest-hero-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.manifest-hero-dates span {
+    display: grid;
+    gap: 3px;
+    min-width: 150px;
+    padding: 9px 12px;
+    border: 1px solid rgba(111,168,220,.18);
+    border-radius: 12px;
+    background: rgba(255,255,255,.03);
+    color: #dfe3ea;
+    font-size: .82rem;
+}
+
+.manifest-hero-dates b {
+    color: var(--cyan);
+    font-size: .62rem;
+    letter-spacing: .12em;
+}
+
 .manifest-status {
     padding: 8px 12px;
     border-radius: 999px;
@@ -117,197 +161,48 @@
     letter-spacing: .1em;
 }
 
-.manifest-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.manifest-tech span {
-    padding: 8px 11px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: rgba(255,255,255,.035);
-    color: var(--cyan);
-    font-size: .74rem;
-    font-weight: 800;
-}
-
-.manifest-overview {
-    display: grid;
-    grid-template-columns: 1.65fr .9fr;
-    gap: 20px;
-}
-
-.manifest-copy {
-    padding: 28px;
-}
-
-.development-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 24px;
-}
-
-.development-item {
-    padding: 18px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: rgba(255,255,255,.025);
-}
-
-.development-item strong {
-    color: var(--amber);
-}
-
-.development-item p {
-    margin: 8px 0 0;
-    color: var(--muted);
-    font-size: .9rem;
-}
-
-.manifest-highlights {
-    display: grid;
-    gap: 10px;
-    margin: 18px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.manifest-highlights li {
-    padding: 10px 12px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.035);
-    color: #dfe3ea;
-}
-
-.manifest-highlights li::before {
-    content: "▸ ";
-    color: var(--blue);
-}
-
-.manifest-media-section {
-    padding: 28px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: rgba(255,255,255,.018);
-}
-
-.manifest-section-heading {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: end;
-    margin-bottom: 20px;
-}
-
-.manifest-section-heading h2 {
-    margin: 0;
-}
-
-.manifest-section-heading > span {
-    color: var(--muted);
-    font-size: .75rem;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-}
-
-.manifest-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.manifest-media-card {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    min-width: 0;
-}
-
+.manifest-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+.manifest-tech span { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.035); color: var(--cyan); font-size: .74rem; font-weight: 800; }
+.manifest-overview { display: grid; grid-template-columns: 1.65fr .9fr; gap: 20px; }
+.manifest-copy { padding: 28px; }
+.development-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.development-item { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); }
+.development-item strong { color: var(--amber); }
+.development-item p { margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
+.manifest-highlights { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.manifest-highlights li { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.035); color: #dfe3ea; }
+.manifest-highlights li::before { content: "▸ "; color: var(--blue); }
+.manifest-media-section { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.018); }
+.manifest-section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 20px; }
+.manifest-section-heading h2 { margin: 0; }
+.manifest-section-heading > span { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
+.manifest-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.manifest-media-card { display: grid; gap: 10px; margin: 0; min-width: 0; }
 .manifest-media-card > img,
 .manifest-media-card > video,
-.media-placeholder {
-    grid-area: 1 / 1;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background:
-        linear-gradient(145deg, rgba(124,24,56,.22), rgba(124,166,216,.10)),
-        var(--surface-3);
-}
-
+.media-placeholder { grid-area: 1 / 1; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(124,24,56,.22), rgba(124,166,216,.10)), var(--surface-3); }
 .manifest-media-card > img,
-.manifest-media-card > video {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    object-fit: cover;
-}
-
-.media-placeholder {
-    display: grid;
-    place-items: center;
-    padding: 20px;
-    color: rgba(169,175,189,.7);
-    font-size: .72rem;
-    font-weight: 900;
-    letter-spacing: .1em;
-    text-align: center;
-}
-
-.manifest-media-card figcaption {
-    color: var(--muted);
-    font-size: .85rem;
-}
-
-.manifest-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.manifest-links a {
-    padding: 11px 16px;
-    border-radius: 999px;
-    background: var(--amber);
-    color: #111;
-    font-size: .75rem;
-    font-weight: 900;
-    letter-spacing: .08em;
-    text-decoration: none;
-}
+.manifest-media-card > video { position: relative; z-index: 2; height: 100%; object-fit: cover; }
+.media-placeholder { display: grid; place-items: center; padding: 20px; color: rgba(169,175,189,.7); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-align: center; }
+.manifest-media-card figcaption { color: var(--muted); font-size: .85rem; }
+.manifest-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.manifest-links a { padding: 11px 16px; border-radius: 999px; background: var(--amber); color: #111; font-size: .75rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; }
 
 @media (max-width: 900px) {
     .manifest-overview,
-    .development-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .manifest-gallery {
-        grid-template-columns: 1fr;
-    }
+    .development-grid { grid-template-columns: 1fr; }
+    .manifest-gallery { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
-    .manifest-hero {
-        grid-template-columns: 1fr;
-        align-items: start;
-        padding: 24px;
-    }
+    .manifest-hero { grid-template-columns: 1fr; align-items: start; padding: 24px; }
+    .manifest-status { justify-self: start; }
+    .manifest-section-heading { display: block; }
+    .manifest-section-heading > span { display: block; margin-top: 8px; }
+    .project-date-meta { display: grid; gap: 6px; }
+    .manifest-hero-dates { display: grid; grid-template-columns: 1fr 1fr; }
+}
 
-    .manifest-status {
-        justify-self: start;
-    }
-
-    .manifest-section-heading {
-        display: block;
-    }
-
-    .manifest-section-heading > span {
-        display: block;
-        margin-top: 8px;
-    }
+@media (max-width: 420px) {
+    .manifest-hero-dates { grid-template-columns: 1fr; }
 }
