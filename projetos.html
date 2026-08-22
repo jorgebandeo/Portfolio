@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projetos de software, web e hardware de Jorge Bandeo.">
+    <meta name="description" content="Projetos de software, inteligência artificial, sistemas embarcados, web e engenharia de Jorge Bandeo.">
     <title>Jorge Bandeo — Projetos</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="project-loader.css?v=6">
+    <link rel="stylesheet" href="project-loader.css?v=8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div class="header-content">
             <p class="eyebrow">LCARS // Project Database</p>
             <h1>Projetos</h1>
-            <p>Web · Software · Hardware · Pesquisa · Integração</p>
+            <p>Engenharia aplicada em software, IA, sistemas embarcados, automação e pesquisa.</p>
         </div>
     </header>
 
@@ -28,23 +28,57 @@
 
     <main class="container">
         <section id="projects" class="projects">
-            <h2>Projetos</h2>
-            <p class="project-counter" aria-live="polite"></p>
-            <p class="lcars-label">AUTO CATALOG // repositórios públicos são analisados e compilados automaticamente</p>
+            <div class="project-discovery" aria-label="Pesquisa e descoberta de projetos">
+                <div class="project-discovery__intro">
+                    <div>
+                        <p class="lcars-label">LCARS // PROJECT NAVIGATOR</p>
+                        <h2>O que você quer conhecer?</h2>
+                        <p>Encontre rapidamente projetos por área, tecnologia ou tipo de experiência. Cada registro resume o problema, o desenvolvimento e os conhecimentos aplicados.</p>
+                    </div>
+                    <div class="project-discovery__stats" aria-live="polite">
+                        <strong id="projectResultCount">—</strong>
+                        <span>projetos encontrados</span>
+                    </div>
+                </div>
 
-            <div class="filtos" aria-label="Filtros de projetos">
-                <button class="filter-button" type="button" data-category="web" aria-pressed="false" onclick="toggleFilter(this)">
-                    <img src="image/designer-de-web.png" alt="" aria-hidden="true"> Web
-                </button>
-                <button class="filter-button" type="button" data-category="software" aria-pressed="false" onclick="toggleFilter(this)">
-                    <img src="image/sofware.png" alt="" aria-hidden="true"> Software
-                </button>
-                <button class="filter-button" type="button" data-category="hardware" aria-pressed="false" onclick="toggleFilter(this)">
-                    <img src="image/lasca.png" alt="" aria-hidden="true"> Hardware
-                </button>
+                <div class="project-search-wrap">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                    <label class="sr-only" for="projectSearch">Pesquisar projetos</label>
+                    <input id="projectSearch" type="search" autocomplete="off" placeholder="Busque: Python, C++, IA, banco de dados, ESP32, automação...">
+                    <button id="clearProjectSearch" class="project-search-clear" type="button" aria-label="Limpar pesquisa" hidden>Limpar</button>
+                </div>
+
+                <div class="discovery-paths" aria-label="Atalhos de descoberta">
+                    <button type="button" class="discovery-chip discovery-chip--featured" data-discover="featured" aria-pressed="false"><i class="fas fa-star" aria-hidden="true"></i> Destaques</button>
+                    <button type="button" class="discovery-chip" data-discover="applied" aria-pressed="false"><i class="fas fa-industry" aria-hidden="true"></i> Experiência aplicada</button>
+                    <button type="button" class="discovery-chip" data-discover="ai" aria-pressed="false"><i class="fas fa-brain" aria-hidden="true"></i> IA & Visão</button>
+                    <button type="button" class="discovery-chip" data-discover="software" aria-pressed="false"><i class="fas fa-code" aria-hidden="true"></i> Software & Sistemas</button>
+                    <button type="button" class="discovery-chip" data-discover="embedded" aria-pressed="false"><i class="fas fa-microchip" aria-hidden="true"></i> Embarcados</button>
+                    <button type="button" class="discovery-chip" data-discover="webmobile" aria-pressed="false"><i class="fas fa-display" aria-hidden="true"></i> Web & Mobile</button>
+                    <button type="button" class="discovery-chip" data-discover="academic" aria-pressed="false"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Acadêmicos & Pesquisa</button>
+                </div>
+
+                <details class="advanced-project-filters">
+                    <summary>Filtros técnicos</summary>
+                    <div class="filtos" aria-label="Filtros técnicos de projetos">
+                        <button class="filter-button" type="button" data-category="web" aria-pressed="false">Web</button>
+                        <button class="filter-button" type="button" data-category="software" aria-pressed="false">Software</button>
+                        <button class="filter-button" type="button" data-category="hardware" aria-pressed="false">Hardware</button>
+                        <button class="filter-button" type="button" data-category="ai" aria-pressed="false">IA</button>
+                        <button class="filter-button" type="button" data-category="mobile" aria-pressed="false">Mobile</button>
+                    </div>
+                </details>
+
+                <div class="project-active-query" id="projectActiveQuery" aria-live="polite"></div>
             </div>
 
             <div class="project-grid"></div>
+            <div class="project-empty-state" id="projectEmptyState" hidden>
+                <i class="fas fa-satellite-dish" aria-hidden="true"></i>
+                <strong>Nenhum projeto encontrado</strong>
+                <span>Tente outro termo ou remova um dos filtros.</span>
+                <button type="button" id="resetProjectFilters">Mostrar todos</button>
+            </div>
         </section>
     </main>
 
@@ -53,7 +87,7 @@
         <p>&copy; 2026 Jorge Bandeo · Project database // LCARS interface</p>
     </footer>
 
-    <script src="script.js?v=3"></script>
-    <script src="project-loader.js?v=6"></script>
+    <script src="script.js?v=4"></script>
+    <script src="project-loader.js?v=8"></script>
 </body>
 </html>
