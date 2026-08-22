@@ -11,7 +11,8 @@ if TOKEN: HEADERS['Authorization']=f'Bearer {TOKEN}'
 ALIASES={'APP-Clinica':'Gerenciador de Consultas Médicas','PSE':'Projetos de Sistemas Embarcados — PSE','STR':'Sistemas em Tempo Real','LFA':'Linguagens Formais e Autômatos','micro-M2':'Biblioteca de Memória Serial','Kernel-Filter':'Análise Comparativa de Filtros Adaptativos','Processamento-Digital-de-Sinais':'Processamento Digital de Sinais','Dataset_FallProject':'Dataset para Detecção de Quedas','YOLOv8Train':'Treinamento YOLOv8 para Detecção de Quedas','Site-Casamento':'Site de Casamento','site-musica':'Experiência Web com Áudio','Eletr-nica-Aplicada-':'Eletrônica Aplicada','Materia-RedCop':'Redes de Computadores','Materia-I-A-Py':'Inteligência Artificial em Python','Mataria-de-IA':'Estudos de Inteligência Artificial','Sistemas-Operacionais':'Escalonadores de Sistemas Operacionais','Repositorio-Univali':'Projetos Acadêmicos de Engenharia de Computação'}
 TECH_PATTERNS={'ESP32':r'\besp32\b','Arduino':r'\barduino\b','OpenCV':r'\bopencv\b','YOLO':r'\byolo\w*\b','TensorFlow':r'\btensorflow\b','PyTorch':r'\bpytorch\b','Android':r'android studio|\bandroid\b','Bluetooth':r'\bbluetooth\b','MQTT':r'\bmqtt\b','DHT11':r'\bdht11\b','Kalman':r'\bkalman\b','LMS':r'\blms\b','FFT':r'\bfft\b','DSP':r'processamento digital de sinais|\bdsp\b'}
 IGNORED_ACTIVITY_PATHS={'portfolio.json'}
-MAX_ACTIVITY_COMMITS=30
+MAX_ACTIVITY_COMMITS=40
+MAX_BRANCHES=100
 
 def api(url):
     with urllib.request.urlopen(urllib.request.Request(url,headers=HEADERS),timeout=30) as r:return json.load(r)
@@ -27,7 +28,7 @@ def read_readme(repo):
     except Exception:return ''
 
 def read_manifest(repo,branch):
-    data=try_api(f'https://api.github.com/repos/{OWNER}/{repo}/contents/portfolio.json?ref={branch}')
+    data=try_api(f'https://api.github.com/repos/{OWNER}/{repo}/contents/portfolio.json?ref={quote(branch,safe="")}')
     if not data:return None
     try:return json.loads(base64.b64decode(data['content']).decode('utf-8'))
     except Exception:return None
@@ -54,13 +55,22 @@ def commit_date(commit):
     meta=(commit or {}).get('commit') or {}
     return ((meta.get('committer') or {}).get('date') or (meta.get('author') or {}).get('date') or '')
 
-def meaningful_last_update(repo_name, branch, fallback=''):
-    repo_q=quote(repo_name,safe='')
-    branch_q=quote(branch,safe='')
-    commits=try_api(f'https://api.github.com/repos/{OWNER}/{repo_q}/commits?sha={branch_q}&per_page={MAX_ACTIVITY_COMMITS}')
-    if not isinstance(commits,list):
-        return {'date':fallback,'sha':'','ignoredManifestOnlyCommits':0,'source':'repository-pushed-at-fallback'}
+def parse_iso(value):
+    return value or ''
 
+def list_branches(repo_name, default_branch):
+    repo_q=quote(repo_name,safe='')
+    branches=try_api(f'https://api.github.com/repos/{OWNER}/{repo_q}/branches?per_page={MAX_BRANCHES}')
+    names=[]
+    if isinstance(branches,list):
+        names=[b.get('name') for b in branches if b.get('name')]
+    if default_branch and default_branch not in names:names.insert(0,default_branch)
+    return names or [default_branch]
+
+def latest_meaningful_on_branch(repo_name, branch):
+    repo_q=quote(repo_name,safe='');branch_q=quote(branch,safe='')
+    commits=try_api(f'https://api.github.com/repos/{OWNER}/{repo_q}/commits?sha={branch_q}&per_page={MAX_ACTIVITY_COMMITS}')
+    if not isinstance(commits,list):return None
     ignored=0
     for commit in commits:
         sha=commit.get('sha') or ''
@@ -70,62 +80,58 @@ def meaningful_last_update(repo_name, branch, fallback=''):
         files=detail.get('files') or []
         paths={item.get('filename','') for item in files if item.get('filename')}
 
-        # Alterações exclusivamente no manifesto de portfólio não representam
-        # evolução do projeto e, portanto, não mudam a data exibida no site.
-        if paths and paths.issubset(IGNORED_ACTIVITY_PATHS):
+        # Só ignora quando portfolio.json é o ÚNICO arquivo alterado.
+        # Se portfolio.json vier junto com código, README, imagens etc., o commit conta normalmente.
+        if paths == IGNORED_ACTIVITY_PATHS:
             ignored+=1
             continue
-
-        # Commits sem diff de arquivos (por exemplo, casos incomuns de merge vazio)
-        # também não são usados como atualização de conteúdo.
         if not paths:continue
+        return {'date':commit_date(detail) or commit_date(commit),'sha':sha,'branch':branch,'ignoredManifestOnlyCommits':ignored}
+    return None
 
+def meaningful_last_update(repo, fallback=''):
+    branches=list_branches(repo['name'],repo['default_branch'])
+    candidates=[];ignored_total=0
+    for branch in branches:
+        candidate=latest_meaningful_on_branch(repo['name'],branch)
+        if candidate:
+            ignored_total+=candidate.get('ignoredManifestOnlyCommits',0)
+            candidates.append(candidate)
+    if candidates:
+        best=max(candidates,key=lambda x:parse_iso(x.get('date')))
         return {
-            'date':commit_date(detail) or commit_date(commit) or fallback,
-            'sha':sha,
-            'ignoredManifestOnlyCommits':ignored,
-            'source':'last-non-portfolio-commit'
+            'date':best.get('date') or fallback,
+            'sha':best.get('sha',''),
+            'branch':best.get('branch',repo['default_branch']),
+            'branchesChecked':branches,
+            'ignoredManifestOnlyCommits':ignored_total,
+            'source':'latest-non-portfolio-only-commit-across-branches'
         }
-
-    return {
-        'date':fallback,
-        'sha':'',
-        'ignoredManifestOnlyCommits':ignored,
-        'source':'repository-pushed-at-fallback'
-    }
+    return {'date':fallback,'sha':'','branch':repo['default_branch'],'branchesChecked':branches,'ignoredManifestOnlyCommits':ignored_total,'source':'repository-pushed-at-fallback'}
 
 def repository_metadata(repo, manifest=None):
-    created=repo.get('created_at') or ''
-    pushed=repo.get('pushed_at') or ''
-    updated=repo.get('updated_at') or ''
+    created=repo.get('created_at') or '';pushed=repo.get('pushed_at') or '';updated=repo.get('updated_at') or ''
     explicit_project_date=((manifest or {}).get('project') or {}).get('date')
     project_date=explicit_project_date or (created[:10] if created else '')
-    meaningful=meaningful_last_update(repo['name'],repo['default_branch'],pushed or updated)
+    meaningful=meaningful_last_update(repo,pushed or updated)
     return {
-        'createdAt':created,
-        'pushedAt':pushed,
-        'updatedAt':updated,
-        'lastActivityAt':meaningful['date'],
-        'lastActivitySha':meaningful['sha'],
-        'lastActivitySource':meaningful['source'],
+        'createdAt':created,'pushedAt':pushed,'updatedAt':updated,
+        'lastActivityAt':meaningful['date'],'lastActivitySha':meaningful['sha'],'lastActivityBranch':meaningful['branch'],
+        'lastActivitySource':meaningful['source'],'branchesChecked':meaningful['branchesChecked'],
         'ignoredManifestOnlyCommits':meaningful['ignoredManifestOnlyCommits'],
-        'projectDate':project_date,
-        'projectDateSource':'manifest' if explicit_project_date else 'repository-created-at'
+        'projectDate':project_date,'projectDateSource':'manifest' if explicit_project_date else 'repository-created-at'
     }
 
 def compile_repo(repo):
     name=repo['name'];branch=repo['default_branch'];manifest=read_manifest(name,branch)
     if manifest:
         if manifest.get('portfolio',{}).get('visible',True) is False:return None
-        manifest['_source']={'owner':OWNER,'repo':name,'ref':branch,'mode':'manifest'}
-        manifest['_repository']=repository_metadata(repo,manifest)
-        return manifest
+        manifest['_source']={'owner':OWNER,'repo':name,'ref':branch,'mode':'manifest'};manifest['_repository']=repository_metadata(repo,manifest);return manifest
     readme=read_readme(name);langs=languages(name);desc=repo.get('description') or '';text=' '.join([desc,readme[:8000]]).lower();tech=langs[:6]
     for label,pattern in TECH_PATTERNS.items():
         if re.search(pattern,text,re.I) and label not in tech:tech.append(label)
     if not tech:tech=['GitHub']
-    cats=categories(name,desc,readme,langs);title=ALIASES.get(name,name.replace('-',' ').replace('_',' ').strip());summary=infer_summary(name,desc,readme);status='empty' if repo.get('size',0)==0 else 'repository'
-    project_date=(repo.get('created_at') or '')[:10]
+    cats=categories(name,desc,readme,langs);title=ALIASES.get(name,name.replace('-',' ').replace('_',' ').strip());summary=infer_summary(name,desc,readme);status='empty' if repo.get('size',0)==0 else 'repository';project_date=(repo.get('created_at') or '')[:10]
     return {'schemaVersion':1,'project':{'id':re.sub(r'[^a-z0-9]+','-',name.lower()).strip('-'),'name':title,'subtitle':summary[:150],'date':project_date,'status':status},'categories':cats,'technologies':tech[:8],'summary':summary,'development':[],'highlights':[f'Linguagens detectadas: {", ".join(langs)}'] if langs else [],'media':{'gallery':[]},'links':{'repository':repo['html_url']},'portfolio':{'visible':True,'featured':False,'order':500},'_source':{'owner':OWNER,'repo':name,'ref':branch,'mode':'auto'},'_repository':repository_metadata(repo)}
 
 def main():
