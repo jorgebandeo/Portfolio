@@ -147,6 +147,14 @@
         "repo": "PSE",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-10-25T04:43:50Z",
+        "pushedAt": "2026-08-22T01:13:54Z",
+        "updatedAt": "2026-08-22T01:14:04Z",
+        "lastActivityAt": "2026-08-22T01:13:54Z",
+        "projectDate": "2023-10-25",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -216,6 +224,14 @@
         "repo": "Dataset_FallProject",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-09-21T19:21:34Z",
+        "pushedAt": "2026-08-22T00:39:13Z",
+        "updatedAt": "2026-08-22T00:39:17Z",
+        "lastActivityAt": "2026-08-22T00:39:13Z",
+        "projectDate": "2023-09-21",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -286,6 +302,14 @@
         "repo": "YOLOv8Train",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-09-20T23:26:11Z",
+        "pushedAt": "2026-08-22T00:39:25Z",
+        "updatedAt": "2026-08-22T00:40:04Z",
+        "lastActivityAt": "2026-08-22T00:39:25Z",
+        "projectDate": "2023-09-20",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -371,6 +395,14 @@
         "repo": "Site-Casamento",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2025-03-29T22:31:37Z",
+        "pushedAt": "2026-08-22T00:39:58Z",
+        "updatedAt": "2026-08-22T00:40:02Z",
+        "lastActivityAt": "2026-08-22T00:39:58Z",
+        "projectDate": "2025-03-29",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -453,6 +485,14 @@
         "repo": "Kernel-Filter",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2024-07-23T23:51:32Z",
+        "pushedAt": "2026-08-22T00:39:36Z",
+        "updatedAt": "2026-08-22T00:39:49Z",
+        "lastActivityAt": "2026-08-22T00:39:36Z",
+        "projectDate": "2024-07-23",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -535,6 +575,14 @@
         "repo": "Mataria-de-IA",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-05-09T23:42:29Z",
+        "pushedAt": "2026-08-22T00:51:49Z",
+        "updatedAt": "2026-08-22T00:51:53Z",
+        "lastActivityAt": "2026-08-22T00:51:49Z",
+        "projectDate": "2023-05-09",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -622,6 +670,14 @@
         "repo": "Processamento-Digital-de-Sinais",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2024-08-21T03:29:58Z",
+        "pushedAt": "2026-08-22T00:39:47Z",
+        "updatedAt": "2026-08-22T00:39:59Z",
+        "lastActivityAt": "2026-08-22T00:39:47Z",
+        "projectDate": "2024-08-21",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -757,6 +813,14 @@
         "repo": "STR",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-09-10T17:05:06Z",
+        "pushedAt": "2026-08-22T01:13:27Z",
+        "updatedAt": "2026-08-22T01:13:39Z",
+        "lastActivityAt": "2026-08-22T01:13:27Z",
+        "projectDate": "2023-09-10",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -890,6 +954,14 @@
         "repo": "Materia-RedCop",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-05-14T18:13:11Z",
+        "pushedAt": "2026-08-22T01:14:17Z",
+        "updatedAt": "2026-08-22T01:14:39Z",
+        "lastActivityAt": "2026-08-22T01:14:17Z",
+        "projectDate": "2023-05-14",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -971,6 +1043,14 @@
         "repo": "APP-Clinica",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2021-11-15T20:33:18Z",
+        "pushedAt": "2026-08-22T00:51:16Z",
+        "updatedAt": "2026-08-22T00:52:00Z",
+        "lastActivityAt": "2026-08-22T00:51:16Z",
+        "projectDate": "2021-11-15",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1112,6 +1192,14 @@
         "repo": "Materia-I-A-Py",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-05-14T14:49:30Z",
+        "pushedAt": "2026-08-22T01:14:38Z",
+        "updatedAt": "2026-08-22T01:14:55Z",
+        "lastActivityAt": "2026-08-22T01:14:38Z",
+        "projectDate": "2023-05-14",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1196,6 +1284,14 @@
         "repo": "Eletr-nica-Aplicada-",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2024-06-07T22:02:30Z",
+        "pushedAt": "2026-08-22T00:52:34Z",
+        "updatedAt": "2026-08-22T00:52:42Z",
+        "lastActivityAt": "2026-08-22T00:52:34Z",
+        "projectDate": "2024-06-07",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1282,6 +1378,14 @@
         "repo": "LFA",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-10-18T13:43:28Z",
+        "pushedAt": "2026-08-22T00:55:20Z",
+        "updatedAt": "2026-08-22T00:55:23Z",
+        "lastActivityAt": "2026-08-22T00:55:20Z",
+        "projectDate": "2023-10-18",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1348,6 +1452,14 @@
         "repo": "micro-M2",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2024-05-21T02:30:13Z",
+        "pushedAt": "2026-08-22T00:40:19Z",
+        "updatedAt": "2026-08-22T00:40:36Z",
+        "lastActivityAt": "2026-08-22T00:40:19Z",
+        "projectDate": "2024-05-21",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1485,6 +1597,14 @@
         "repo": "Sistemas-Operacionais",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-05-13T20:17:24Z",
+        "pushedAt": "2026-08-22T01:15:00Z",
+        "updatedAt": "2026-08-22T01:15:03Z",
+        "lastActivityAt": "2026-08-22T01:15:00Z",
+        "projectDate": "2023-05-13",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1550,6 +1670,14 @@
         "repo": "IPC-comunica-o-entre-processos-",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-04-10T19:21:37Z",
+        "pushedAt": "2026-08-22T00:40:30Z",
+        "updatedAt": "2026-08-22T00:40:41Z",
+        "lastActivityAt": "2026-08-22T00:40:30Z",
+        "projectDate": "2023-04-10",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -1980,6 +2108,14 @@
         "repo": "Algoritmos-e-Programacao-2",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-09-20T03:14:45Z",
+        "pushedAt": "2026-08-22T01:05:07Z",
+        "updatedAt": "2026-08-22T01:05:13Z",
+        "lastActivityAt": "2026-08-22T01:05:07Z",
+        "projectDate": "2023-09-20",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -2113,6 +2249,14 @@
         "repo": "Algoritmos-e-Programacao-1",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2023-09-19T21:56:46Z",
+        "pushedAt": "2026-08-22T01:12:21Z",
+        "updatedAt": "2026-08-22T01:12:29Z",
+        "lastActivityAt": "2026-08-22T01:12:21Z",
+        "projectDate": "2023-09-19",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -2154,6 +2298,14 @@
         "repo": "Aula_Mobile",
         "ref": "master",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2021-10-03T23:51:29Z",
+        "pushedAt": "2026-08-21T23:47:37Z",
+        "updatedAt": "2026-08-21T23:47:45Z",
+        "lastActivityAt": "2026-08-21T23:47:37Z",
+        "projectDate": "2021-10-03",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -2199,6 +2351,14 @@
         "repo": "Repositorio-Univali",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2022-04-19T11:43:33Z",
+        "pushedAt": "2026-08-22T00:08:06Z",
+        "updatedAt": "2026-08-22T00:08:37Z",
+        "lastActivityAt": "2026-08-22T00:08:06Z",
+        "projectDate": "2022-04-19",
+        "projectDateSource": "repository-created-at"
       }
     },
     {
@@ -2242,6 +2402,14 @@
         "repo": "site-musica",
         "ref": "main",
         "mode": "manifest"
+      },
+      "_repository": {
+        "createdAt": "2025-04-26T05:17:13Z",
+        "pushedAt": "2026-08-22T00:12:10Z",
+        "updatedAt": "2026-08-22T00:12:17Z",
+        "lastActivityAt": "2026-08-22T00:12:10Z",
+        "projectDate": "2025-04-26",
+        "projectDateSource": "repository-created-at"
       }
     }
   ]
