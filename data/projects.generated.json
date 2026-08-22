@@ -152,7 +152,10 @@
         "createdAt": "2023-10-25T04:43:50Z",
         "pushedAt": "2026-08-22T01:13:54Z",
         "updatedAt": "2026-08-22T01:14:04Z",
-        "lastActivityAt": "2026-08-22T01:13:54Z",
+        "lastActivityAt": "2026-08-21T22:51:34Z",
+        "lastActivitySha": "08ccd1338e06eb5f8062aa21631d807cedc7ad98",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-10-25",
         "projectDateSource": "repository-created-at"
       }
@@ -229,7 +232,10 @@
         "createdAt": "2023-09-21T19:21:34Z",
         "pushedAt": "2026-08-22T00:39:13Z",
         "updatedAt": "2026-08-22T00:39:17Z",
-        "lastActivityAt": "2026-08-22T00:39:13Z",
+        "lastActivityAt": "2023-09-24T14:47:19Z",
+        "lastActivitySha": "01d22ffec24228f3f41595642cebaaeda6cc2648",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-09-21",
         "projectDateSource": "repository-created-at"
       }
@@ -307,7 +313,10 @@
         "createdAt": "2023-09-20T23:26:11Z",
         "pushedAt": "2026-08-22T00:39:25Z",
         "updatedAt": "2026-08-22T00:40:04Z",
-        "lastActivityAt": "2026-08-22T00:39:25Z",
+        "lastActivityAt": "2023-09-23T04:35:26Z",
+        "lastActivitySha": "a41db5ed87ef6f1ef2d2c34add11c24ac4c2bf3b",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-09-20",
         "projectDateSource": "repository-created-at"
       }
@@ -400,7 +409,10 @@
         "createdAt": "2025-03-29T22:31:37Z",
         "pushedAt": "2026-08-22T00:39:58Z",
         "updatedAt": "2026-08-22T00:40:02Z",
-        "lastActivityAt": "2026-08-22T00:39:58Z",
+        "lastActivityAt": "2025-04-08T16:40:20Z",
+        "lastActivitySha": "d45e4964a5048f523639fa1b35ec495b45ac7ec8",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2025-03-29",
         "projectDateSource": "repository-created-at"
       }
@@ -490,7 +502,10 @@
         "createdAt": "2024-07-23T23:51:32Z",
         "pushedAt": "2026-08-22T00:39:36Z",
         "updatedAt": "2026-08-22T00:39:49Z",
-        "lastActivityAt": "2026-08-22T00:39:36Z",
+        "lastActivityAt": "2024-10-14T03:38:18Z",
+        "lastActivitySha": "9f4614b819353418492f383446cb801f044f8c98",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2024-07-23",
         "projectDateSource": "repository-created-at"
       }
@@ -580,7 +595,10 @@
         "createdAt": "2023-05-09T23:42:29Z",
         "pushedAt": "2026-08-22T00:51:49Z",
         "updatedAt": "2026-08-22T00:51:53Z",
-        "lastActivityAt": "2026-08-22T00:51:49Z",
+        "lastActivityAt": "2023-05-18T00:12:13Z",
+        "lastActivitySha": "95392d205b36bb1244a58bf2d9165d0efe48f995",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-05-09",
         "projectDateSource": "repository-created-at"
       }
@@ -675,7 +693,10 @@
         "createdAt": "2024-08-21T03:29:58Z",
         "pushedAt": "2026-08-22T00:39:47Z",
         "updatedAt": "2026-08-22T00:39:59Z",
-        "lastActivityAt": "2026-08-22T00:39:47Z",
+        "lastActivityAt": "2024-12-15T05:23:23Z",
+        "lastActivitySha": "e65897a555b6b63a7223f473183682261b7c5f25",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2024-08-21",
         "projectDateSource": "repository-created-at"
       }
@@ -818,7 +839,10 @@
         "createdAt": "2023-09-10T17:05:06Z",
         "pushedAt": "2026-08-22T01:13:27Z",
         "updatedAt": "2026-08-22T01:13:39Z",
-        "lastActivityAt": "2026-08-22T01:13:27Z",
+        "lastActivityAt": "2023-10-23T04:38:58Z",
+        "lastActivitySha": "619c148438c8ddb9fd1da41f668ee265c0978430",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-09-10",
         "projectDateSource": "repository-created-at"
       }
@@ -959,7 +983,10 @@
         "createdAt": "2023-05-14T18:13:11Z",
         "pushedAt": "2026-08-22T01:14:17Z",
         "updatedAt": "2026-08-22T01:14:39Z",
-        "lastActivityAt": "2026-08-22T01:14:17Z",
+        "lastActivityAt": "2023-05-24T18:00:37Z",
+        "lastActivitySha": "abc784722e784a70231bc45e21342480aea46d97",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-05-14",
         "projectDateSource": "repository-created-at"
       }
@@ -1048,7 +1075,10 @@
         "createdAt": "2021-11-15T20:33:18Z",
         "pushedAt": "2026-08-22T00:51:16Z",
         "updatedAt": "2026-08-22T00:52:00Z",
-        "lastActivityAt": "2026-08-22T00:51:16Z",
+        "lastActivityAt": "2021-11-15T20:27:44Z",
+        "lastActivitySha": "851b708715e9358044475375224822f470a3de87",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2021-11-15",
         "projectDateSource": "repository-created-at"
       }
@@ -1197,7 +1227,10 @@
         "createdAt": "2023-05-14T14:49:30Z",
         "pushedAt": "2026-08-22T01:14:38Z",
         "updatedAt": "2026-08-22T01:14:55Z",
-        "lastActivityAt": "2026-08-22T01:14:38Z",
+        "lastActivityAt": "2023-05-14T14:56:43Z",
+        "lastActivitySha": "4b15e51c8495a3b30b888b1d5256881d165defe5",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-05-14",
         "projectDateSource": "repository-created-at"
       }
@@ -1289,7 +1322,10 @@
         "createdAt": "2024-06-07T22:02:30Z",
         "pushedAt": "2026-08-22T00:52:34Z",
         "updatedAt": "2026-08-22T00:52:42Z",
-        "lastActivityAt": "2026-08-22T00:52:34Z",
+        "lastActivityAt": "2024-06-07T22:53:34Z",
+        "lastActivitySha": "67bb8a5cc34a7b163ef8d1115073119de5dc93b9",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2024-06-07",
         "projectDateSource": "repository-created-at"
       }
@@ -1383,7 +1419,10 @@
         "createdAt": "2023-10-18T13:43:28Z",
         "pushedAt": "2026-08-22T00:55:20Z",
         "updatedAt": "2026-08-22T00:55:23Z",
-        "lastActivityAt": "2026-08-22T00:55:20Z",
+        "lastActivityAt": "2023-10-18T13:45:37Z",
+        "lastActivitySha": "19c6983cc51a633899b18720c4ff1a8c374c9e8a",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-10-18",
         "projectDateSource": "repository-created-at"
       }
@@ -1457,7 +1496,10 @@
         "createdAt": "2024-05-21T02:30:13Z",
         "pushedAt": "2026-08-22T00:40:19Z",
         "updatedAt": "2026-08-22T00:40:36Z",
-        "lastActivityAt": "2026-08-22T00:40:19Z",
+        "lastActivityAt": "2024-05-22T12:13:23Z",
+        "lastActivitySha": "33af9d475b168a8a776045b1ca9aee28867f38c4",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2024-05-21",
         "projectDateSource": "repository-created-at"
       }
@@ -1602,7 +1644,10 @@
         "createdAt": "2023-05-13T20:17:24Z",
         "pushedAt": "2026-08-22T01:15:00Z",
         "updatedAt": "2026-08-22T01:15:03Z",
-        "lastActivityAt": "2026-08-22T01:15:00Z",
+        "lastActivityAt": "2023-05-23T11:03:25Z",
+        "lastActivitySha": "a181007f76b390c159b51649d8f4d93658f637e3",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-05-13",
         "projectDateSource": "repository-created-at"
       }
@@ -1675,7 +1720,10 @@
         "createdAt": "2023-04-10T19:21:37Z",
         "pushedAt": "2026-08-22T00:40:30Z",
         "updatedAt": "2026-08-22T00:40:41Z",
-        "lastActivityAt": "2026-08-22T00:40:30Z",
+        "lastActivityAt": "2023-04-11T03:46:06Z",
+        "lastActivitySha": "d50020dfc22013c35f3f0f28f1ecb720717f6d8b",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2023-04-10",
         "projectDateSource": "repository-created-at"
       }
@@ -2113,7 +2161,10 @@
         "createdAt": "2023-09-20T03:14:45Z",
         "pushedAt": "2026-08-22T01:05:07Z",
         "updatedAt": "2026-08-22T01:05:13Z",
-        "lastActivityAt": "2026-08-22T01:05:07Z",
+        "lastActivityAt": "2023-09-20T04:46:46Z",
+        "lastActivitySha": "0a4376fccf3f9a43f4811486a6b53caa244c3ae4",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-09-20",
         "projectDateSource": "repository-created-at"
       }
@@ -2254,7 +2305,10 @@
         "createdAt": "2023-09-19T21:56:46Z",
         "pushedAt": "2026-08-22T01:12:21Z",
         "updatedAt": "2026-08-22T01:12:29Z",
-        "lastActivityAt": "2026-08-22T01:12:21Z",
+        "lastActivityAt": "2023-09-19T22:42:45Z",
+        "lastActivitySha": "dd17fdb6f08c775b5640128ae60e563284fa4f3e",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 3,
         "projectDate": "2023-09-19",
         "projectDateSource": "repository-created-at"
       }
@@ -2303,7 +2357,10 @@
         "createdAt": "2021-10-03T23:51:29Z",
         "pushedAt": "2026-08-21T23:47:37Z",
         "updatedAt": "2026-08-21T23:47:45Z",
-        "lastActivityAt": "2026-08-21T23:47:37Z",
+        "lastActivityAt": "2021-10-04T00:08:25Z",
+        "lastActivitySha": "3b72456de9f9b734bda24c8673ac85aa2e37efae",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 2,
         "projectDate": "2021-10-03",
         "projectDateSource": "repository-created-at"
       }
@@ -2356,7 +2413,10 @@
         "createdAt": "2022-04-19T11:43:33Z",
         "pushedAt": "2026-08-22T00:08:06Z",
         "updatedAt": "2026-08-22T00:08:37Z",
-        "lastActivityAt": "2026-08-22T00:08:06Z",
+        "lastActivityAt": "2022-04-19T11:43:34Z",
+        "lastActivitySha": "34494ae32134a5027badc341f126e4be1e720ade",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 1,
         "projectDate": "2022-04-19",
         "projectDateSource": "repository-created-at"
       }
@@ -2407,7 +2467,10 @@
         "createdAt": "2025-04-26T05:17:13Z",
         "pushedAt": "2026-08-22T00:12:10Z",
         "updatedAt": "2026-08-22T00:12:17Z",
-        "lastActivityAt": "2026-08-22T00:12:10Z",
+        "lastActivityAt": "2025-04-26T05:37:55Z",
+        "lastActivitySha": "7a1ab93db5f80fb16a252d387c277ca0edc5a515",
+        "lastActivitySource": "last-non-portfolio-commit",
+        "ignoredManifestOnlyCommits": 1,
         "projectDate": "2025-04-26",
         "projectDateSource": "repository-created-at"
       }
