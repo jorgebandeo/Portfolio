@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "description": "Snapshot sanitizado de projetos privados. Não contém URLs, caminhos internos, código-fonte ou configurações sensíveis.",
+  "projects": [
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-generic-lists-cpp",
+        "name": "Estruturas de Listas Genéricas em C++",
+        "subtitle": "Estudo acadêmico de estruturas de dados e organização de tipos abstratos em C++",
+        "date": "2021-03-29",
+        "status": "academic"
+      },
+      "categories": ["software"],
+      "technologies": ["C++", "Estruturas de Dados", "TAD", "Programação Genérica"],
+      "summary": "Projeto acadêmico voltado à implementação e comparação de diferentes formas de organizar listas de dados em C++. O trabalho registra a aplicação prática de estruturas estáticas e encadeadas e o uso de abstrações reutilizáveis.",
+      "development": [
+        {"title": "Objetivo", "text": "Exercitar a construção de estruturas de dados reutilizáveis e compreender as diferenças entre formas de armazenamento e encadeamento."},
+        {"title": "Conhecimentos aplicados", "text": "Programação em C++, abstração de dados, estruturas lineares e organização modular de código."}
+      ],
+      "highlights": ["Estruturas de dados", "Listas encadeadas", "Programação genérica", "Organização modular em C++"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": false, "private": true, "order": 260},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2021-03-29", "lastActivityAt": "2022-06-28T14:25:56Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-petshop-oop",
+        "name": "Sistema de Pet Shop em C++",
+        "subtitle": "Aplicação acadêmica para praticar programação orientada a objetos em um domínio comercial",
+        "date": "2021-03-29",
+        "status": "academic"
+      },
+      "categories": ["software"],
+      "technologies": ["C++", "Programação Orientada a Objetos", "Modelagem de Classes"],
+      "summary": "Aplicação acadêmica que utiliza o contexto de um pet shop para organizar produtos, catálogo, itens de pedido e formas de pagamento. O projeto demonstra a passagem de exercícios isolados para uma modelagem composta por classes relacionadas.",
+      "development": [
+        {"title": "Objetivo", "text": "Representar entidades de um pequeno sistema comercial e organizar suas responsabilidades em classes separadas."},
+        {"title": "Conhecimentos aplicados", "text": "Orientação a objetos, encapsulamento, composição de classes e separação de responsabilidades."}
+      ],
+      "highlights": ["Modelagem orientada a objetos", "Catálogo e produtos", "Pedidos", "Separação de responsabilidades"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": false, "private": true, "order": 250},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2021-03-29", "lastActivityAt": "2021-03-30T16:50:25Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-graph-algorithms",
+        "name": "Estruturas e Algoritmos em Grafos",
+        "subtitle": "Projeto acadêmico em C++ para representar e manipular relações por meio de grafos",
+        "date": "2022-08-24",
+        "status": "academic"
+      },
+      "categories": ["software"],
+      "technologies": ["C++", "Grafos", "Algoritmos", "Estruturas de Dados"],
+      "summary": "Projeto acadêmico dedicado ao estudo de grafos e à representação de relações entre elementos em C++. O trabalho aplica estruturas de dados e algoritmos específicos para manipular esse tipo de problema computacional.",
+      "development": [
+        {"title": "Objetivo", "text": "Transformar os conceitos teóricos de grafos em uma implementação manipulável por software."},
+        {"title": "Conhecimentos aplicados", "text": "Estruturas de dados, raciocínio algorítmico, modelagem de relações e implementação em C++."}
+      ],
+      "highlights": ["Representação de grafos", "Estruturas de dados", "Algoritmos em C++", "Modelagem de relações"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": false, "private": true, "order": 230},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2022-08-24", "lastActivityAt": "2022-09-14T09:33:50Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-fall-research",
+        "name": "Pesquisa Experimental em Detecção de Quedas",
+        "subtitle": "Etapa de experimentação em visão computacional para reconhecer situações de queda em vídeo",
+        "date": "2023-03-21",
+        "status": "research"
+      },
+      "categories": ["software", "ai"],
+      "technologies": ["Python", "Visão Computacional", "Inteligência Artificial", "Processamento de Vídeo"],
+      "summary": "Ambiente de pesquisa e experimentação criado para estudar como identificar situações de queda em imagens e vídeos. O projeto registra testes, validações visuais e evolução de regras para lidar com diferentes cenários de detecção.",
+      "development": [
+        {"title": "Objetivo", "text": "Avaliar abordagens para reconhecer quedas com maior consistência e entender os problemas encontrados em diferentes cenas."},
+        {"title": "Conhecimentos aplicados", "text": "Python, visão computacional, experimentação com inteligência artificial e análise de comportamento ao longo do tempo."}
+      ],
+      "highlights": ["Pesquisa em visão computacional", "Detecção de quedas", "Validação experimental", "Análise de cenários"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": false, "private": true, "order": 90},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2023-03-21", "lastActivityAt": "2023-05-02T11:32:11Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-falldetect",
+        "name": "FallDetect — Detecção de Quedas por Visão Computacional",
+        "subtitle": "Protótipo de software para identificar pessoas e reconhecer possíveis quedas em vídeo",
+        "date": "2023-05-03",
+        "status": "research"
+      },
+      "categories": ["software", "ai"],
+      "technologies": ["Python", "YOLOv8", "OpenCV", "PyTorch", "Visão Computacional"],
+      "summary": "Protótipo de visão computacional que evolui a pesquisa de detecção de quedas para uma aplicação capaz de processar vídeo ou câmera, localizar pessoas e avaliar situações compatíveis com uma queda.",
+      "development": [
+        {"title": "Objetivo", "text": "Reunir detecção de pessoas e classificação de situações de queda em um fluxo único de processamento de vídeo."},
+        {"title": "Conhecimentos aplicados", "text": "Treinamento e uso de modelos de inteligência artificial, visão computacional, processamento de imagens e integração de bibliotecas em Python."}
+      ],
+      "highlights": ["Visão computacional aplicada", "Detecção e classificação", "Processamento de vídeo", "Integração de modelos de IA"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": true, "private": true, "order": 25},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2023-05-03", "lastActivityAt": "2023-09-11T17:20:29Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-fluxavec",
+        "name": "FluxAvec — Contagem de Fluxo de Pessoas e Veículos",
+        "subtitle": "Trabalho de conclusão de curso voltado à análise automatizada de fluxo por visão computacional",
+        "date": "2024-01-06",
+        "status": "academic"
+      },
+      "categories": ["software", "ai"],
+      "technologies": ["C++", "Python", "Visão Computacional", "YOLO", "ONNX"],
+      "summary": "Projeto de conclusão de curso para desenvolver uma solução capaz de contabilizar o fluxo de pessoas e veículos em um ambiente. O trabalho combina pesquisa, preparação de dados, treinamento de modelos e estudo de implantação do processamento em uma aplicação de software.",
+      "development": [
+        {"title": "Objetivo", "text": "Converter imagens de circulação em informações de fluxo que possam apoiar acompanhamento e análise de movimentação."},
+        {"title": "Conhecimentos aplicados", "text": "Visão computacional, preparação de datasets, treinamento de modelos, C++ e Python, além de pesquisa acadêmica e validação experimental."}
+      ],
+      "highlights": ["Trabalho de conclusão de curso", "Contagem de pessoas e veículos", "Visão computacional", "Integração entre pesquisa e software"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": true, "private": true, "order": 20},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2024-01-06", "lastActivityAt": "2024-06-07T10:52:22Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-inventory-system",
+        "name": "Sistema Interno de Estoque e Operações",
+        "subtitle": "Aplicação interna para centralizar rotinas de estoque, registros operacionais e serviços de apoio",
+        "date": "2025-07-21",
+        "status": "internal"
+      },
+      "categories": ["software", "web"],
+      "technologies": ["JavaScript", "Node.js", "PostgreSQL", "Python", "Linux"],
+      "summary": "Sistema interno desenvolvido para organizar atividades de estoque e apoiar rotinas operacionais em um único ambiente. O projeto reúne aplicação, banco de dados, autenticação, impressão e procedimentos de manutenção e implantação.",
+      "development": [
+        {"title": "Objetivo", "text": "Reduzir tarefas manuais e concentrar informações e processos de operação em uma solução própria."},
+        {"title": "Conhecimentos aplicados", "text": "Desenvolvimento de sistemas web, APIs, banco de dados, integração com serviços locais, administração de ambiente Linux e manutenção de aplicação em uso."}
+      ],
+      "highlights": ["Sistema interno em uso", "Gestão de estoque", "Banco de dados", "Automação operacional", "Implantação e manutenção"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": true, "private": true, "order": 30},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2025-07-21", "lastActivityAt": "2026-07-02T20:30:18Z", "projectDateSource": "repository-created-at"}
+    },
+    {
+      "schemaVersion": 1,
+      "project": {
+        "id": "private-embedded-selfservice",
+        "name": "Sistema Embarcado de Autoatendimento e Controle",
+        "subtitle": "Protótipo embarcado com interface gráfica e automação de um fluxo de atendimento",
+        "date": "2025-08-19",
+        "status": "prototype"
+      },
+      "categories": ["hardware", "software", "embedded"],
+      "technologies": ["ESP32", "C", "ESP-IDF", "LVGL", "Sistemas Embarcados"],
+      "summary": "Protótipo de sistema embarcado com tela e interface gráfica para conduzir um fluxo de autoatendimento e controlar diferentes etapas de operação. O projeto combina interação com o usuário, temporização, persistência de estado e integração com serviços externos.",
+      "development": [
+        {"title": "Objetivo", "text": "Criar uma experiência de autoatendimento controlada por hardware dedicado, reduzindo a necessidade de intervenção manual durante a operação."},
+        {"title": "Conhecimentos aplicados", "text": "Firmware em C, interfaces gráficas embarcadas, controle de estados, comunicação em rede e integração entre software e hardware."}
+      ],
+      "highlights": ["Interface gráfica embarcada", "Automação de etapas", "Persistência de estado", "Integração hardware/software"],
+      "media": {"gallery": []},
+      "links": {},
+      "portfolio": {"visible": true, "featured": true, "private": true, "order": 35},
+      "_source": {"mode": "private-snapshot"},
+      "_repository": {"visibility": "private", "projectDate": "2025-08-19", "lastActivityAt": "2025-10-22T02:52:20Z", "projectDateSource": "repository-created-at"}
+    }
+  ]
+}
