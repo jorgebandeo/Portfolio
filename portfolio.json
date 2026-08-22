@@ -1,0 +1,105 @@
+{
+  "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+  "schemaVersion": 1,
+  "project": {
+    "id": "portfolio",
+    "name": "Portfólio Profissional — Jorge Bandeo",
+    "subtitle": "Portfólio técnico orientado a projetos, competências, arquitetura e trajetória profissional",
+    "status": "production"
+  },
+  "categories": [
+    "software",
+    "web"
+  ],
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "GitHub Pages",
+    "GitHub Actions",
+    "JSON",
+    "Python"
+  ],
+  "summary": "Portfólio profissional desenvolvido como uma aplicação web orientada a dados, reunindo projetos públicos e privados, competências técnicas, experiência profissional e pesquisa acadêmica. O catálogo é compilado a partir de manifests JSON dos repositórios e apresentado por filtros de descoberta, pesquisa e páginas de estudo de caso.",
+  "development": [
+    {
+      "title": "Catálogo automatizado de projetos",
+      "text": "Os projetos são consolidados em um catálogo JSON gerado automaticamente a partir dos repositórios e de seus manifests, reduzindo manutenção manual e mantendo a apresentação sincronizada com o GitHub."
+    },
+    {
+      "title": "Navegação orientada a competências",
+      "text": "A interface permite pesquisar tecnologias e navegar por áreas como software, arquitetura, sinais, IA, sistemas embarcados, web/mobile, experiência aplicada e trabalhos acadêmicos."
+    },
+    {
+      "title": "Arquitetura baseada em dados",
+      "text": "Conteúdo, metadados, classificação, datas, tecnologias e estudos de caso são separados da camada visual e carregados dinamicamente pelo front-end."
+    }
+  ],
+  "highlights": [
+    "Catálogo de projetos gerado automaticamente",
+    "Manifests JSON por repositório",
+    "Pesquisa e filtros por competências",
+    "Páginas dinâmicas de estudo de caso",
+    "Integração com GitHub Pages",
+    "Interface responsiva",
+    "Organização de projetos públicos e privados"
+  ],
+  "caseStudy": {
+    "title": "Portfólio técnico como sistema de informação",
+    "intro": "O projeto evoluiu de uma página estática para uma estrutura orientada a dados capaz de representar diferentes tipos de trabalho sem duplicar manualmente cards e páginas para cada projeto.",
+    "objective": "Centralizar a trajetória técnica e acadêmica em uma interface navegável, permitindo que recrutadores e visitantes encontrem projetos por competência, área de conhecimento e relevância.",
+    "implementation": "O front-end em HTML, CSS e JavaScript carrega um catálogo JSON compilado. Um script Python percorre os repositórios públicos, lê manifests portfolio.json quando disponíveis, infere informações para projetos sem manifest e combina snapshots de projetos privados. A camada de interface transforma esses dados em cards, filtros e páginas detalhadas.",
+    "architecture": "Repositórios GitHub e manifests portfolio.json → compilador Python → projects.generated.json → carregador JavaScript → pesquisa, filtros, cards e páginas de projeto → publicação no GitHub Pages.",
+    "progress": "A estrutura passou a tratar o próprio portfólio como um projeto de software, com catálogo automatizado, classificação explícita, filtros de descoberta e separação entre dados e apresentação.",
+    "materials": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
+      "JSON",
+      "GitHub API",
+      "GitHub Actions",
+      "GitHub Pages"
+    ],
+    "results": [
+      "Centralização dos projetos em um catálogo único",
+      "Atualização automatizável a partir dos repositórios",
+      "Classificação por áreas e competências",
+      "Navegação específica para recrutadores",
+      "Detalhamento individual dos projetos"
+    ]
+  },
+  "media": {
+    "gallery": []
+  },
+  "links": {
+    "repository": "https://github.com/jorgebandeo/Portfolio",
+    "demo": "https://jorgebandeo.github.io/Portfolio/"
+  },
+  "portfolio": {
+    "visible": true,
+    "featured": true,
+    "order": 15,
+    "discovery": [
+      "featured",
+      "applied",
+      "software",
+      "architecture",
+      "webmobile"
+    ],
+    "searchTerms": [
+      "portfólio",
+      "portfolio",
+      "arquitetura",
+      "frontend",
+      "GitHub Pages",
+      "GitHub Actions",
+      "automação",
+      "catálogo",
+      "JSON",
+      "JavaScript",
+      "Python",
+      "experiência aplicada"
+    ]
+  }
+}
