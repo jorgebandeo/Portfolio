@@ -88,6 +88,98 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
+        "id": "dataset-fallproject",
+        "name": "Dataset e Pré-processamento para Detecção de Quedas",
+        "subtitle": "Preparação, normalização e curadoria de dados para visão computacional",
+        "status": "research"
+      },
+      "categories": [
+        "software",
+        "research",
+        "ai"
+      ],
+      "technologies": [
+        "Python",
+        "Computer Vision",
+        "YOLO",
+        "Datasets",
+        "Image Processing"
+      ],
+      "summary": "Repositório de preparação de dados do projeto de detecção de quedas, reunindo levantamento de datasets, normalização de anotações, conversão para formatos compatíveis com YOLO, recorte de pessoas e organização dos conjuntos de treinamento, validação e teste.",
+      "highlights": [
+        "Curadoria de datasets de queda",
+        "Normalização de bounding boxes",
+        "Conversão para formato YOLO",
+        "Recorte e preparação de imagens",
+        "Dados para detecção e classificação"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Dataset_FallProject"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 25
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Dataset_FallProject",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "yolov8-train",
+        "name": "Treinamento YOLOv8 para Detecção de Quedas",
+        "subtitle": "Pipelines de detecção e classificação com YOLOv8",
+        "status": "research"
+      },
+      "categories": [
+        "software",
+        "research",
+        "ai"
+      ],
+      "technologies": [
+        "Python",
+        "YOLOv8",
+        "Computer Vision",
+        "Deep Learning"
+      ],
+      "summary": "Repositório dedicado ao treinamento de modelos YOLOv8 para tarefas de detecção e classificação relacionadas ao projeto de detecção de quedas, integrado ao conjunto de dados do FallProject.",
+      "highlights": [
+        "Treinamento de detecção",
+        "Treinamento de classificação",
+        "Visão computacional",
+        "Integração com Dataset FallProject"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/YOLOv8Train"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 30
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "YOLOv8Train",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
         "id": "site-casamento",
         "name": "Site de Casamento",
         "subtitle": "Plataforma web para convidados, RSVP e organização do evento",
@@ -149,6 +241,538 @@
       "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
+        "id": "kernel-filter",
+        "name": "Comparação de Filtros Adaptativos e Kalman",
+        "subtitle": "LMS, KLMS, Kalman e KFxLMS aplicados a sinais ruidosos",
+        "status": "research"
+      },
+      "categories": [
+        "software",
+        "research"
+      ],
+      "technologies": [
+        "Python",
+        "DSP",
+        "LMS",
+        "KLMS",
+        "Kalman",
+        "KFxLMS"
+      ],
+      "summary": "Projeto de análise comparativa entre filtros LMS, KLMS, Kalman e KFxLMS, avaliando erro quadrático médio, convergência e custo computacional em sinais ruidosos, com discussão de aplicação em sistemas de estabilização.",
+      "highlights": [
+        "Comparação de MSE",
+        "Análise de convergência",
+        "Medição de tempo de execução",
+        "Filtros kernelizados",
+        "Filtro de Kalman"
+      ],
+      "media": {
+        "gallery": [
+          {
+            "type": "image",
+            "src": "resultados_comparativosY.png",
+            "caption": "Comparação dos sinais filtrados e MSE"
+          },
+          {
+            "type": "image",
+            "src": "resultado de tempo do comparativo .png",
+            "caption": "Comparação de tempo de execução"
+          }
+        ]
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Kernel-Filter"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 50
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Kernel-Filter",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "processamento-digital-sinais",
+        "name": "Processamento Digital de Sinais",
+        "subtitle": "Filtros, Fourier, amostragem e análise de sinais",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "research"
+      ],
+      "technologies": [
+        "Python",
+        "NumPy",
+        "SciPy",
+        "Matplotlib",
+        "DSP",
+        "FFT"
+      ],
+      "summary": "Coleção de códigos de Processamento Digital de Sinais cobrindo filtragem FIR e IIR, transformadas DFT/FFT, amostragem, quantização, filtragem adaptativa e análise de sinais de áudio.",
+      "highlights": [
+        "Filtros FIR e IIR",
+        "DFT e FFT",
+        "Amostragem e quantização",
+        "Filtragem adaptativa",
+        "Análise de áudio"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Processamento-Digital-de-Sinais"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": true,
+        "order": 60
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Processamento-Digital-de-Sinais",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "app-clinica",
+        "name": "Gerenciador de Consultas Médicas",
+        "subtitle": "Aplicativo Android para organização de consultas",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "mobile"
+      ],
+      "technologies": [
+        "Java",
+        "Android Studio",
+        "Android"
+      ],
+      "summary": "Aplicativo desenvolvido no Android Studio para gerenciamento de consultas médicas, explorando desenvolvimento mobile em Java e organização de informações em uma interface Android.",
+      "highlights": [
+        "Aplicação Android",
+        "Gerenciamento de consultas",
+        "Desenvolvimento em Java"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/APP-Clinica"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 80
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "APP-Clinica",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "serial-memory-library",
+        "name": "Biblioteca de Memória Serial",
+        "subtitle": "Leitura, escrita e posicionamento em memória serial",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "hardware",
+        "embedded"
+      ],
+      "technologies": [
+        "C",
+        "Microcontroladores",
+        "Memória Serial",
+        "Embedded Systems"
+      ],
+      "summary": "Biblioteca em C para manipulação de memória serial em sistemas embarcados, com operações de leitura, escrita e seek, controle de capacidade e tratamento de posições inválidas.",
+      "highlights": [
+        "Leitura sequencial de memória",
+        "Escrita com controle de limites",
+        "Reposicionamento com seek",
+        "Aplicação em sistemas embarcados"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/micro-M2"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 120
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "micro-M2",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "sistemas-operacionais",
+        "name": "Escalonadores de Sistemas Operacionais",
+        "subtitle": "Implementação de Round-Robin, prioridade e FCFS",
+        "status": "academic"
+      },
+      "categories": [
+        "software"
+      ],
+      "technologies": [
+        "C",
+        "Schedulers",
+        "Round-Robin",
+        "FCFS",
+        "Estruturas de Dados"
+      ],
+      "summary": "Projeto acadêmico de Sistemas Operacionais voltado à implementação e comparação de algoritmos de escalonamento de tarefas, incluindo Round-Robin, Round-Robin com prioridade e FCFS.",
+      "highlights": [
+        "Round-Robin",
+        "Escalonamento por prioridade",
+        "FCFS",
+        "Filas de tarefas"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Sistemas-Operacionais"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 130
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Sistemas-Operacionais",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "sistemas-tempo-real",
+        "name": "Sistemas em Tempo Real",
+        "subtitle": "Trabalhos acadêmicos de sistemas temporizados",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "embedded"
+      ],
+      "technologies": [
+        "Sistemas em Tempo Real",
+        "C",
+        "Concorrência"
+      ],
+      "summary": "Conjunto de trabalhos acadêmicos da disciplina de Sistemas em Tempo Real, reunindo implementações e exercícios relacionados a execução concorrente e restrições temporais.",
+      "highlights": [
+        "Sistemas em tempo real",
+        "Concorrência",
+        "Atividades acadêmicas"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/STR"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 140
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "STR",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "ipc-comunicacao-processos",
+        "name": "Comunicação entre Processos — IPC",
+        "subtitle": "Experimentos com memória compartilhada, pipes e multithreading",
+        "status": "academic"
+      },
+      "categories": [
+        "software"
+      ],
+      "technologies": [
+        "C",
+        "IPC",
+        "Threads",
+        "Shared Memory",
+        "Pipes"
+      ],
+      "summary": "Conjunto de implementações acadêmicas sobre comunicação entre processos, explorando memória compartilhada, comunicação via pipe e execução multithread.",
+      "highlights": [
+        "Memória compartilhada",
+        "Comunicação via pipes",
+        "Processamento multithread"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/IPC-comunica-o-entre-processos-"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 150
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "IPC-comunica-o-entre-processos-",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "eletronica-aplicada",
+        "name": "Eletrônica Aplicada",
+        "subtitle": "Estudos de amplificadores, conversores, sensores e circuitos analógicos",
+        "status": "academic"
+      },
+      "categories": [
+        "hardware",
+        "embedded"
+      ],
+      "technologies": [
+        "Eletrônica Analógica",
+        "Amplificadores Operacionais",
+        "ADC/DAC",
+        "Sensores"
+      ],
+      "summary": "Material acadêmico de Eletrônica Aplicada cobrindo amplificadores operacionais, circuitos analógicos, filtros ativos, conversores A/D e D/A, sensores e transdutores.",
+      "highlights": [
+        "Amplificadores operacionais",
+        "Filtros ativos",
+        "Conversores A/D e D/A",
+        "Sensores e transdutores"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Eletr-nica-Aplicada-"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 160
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Eletr-nica-Aplicada-",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "materia-ia",
+        "name": "Estudos de Inteligência Artificial",
+        "subtitle": "Projetos acadêmicos e experimentos de IA",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "research"
+      ],
+      "technologies": [
+        "Python",
+        "Inteligência Artificial",
+        "Machine Learning"
+      ],
+      "summary": "Repositório de estudos e trabalhos acadêmicos de Inteligência Artificial, organizado em exercícios, experimentos e avaliações desenvolvidas durante a graduação.",
+      "highlights": [
+        "Estudos de IA",
+        "Experimentos acadêmicos",
+        "Implementações em Python"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Mataria-de-IA"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 170
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Mataria-de-IA",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "materia-ia-py",
+        "name": "Inteligência Artificial em Python",
+        "subtitle": "Exercícios e experimentos acadêmicos de IA",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "research"
+      ],
+      "technologies": [
+        "Python",
+        "Machine Learning",
+        "Inteligência Artificial"
+      ],
+      "summary": "Repositório de atividades acadêmicas de Inteligência Artificial desenvolvidas em Python, reunindo exercícios, experimentos e códigos utilizados durante a disciplina.",
+      "highlights": [
+        "Implementações em Python",
+        "Conceitos de IA",
+        "Experimentação acadêmica"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Materia-I-A-Py"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 175
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Materia-I-A-Py",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "redes-computadores",
+        "name": "Redes de Computadores",
+        "subtitle": "Trabalhos acadêmicos de comunicação e redes",
+        "status": "academic"
+      },
+      "categories": [
+        "software",
+        "networking"
+      ],
+      "technologies": [
+        "Redes de Computadores",
+        "Protocolos",
+        "Comunicação"
+      ],
+      "summary": "Repositório de trabalhos acadêmicos da disciplina de Redes de Computadores, organizado em atividades e avaliações práticas sobre comunicação entre sistemas e fundamentos de redes.",
+      "highlights": [
+        "Fundamentos de redes",
+        "Protocolos de comunicação",
+        "Atividades práticas acadêmicas"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/Materia-RedCop"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 185
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "Materia-RedCop",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
+        "id": "linguagens-formais-automatos",
+        "name": "Linguagens Formais e Autômatos",
+        "subtitle": "Exercícios acadêmicos de linguagens formais e teoria da computação",
+        "status": "academic"
+      },
+      "categories": [
+        "software"
+      ],
+      "technologies": [
+        "Autômatos",
+        "Linguagens Formais",
+        "Teoria da Computação"
+      ],
+      "summary": "Repositório de trabalhos da disciplina de Linguagens Formais e Autômatos, reunindo exercícios e implementações relacionados aos fundamentos teóricos da computação.",
+      "highlights": [
+        "Linguagens formais",
+        "Autômatos",
+        "Teoria da computação"
+      ],
+      "media": {
+        "gallery": []
+      },
+      "links": {
+        "repository": "https://github.com/jorgebandeo/LFA"
+      },
+      "portfolio": {
+        "visible": true,
+        "featured": false,
+        "order": 200
+      },
+      "_source": {
+        "owner": "jorgebandeo",
+        "repo": "LFA",
+        "ref": "main",
+        "mode": "manifest"
+      }
+    },
+    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
+      "schemaVersion": 1,
+      "project": {
         "id": "aula-mobile",
         "name": "Dicionário Técnico Mobile",
         "subtitle": "Material acadêmico de desenvolvimento mobile e terminologia técnica",
@@ -187,337 +811,74 @@
       }
     },
     {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "algoritmos-e-programacao-1",
-        "name": "Algoritmos e Programacao 1",
-        "subtitle": "Algoritmos e Programação 1 é fundamental para iniciantes, ensinando lógica, linguagens como Python, estruturas de controle e dados, além de habilidade",
-        "date": "2026-08",
-        "status": "repository"
+        "id": "repositorio-univali",
+        "name": "Repositório Acadêmico UNIVALI",
+        "subtitle": "Coleção de projetos e exercícios de Engenharia de Computação",
+        "status": "academic"
       },
       "categories": [
-        "software"
+        "software",
+        "hardware",
+        "research"
       ],
       "technologies": [
-        "C++"
-      ],
-      "summary": "Algoritmos e Programação 1 é fundamental para iniciantes, ensinando lógica, linguagens como Python, estruturas de controle e dados, além de habilidades essenciais em ciência da computação. Prepara para desenvolvimento de software e análise de dados.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: C++"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-1"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Algoritmos-e-Programacao-1",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "algoritmos-e-programacao-2",
-        "name": "Algoritmos e Programacao 2",
-        "subtitle": "O curso Algoritmos e Programação 2 é uma continuação do primeiro nível, aprofundando o estudo da lógica de programação e introduzindo conceitos avança",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
+        "C",
         "C++",
-        "C"
-      ],
-      "summary": "O curso Algoritmos e Programação 2 é uma continuação do primeiro nível, aprofundando o estudo da lógica de programação e introduzindo conceitos avançados, como estruturas de dados, algoritmos de busca e ordenação, além de práticas de resolução de problemas mais complexos. Ideal para quem busca aprimorar suas habilidades em programação.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: C++, C"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-2"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Algoritmos-e-Programacao-2",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "kernel-filter",
-        "name": "Análise Comparativa de Filtros Adaptativos",
-        "subtitle": "README Análise Comparativa de Filtros: LMS, KLMS, Kalman e KFxLMS Este documento apresenta uma análise comparativa de quatro filtros: LMS, KLMS, Kalma",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
+        "Java",
         "Python",
-        "Kalman",
-        "LMS"
+        "Engenharia de Computação"
       ],
-      "summary": "README Análise Comparativa de Filtros: LMS, KLMS, Kalman e KFxLMS Este documento apresenta uma análise comparativa de quatro filtros: LMS, KLMS, Kalman e KFxLMS.",
-      "development": [],
+      "summary": "Coleção de códigos, exercícios e projetos desenvolvidos durante a graduação em Engenharia de Computação na UNIVALI, reunindo trabalhos de programação, sistemas e fundamentos de engenharia.",
       "highlights": [
-        "Linguagens detectadas: Python"
+        "Projetos acadêmicos multidisciplinares",
+        "Programação e engenharia",
+        "Histórico de desenvolvimento durante a graduação"
       ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/Kernel-Filter"
+        "repository": "https://github.com/jorgebandeo/Repositorio-Univali"
       },
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 500
+        "order": 220
       },
       "_source": {
         "owner": "jorgebandeo",
-        "repo": "Kernel-Filter",
+        "repo": "Repositorio-Univali",
         "ref": "main",
-        "mode": "auto"
+        "mode": "manifest"
       }
     },
     {
-      "schemaVersion": 1,
-      "project": {
-        "id": "micro-m2",
-        "name": "Biblioteca de Memória Serial",
-        "subtitle": "pqp.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "SWIG",
-        "Makefile",
-        "C",
-        "Shell"
-      ],
-      "summary": "pqp.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: SWIG, Makefile, C, Shell"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/micro-M2"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "micro-M2",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "dataset-fallproject",
-        "name": "Dataset para Detecção de Quedas",
-        "subtitle": "Este repositório contém os conjuntos de dados originais que foram utilizados no desenvolvimento e produção dos sistemas de Inteligência Artificial par",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "web",
-        "ai",
-        "software"
-      ],
-      "technologies": [
-        "Python",
-        "YOLO"
-      ],
-      "summary": "Este repositório contém os conjuntos de dados originais que foram utilizados no desenvolvimento e produção dos sistemas de Inteligência Artificial para detecção de quedas. Além disso, fornecemos informações detalhadas sobre a fonte desses dados, o processo de coleta, bem como os métodos empregados para normalizá-los.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Python"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Dataset_FallProject"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Dataset_FallProject",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "eletr-nica-aplicada",
-        "name": "Eletrônica Aplicada",
-        "subtitle": "Principais Características do Amplificador Operacional Os amplificadores operacionais amp op são componentes eletrônicos fundamentais em circuitos ana",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "web",
-        "software"
-      ],
-      "technologies": [
-        "GitHub"
-      ],
-      "summary": "Principais Características do Amplificador Operacional Os amplificadores operacionais amp op são componentes eletrônicos fundamentais em circuitos analógicos.",
-      "development": [],
-      "highlights": [],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Eletr-nica-Aplicada-"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Eletr-nica-Aplicada-",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "sistemas-operacionais",
-        "name": "Escalonadores de Sistemas Operacionais",
-        "subtitle": "Desenvolvimento de trabalhos da matéria de Sistemas Operacionais.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "C",
-        "Makefile"
-      ],
-      "summary": "Desenvolvimento de trabalhos da matéria de Sistemas Operacionais.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: C, Makefile"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Sistemas-Operacionais"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Sistemas-Operacionais",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "mataria-de-ia",
-        "name": "Estudos de Inteligência Artificial",
-        "subtitle": "Desenvolvimento de metodologias de IA para a disciplina de Engenharia de Computação na UNIVALI.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "Python"
-      ],
-      "summary": "Desenvolvimento de metodologias de IA para a disciplina de Engenharia de Computação na UNIVALI.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Python"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Mataria-de-IA"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Mataria-de-IA",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
         "id": "site-musica",
         "name": "Experiência Web com Áudio",
-        "subtitle": "Repositório público de desenvolvimento e estudos: site-musica.",
-        "date": "2026-08",
-        "status": "repository"
+        "subtitle": "Página web minimalista com reprodução de música e animação de entrada",
+        "status": "personal"
       },
       "categories": [
         "web"
       ],
       "technologies": [
-        "HTML"
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "HTML5 Audio"
       ],
-      "summary": "Repositório público de desenvolvimento e estudos: site-musica.",
-      "development": [],
+      "summary": "Projeto web simples e pessoal com interface centralizada, animação de entrada e reprodução de áudio acionada pelo usuário por meio da API de áudio do navegador.",
       "highlights": [
-        "Linguagens detectadas: HTML"
+        "Interface web minimalista",
+        "Animação de entrada",
+        "Reprodução de áudio por interação",
+        "HTML, CSS e JavaScript em arquivo único"
       ],
       "media": {
         "gallery": []
@@ -528,367 +889,95 @@
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 500
+        "order": 230
       },
       "_source": {
         "owner": "jorgebandeo",
         "repo": "site-musica",
         "ref": "main",
-        "mode": "auto"
+        "mode": "manifest"
       }
     },
     {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "app-clinica",
-        "name": "Gerenciador de Consultas Médicas",
-        "subtitle": "Desenvolvimento no android studio de um gerenciador de consultas medica.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "mobile",
-        "software"
-      ],
-      "technologies": [
-        "Java",
-        "Android"
-      ],
-      "summary": "Desenvolvimento no android studio de um gerenciador de consultas medica.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Java"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/APP-Clinica"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "APP-Clinica",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "materia-i-a-py",
-        "name": "Inteligência Artificial em Python",
-        "subtitle": "Desenvolvimento de trabalhos da matéria de Python.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "Python"
-      ],
-      "summary": "Desenvolvimento de trabalhos da matéria de Python.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Python"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Materia-I-A-Py"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Materia-I-A-Py",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "ipc-comunica-o-entre-processos",
-        "name": "IPC comunica o entre processos",
-        "subtitle": "Repositório público de desenvolvimento e estudos: IPC-comunica-o-entre-processos-.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "C"
-      ],
-      "summary": "Repositório público de desenvolvimento e estudos: IPC-comunica-o-entre-processos-.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: C"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/IPC-comunica-o-entre-processos-"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "IPC-comunica-o-entre-processos-",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "lfa",
-        "name": "Linguagens Formais e Autômatos",
-        "subtitle": "Trabalhos da materia Linguagem formal e autômatos.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "Java"
-      ],
-      "summary": "Trabalhos da materia Linguagem formal e autômatos.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Java"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/LFA"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "LFA",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "processamento-digital-de-sinais",
-        "name": "Processamento Digital de Sinais",
-        "subtitle": "Processamento Digital de Sinais (PDS) ; Digital Signal Processing (DSP) ; Procesamiento Digital de Señales (PDS).",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "web",
-        "software"
-      ],
-      "technologies": [
-        "Jupyter Notebook",
-        "Python",
-        "C",
-        "C++",
-        "Makefile",
-        "HTML",
-        "LMS",
-        "FFT"
-      ],
-      "summary": "Processamento Digital de Sinais (PDS) ; Digital Signal Processing (DSP) ; Procesamiento Digital de Señales (PDS).",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Jupyter Notebook, Python, C, C++, Makefile, HTML, CSS"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Processamento-Digital-de-Sinais"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Processamento-Digital-de-Sinais",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "repositorio-univali",
-        "name": "Projetos Acadêmicos de Engenharia de Computação",
-        "subtitle": "Todos os dados de programação é proetos da faculdade de Engenharia de Computação na Univali.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "GitHub"
-      ],
-      "summary": "Todos os dados de programação é proetos da faculdade de Engenharia de Computação na Univali.",
-      "development": [],
-      "highlights": [],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Repositorio-Univali"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Repositorio-Univali",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "materia-redcop",
-        "name": "Redes de Computadores",
-        "subtitle": "Desenvolvimento de trabalhos da matéria de Redes de computadores.",
-        "date": "2026-08",
-        "status": "repository"
-      },
-      "categories": [
-        "software"
-      ],
-      "technologies": [
-        "Python"
-      ],
-      "summary": "Desenvolvimento de trabalhos da matéria de Redes de computadores.",
-      "development": [],
-      "highlights": [
-        "Linguagens detectadas: Python"
-      ],
-      "media": {
-        "gallery": []
-      },
-      "links": {
-        "repository": "https://github.com/jorgebandeo/Materia-RedCop"
-      },
-      "portfolio": {
-        "visible": true,
-        "featured": false,
-        "order": 500
-      },
-      "_source": {
-        "owner": "jorgebandeo",
-        "repo": "Materia-RedCop",
-        "ref": "main",
-        "mode": "auto"
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "project": {
-        "id": "str",
-        "name": "Sistemas em Tempo Real",
-        "subtitle": "trabalhos de sistemas em tempo real.",
-        "date": "2026-08",
-        "status": "repository"
+        "id": "algoritmos-programacao-2",
+        "name": "Algoritmos e Programação II",
+        "subtitle": "Estruturas de dados e programação intermediária",
+        "status": "academic"
       },
       "categories": [
         "software"
       ],
       "technologies": [
         "C",
-        "C++",
-        "Makefile"
+        "Estruturas de Dados",
+        "Algoritmos"
       ],
-      "summary": "trabalhos de sistemas em tempo real.",
-      "development": [],
+      "summary": "Continuação dos estudos de algoritmos e programação, com exercícios e trabalhos acadêmicos voltados a estruturas de dados e técnicas de programação intermediária.",
       "highlights": [
-        "Linguagens detectadas: C, C++, Makefile"
+        "Estruturas de dados",
+        "Algoritmos intermediários",
+        "Prática acadêmica em programação"
       ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/STR"
+        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-2"
       },
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 500
+        "order": 235
       },
       "_source": {
         "owner": "jorgebandeo",
-        "repo": "STR",
+        "repo": "Algoritmos-e-Programacao-2",
         "ref": "main",
-        "mode": "auto"
+        "mode": "manifest"
       }
     },
     {
+      "$schema": "https://jorgebandeo.github.io/Portfolio/schema/project-v1.schema.json",
       "schemaVersion": 1,
       "project": {
-        "id": "yolov8train",
-        "name": "Treinamento YOLOv8 para Detecção de Quedas",
-        "subtitle": "Treinar YOLOv8 Nano: Rede neural para detecção em tempo real em dispositivos limitados. Usa dados rotulados para ajustar pesos via backpropagation, re",
-        "date": "2026-08",
-        "status": "repository"
+        "id": "algoritmos-programacao-1",
+        "name": "Algoritmos e Programação I",
+        "subtitle": "Fundamentos de lógica, algoritmos e programação",
+        "status": "academic"
       },
       "categories": [
-        "ai",
         "software"
       ],
       "technologies": [
-        "Python",
-        "YOLO"
+        "C",
+        "Algoritmos",
+        "Lógica de Programação"
       ],
-      "summary": "Treinar YOLOv8 Nano: Rede neural para detecção em tempo real em dispositivos limitados. Usa dados rotulados para ajustar pesos via backpropagation, resultando em modelo eficiente para visão computacional.",
-      "development": [],
+      "summary": "Coleção de exercícios e trabalhos introdutórios de algoritmos e programação desenvolvidos durante a graduação, cobrindo fundamentos de lógica, estruturas de controle e resolução de problemas.",
       "highlights": [
-        "Linguagens detectadas: Python"
+        "Fundamentos de algoritmos",
+        "Lógica de programação",
+        "Exercícios acadêmicos"
       ],
       "media": {
         "gallery": []
       },
       "links": {
-        "repository": "https://github.com/jorgebandeo/YOLOv8Train"
+        "repository": "https://github.com/jorgebandeo/Algoritmos-e-Programacao-1"
       },
       "portfolio": {
         "visible": true,
         "featured": false,
-        "order": 500
+        "order": 240
       },
       "_source": {
         "owner": "jorgebandeo",
-        "repo": "YOLOv8Train",
+        "repo": "Algoritmos-e-Programacao-1",
         "ref": "main",
-        "mode": "auto"
+        "mode": "manifest"
       }
     },
     {
