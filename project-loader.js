@@ -10,6 +10,24 @@ const PortfolioProjects = (() => {
     async function loadCatalog() { const config = await loadConfig(); const response = await fetch(config.generated || 'data/projects.generated.json', { cache: 'no-store' }); if (!response.ok) throw new Error('Catálogo compilado indisponível'); const catalog = await response.json(); return (catalog.projects || []).filter(validateProject); }
 
     function iconFor(categories) { if (categories.includes('ai')) return 'fa-brain'; if (categories.includes('mobile')) return 'fa-mobile-screen-button'; if (categories.includes('hardware')) return 'fa-microchip'; if (categories.includes('web')) return 'fa-globe'; return 'fa-terminal'; }
+    function formatDate(value, fallback='—') {
+        if (!value) return fallback;
+        const text=String(value).trim();
+        const m=text.match(/^(\d{4})-(\d{2})(?:-(\d{2}))?/);
+        if (!m) return text;
+        const [,year,month,day]=m;
+        if (!day) return `${month}/${year}`;
+        return `${day}/${month}/${year}`;
+    }
+    function projectDate(data){ return data.project?.date || data._repository?.projectDate || data._repository?.createdAt || ''; }
+    function updateDate(data){ return data._repository?.lastActivityAt || data._repository?.pushedAt || data._repository?.updatedAt || ''; }
+
+    function createDateMeta(data, compact=false){
+        const meta=document.createElement('div'); meta.className=`project-date-meta${compact?' project-date-meta--compact':''}`;
+        const created=document.createElement('span'); created.innerHTML=`<b>PROJETO</b> ${escapeHtml(formatDate(projectDate(data)))}`;
+        const updated=document.createElement('span'); updated.innerHTML=`<b>ATUALIZADO</b> ${escapeHtml(formatDate(updateDate(data)))}`;
+        meta.append(created,updated); return meta;
+    }
 
     function createCard(data) {
         const source = data._source || {}; const categories = data.categories.map(c => c.toLowerCase());
@@ -17,7 +35,7 @@ const PortfolioProjects = (() => {
         const visual = document.createElement('div'); visual.className = 'project-visual manifest-cover'; const fallback = document.createElement('i'); fallback.className = `fas ${iconFor(categories)}`; fallback.setAttribute('aria-hidden','true'); visual.appendChild(fallback);
         if (data.media?.cover && source.owner && source.repo && source.ref) { const image = document.createElement('img'); image.src = resolveAsset(source,data.media.cover); image.alt=''; image.loading='lazy'; image.addEventListener('load',()=>visual.classList.add('has-image')); image.addEventListener('error',()=>image.remove()); visual.prepend(image); }
         const title=document.createElement('h3'); title.textContent=data.project.name; const subtitle=document.createElement('p'); subtitle.textContent=data.project.subtitle||data.summary||''; const tech=document.createElement('div'); tech.className='project-tech-strip'; tech.textContent=data.technologies.slice(0,5).join(' · '); const badge=document.createElement('span'); badge.className='manifest-badge'; badge.textContent=source.mode==='manifest'?'MANIFEST // CURATED':'CATALOG // AUTO';
-        card.append(visual,title,subtitle,tech,badge); return card;
+        card.append(visual,title,subtitle,createDateMeta(data,true),tech,badge); return card;
     }
 
     async function renderProjectGrid() {
@@ -36,7 +54,7 @@ const PortfolioProjects = (() => {
 
     function createDetail(data) {
         const source=data._source||{}; const article=document.createElement('article'); article.className='manifest-detail project-article'; const sourceLabel=source.mode==='manifest'?'CURATED MANIFEST':'AUTO COMPILED';
-        article.innerHTML=`<section class="manifest-hero"><div><p class="lcars-label">LCARS // PROJECT RECORD // ${escapeHtml(sourceLabel)}</p><h1>${escapeHtml(data.project.name)}</h1><p class="manifest-subtitle">${escapeHtml(data.project.subtitle||'')}</p></div><div class="manifest-status">${escapeHtml(String(data.project.status||'repository').toUpperCase())}</div></section><div class="manifest-tech">${data.technologies.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><section class="manifest-overview"><div class="manifest-copy panel"><p class="lcars-label">01 // DEVELOPMENT LOG</p><p>${escapeHtml(data.summary||'')}</p><div class="development-grid">${(data.development||[]).map(item=>`<div class="development-item"><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.text)}</p></div>`).join('')}</div></div><aside class="manifest-copy panel"><p class="lcars-label">02 // CAPABILITIES</p><ul class="manifest-highlights">${(data.highlights||[]).map(item=>`<li>${escapeHtml(item)}</li>`).join('')}</ul><div class="catalog-source-note">SOURCE // ${escapeHtml(source.repo||'')} · ${escapeHtml(source.ref||'')}</div></aside></section><section class="manifest-media-section"><div class="manifest-section-heading"><div><p class="lcars-label">03 // VISUAL RECORD</p><h2>Fotos e vídeos</h2></div><span>mídia carregada do repositório</span></div><div class="manifest-gallery"></div></section><section class="manifest-links"></section>`;
+        article.innerHTML=`<section class="manifest-hero"><div><p class="lcars-label">LCARS // PROJECT RECORD // ${escapeHtml(sourceLabel)}</p><h1>${escapeHtml(data.project.name)}</h1><p class="manifest-subtitle">${escapeHtml(data.project.subtitle||'')}</p><div class="manifest-hero-dates"><span><b>DATA DO PROJETO</b>${escapeHtml(formatDate(projectDate(data)))}</span><span><b>ÚLTIMA ATUALIZAÇÃO</b>${escapeHtml(formatDate(updateDate(data)))}</span></div></div><div class="manifest-status">${escapeHtml(String(data.project.status||'repository').toUpperCase())}</div></section><div class="manifest-tech">${data.technologies.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><section class="manifest-overview"><div class="manifest-copy panel"><p class="lcars-label">01 // DEVELOPMENT LOG</p><p>${escapeHtml(data.summary||'')}</p><div class="development-grid">${(data.development||[]).map(item=>`<div class="development-item"><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.text)}</p></div>`).join('')}</div></div><aside class="manifest-copy panel"><p class="lcars-label">02 // CAPABILITIES</p><ul class="manifest-highlights">${(data.highlights||[]).map(item=>`<li>${escapeHtml(item)}</li>`).join('')}</ul><div class="catalog-source-note">SOURCE // ${escapeHtml(source.repo||'')} · ${escapeHtml(source.ref||'')}</div></aside></section><section class="manifest-media-section"><div class="manifest-section-heading"><div><p class="lcars-label">03 // VISUAL RECORD</p><h2>Fotos e vídeos</h2></div><span>mídia carregada do repositório</span></div><div class="manifest-gallery"></div></section><section class="manifest-links"></section>`;
         const gallery=article.querySelector('.manifest-gallery'); (data.media?.gallery||[]).forEach(item=>gallery.appendChild(createMediaItem(item,source,data.project.name))); if(!gallery.children.length)gallery.innerHTML='<div class="media-placeholder">NO MEDIA // este repositório ainda não possui mídia de portfólio mapeada</div>';
         if((data.caseStudy || (Array.isArray(data.subprojects) && data.subprojects.length)) && window.ProjectCaseStudy){const wrap=document.createElement('div');wrap.innerHTML=window.ProjectCaseStudy.render(data);while(wrap.firstElementChild) article.appendChild(wrap.firstElementChild);}
         const links=article.querySelector('.manifest-links'); addLink(links,data.links?.repository,'ABRIR REPOSITÓRIO'); addLink(links,data.links?.demo,'ABRIR DEMO'); if(data.links?.source&&data.links?.repository)addLink(links,`${data.links.repository}/blob/${source.ref||'main'}/${data.links.source}`,'VER CÓDIGO-FONTE'); return article;
