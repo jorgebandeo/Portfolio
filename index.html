@@ -1,131 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Jorge Bandeo, Engenheiro de Computação e Desenvolvedor de Sistemas.">
-    <title>Jorge Bandeo — Portfólio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <canvas id="rainCanvasHeader" aria-hidden="true"></canvas>
-        <div class="header-content">
-            <p class="eyebrow">LCARS // Engineering Profile</p>
-            <h1>Jorge Bandeo</h1>
-            <p>Engenheiro de Computação · Desenvolvedor de Sistemas · Software, automação, IA e integração hardware + software.</p>
-        </div>
-    </header>
-
-    <nav aria-label="Navegação principal">
-        <a href="index.html">Sobre</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="experiencia.html">Experiência</a>
-        <a href="contato.html">Contato</a>
-    </nav>
-
-    <main class="container">
-        <section id="about" class="about-me">
-            <h2>Sobre Mim</h2>
-
-            <div class="hero-grid">
-                <div class="panel profile-panel">
-                    <img src="image/foto rosto.jpeg" alt="Foto de Jorge Bandeo" class="profile-photo">
-                    <span class="profile-status">● System online</span>
-                </div>
-
-                <div class="panel bio-panel">
-                    <p class="lcars-label">Profile // 01</p>
-                    <p>Sou <strong>Engenheiro de Computação</strong>, formado pela Universidade do Vale do Itajaí (UNIVALI) no segundo semestre de 2024. Minha atuação conecta desenvolvimento de software, automação, dados e integração entre hardware e software.</p>
-                    <p>Atualmente trabalho como <strong>Desenvolvedor de Sistemas</strong>, participando do desenvolvimento e evolução de soluções voltadas para administração, gestão empresarial e otimização de processos industriais.</p>
-                    <p>Ao longo da graduação e da experiência profissional, trabalhei com sistemas embarcados, aplicações web, inteligência artificial aplicada à visão computacional, bancos de dados, integrações, regras de negócio e modernização de sistemas.</p>
-                </div>
-            </div>
-
-            <div class="dashboard-grid">
-                <section class="language-panel" aria-labelledby="languages-title">
-                    <p class="lcars-label">Communication // 02</p>
-                    <h3 id="languages-title">🗣️ Idiomas</h3>
-                    <ul class="language-list">
-                        <li class="language-item">
-                            <span><strong>Espanhol</strong> · Fluente</span>
-                            <img src="image/ar.png" alt="Bandeira da Argentina">
-                        </li>
-                        <li class="language-item">
-                            <span><strong>Português</strong> · Fluente</span>
-                            <img src="image/br.png" alt="Bandeira do Brasil">
-                        </li>
-                        <li class="language-item">
-                            <span><strong>Inglês</strong> · Leitura e escrita intermediárias, fala limitada</span>
-                            <img src="image/us.png" alt="Bandeira dos Estados Unidos">
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="skills-panel" aria-labelledby="software-title">
-                    <p class="lcars-label">Software // 03</p>
-                    <h3 id="software-title">🛠️ Linguagens & Web</h3>
-                    <div class="badge-cloud">
-                        <img src="https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt="C#">
-                        <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET">
-                        <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C">
-                        <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++">
-                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                        <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
-                        <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=database&logoColor=white" alt="SQL">
-                        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-                        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-                        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-                        <img src="https://img.shields.io/badge/Assembly-525252?style=for-the-badge" alt="Assembly">
-                    </div>
-                </section>
-
-                <section class="skills-panel" aria-labelledby="architecture-title">
-                    <p class="lcars-label">Architecture // 04</p>
-                    <h3 id="architecture-title">🧩 Arquitetura & Integração</h3>
-                    <div class="badge-cloud">
-                        <img src="https://img.shields.io/badge/SOLID-FF9966?style=for-the-badge&logoColor=black" alt="SOLID">
-                        <img src="https://img.shields.io/badge/Clean_Architecture-CC99CC?style=for-the-badge&logoColor=black" alt="Clean Architecture">
-                        <img src="https://img.shields.io/badge/Design_Patterns-6699CC?style=for-the-badge&logoColor=white" alt="Design Patterns">
-                        <img src="https://img.shields.io/badge/REST_API-009688?style=for-the-badge" alt="REST API">
-                        <img src="https://img.shields.io/badge/Transactional_Outbox-F3A55B?style=for-the-badge&logoColor=black" alt="Transactional Outbox">
-                        <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server">
-                    </div>
-                </section>
-
-                <section class="skills-panel" aria-labelledby="ai-title">
-                    <p class="lcars-label">AI // 05</p>
-                    <h3 id="ai-title">👁️ Inteligência Artificial</h3>
-                    <div class="badge-cloud">
-                        <img src="https://img.shields.io/badge/YOLO-111F68?style=for-the-badge&logo=yolo&logoColor=white" alt="YOLO">
-                        <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
-                        <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-                        <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
-                        <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras">
-                        <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
-                    </div>
-                </section>
-            </div>
-
-            <section class="skills-panel" style="margin-top:24px" aria-labelledby="embedded-title">
-                <p class="lcars-label">Hardware // 06</p>
-                <h3 id="embedded-title">🔧 Sistemas Embarcados</h3>
-                <ul class="embedded-grid">
-                    <li><i class="fas fa-microchip"></i><strong>ESP32</strong></li>
-                    <li><i class="fas fa-microchip"></i><strong>PIC30</strong></li>
-                    <li><i class="fab fa-raspberry-pi"></i><strong>Raspberry Pi</strong></li>
-                    <li><i class="fas fa-microchip"></i><strong>Arduino</strong></li>
-                </ul>
-            </section>
-        </section>
-    </main>
-
-    <footer>
-        <canvas id="rainCanvasFooter" aria-hidden="true"></canvas>
-        <p>&copy; 2026 Jorge Bandeo · Engineering portfolio // LCARS interface</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Portfólio de Jorge Bandeo, Engenheiro de Computação e Desenvolvedor de Sistemas."><title>Jorge Bandeo — Portfólio</title><link rel="stylesheet" href="style.css?v=5"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head><body>
+<header><canvas id="rainCanvasHeader" aria-hidden="true"></canvas><div class="header-content"><p class="eyebrow">LCARS // Engineering Profile</p><h1>Jorge Bandeo</h1><p>Engenheiro de Computação · Desenvolvedor de Sistemas · Software, automação, IA e integração hardware + software.</p><div class="hero-actions"><a href="projetos.html?view=recruiter">RECRUITER MODE</a><a href="projetos.html">EXPLORAR PROJETOS</a></div></div></header>
+<nav aria-label="Navegação principal"><a href="index.html">Sobre</a><a href="projetos.html">Projetos</a><a href="experiencia.html">Experiência</a><a href="contato.html">Contato</a></nav>
+<main class="container"><section class="about-me"><h2>Sobre Mim</h2>
+<section class="quick-profile panel"><div><p class="lcars-label">PROFILE // 30 SECOND BRIEF</p><h3>Engenharia que conecta software, processos e mundo físico.</h3><p>Formado em Engenharia de Computação pela UNIVALI em 2024, atuo no desenvolvimento de sistemas para administração, gestão e otimização de processos, combinando experiência em software, banco de dados, automação, IA e sistemas embarcados.</p></div><div class="profile-signals"><span><b>FORMAÇÃO</b>Engenharia de Computação</span><span><b>ATUAÇÃO</b>Desenvolvimento de Sistemas</span><span><b>FOCO</b>Software + Hardware</span><span><b>APLICAÇÃO</b>Gestão + Automação</span></div></section>
+<div class="hero-grid"><div class="panel profile-panel"><img src="image/foto rosto.jpeg" alt="Foto de Jorge Bandeo" class="profile-photo"><span class="profile-status">● System online</span></div><div class="panel bio-panel"><p class="lcars-label">Profile // 01</p><p>Sou <strong>Engenheiro de Computação</strong>, formado pela Universidade do Vale do Itajaí (UNIVALI) no segundo semestre de 2024. Minha atuação conecta desenvolvimento de software, automação, dados e integração entre hardware e software.</p><p>Atualmente trabalho como <strong>Desenvolvedor de Sistemas</strong>, participando do desenvolvimento e evolução de soluções voltadas para administração, gestão empresarial e otimização de processos industriais.</p><p>Minha trajetória inclui sistemas embarcados, aplicações web, inteligência artificial aplicada à visão computacional, bancos de dados, integrações, regras de negócio e modernização de sistemas.</p></div></div>
+<section class="competency-map panel"><div class="competency-map__intro"><p class="lcars-label">KNOWLEDGE MAP // 02</p><h3>Mapa de competências</h3><p>Clique em uma competência para ver onde ela foi aplicada de forma prática.</p></div><div class="competency-columns"><div><strong>SOFTWARE</strong><a href="projetos.html?q=C%23">C# / .NET</a><a href="projetos.html?q=C%2B%2B">C / C++</a><a href="projetos.html?q=Python">Python</a><a href="projetos.html?q=Java">Java</a></div><div><strong>ARQUITETURA & DADOS</strong><a href="projetos.html?q=SOLID">SOLID</a><a href="projetos.html?q=API">REST APIs</a><a href="projetos.html?q=SQL">SQL / Banco de Dados</a><a href="projetos.html?q=Outbox">Outbox / Integração</a></div><div><strong>IA & VISÃO</strong><a href="projetos.html?q=YOLO">YOLO</a><a href="projetos.html?q=OpenCV">OpenCV</a><a href="projetos.html?q=visão computacional">Visão Computacional</a><a href="projetos.html?q=dataset">Datasets</a></div><div><strong>EMBARCADOS</strong><a href="projetos.html?q=ESP32">ESP32</a><a href="projetos.html?q=Arduino">Arduino</a><a href="projetos.html?q=Raspberry">Raspberry Pi</a><a href="projetos.html?q=sensor">Sensores & Controle</a></div></div></section>
+<section class="journey-panel panel"><p class="lcars-label">MISSION TIMELINE // 03</p><h3>Evolução da trajetória</h3><div class="journey-track"><a href="projetos.html?era=foundation"><b>2021–2022</b><span>Fundamentos</span><small>Algoritmos · C/C++ · estruturas de dados</small></a><a href="projetos.html?era=research"><b>2023</b><span>Pesquisa & IA</span><small>Visão computacional · sistemas embarcados</small></a><a href="projetos.html?era=engineering"><b>2024</b><span>Engenharia</span><small>TCC · integração de conhecimento</small></a><a href="projetos.html?era=professional"><b>2025–2026</b><span>Aplicação profissional</span><small>Sistemas · gestão · integração · automação</small></a></div></section>
+<div class="dashboard-grid"><section class="language-panel"><p class="lcars-label">Communication // 04</p><h3>🗣️ Idiomas</h3><ul class="language-list"><li class="language-item"><span><strong>Espanhol</strong> · Fluente</span><img src="image/ar.png" alt="Argentina"></li><li class="language-item"><span><strong>Português</strong> · Fluente</span><img src="image/br.png" alt="Brasil"></li><li class="language-item"><span><strong>Inglês</strong> · Leitura e escrita intermediárias, fala limitada</span><img src="image/us.png" alt="Estados Unidos"></li></ul></section><section class="skills-panel"><p class="lcars-label">Engineering // 05</p><h3>Áreas de atuação</h3><div class="skill-evidence"><a href="projetos.html?discover=software">Software & Sistemas <span>ver evidências →</span></a><a href="projetos.html?discover=applied">Sistemas aplicados <span>ver evidências →</span></a><a href="projetos.html?discover=ai">IA & Visão <span>ver evidências →</span></a><a href="projetos.html?discover=embedded">Hardware & Embarcados <span>ver evidências →</span></a></div></section></div>
+</section></main><footer><canvas id="rainCanvasFooter" aria-hidden="true"></canvas><p>&copy; 2026 Jorge Bandeo · Engineering portfolio // LCARS interface</p></footer><script src="script.js?v=5"></script></body></html>
