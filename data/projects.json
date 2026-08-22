@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "catalogRevision": 9,
+  "catalogRevision": 10,
   "owner": "jorgebandeo",
   "visibility": "public",
   "exclude": [
-    "Portfolio",
     "jorgebandeo"
   ],
   "generated": "data/projects.generated.json"
